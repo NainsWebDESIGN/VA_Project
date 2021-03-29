@@ -1,0 +1,14 @@
+body {
+  background-image: url(../../assets/image/index_bg.jpg);
+  background-repeat: no-repeat;
+  background-color: #01000e;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+#nains {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
