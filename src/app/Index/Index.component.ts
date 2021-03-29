@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-declare const daisyjs: any;
 
 @Component({
   selector: 'app-Index',
@@ -10,7 +9,7 @@ declare const daisyjs: any;
 export class IndexComponent implements OnInit {
 
   constructor() { }
-
+  // el: any = [];
   ngOnInit() {
     document.addEventListener(
       "DOMContentLoaded", () => {
@@ -21,7 +20,6 @@ export class IndexComponent implements OnInit {
       },
       false
     );
-
   }
 
 }
