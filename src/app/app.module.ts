@@ -12,9 +12,11 @@ import { ContactComponent } from './contact/contact.component';
 import { MessageComponent } from './message/message.component';
 import { AboutComponent } from './about/about.component';
 import { ServicePageComponent } from './servicePage/servicePage.component';
+import { HeaderComponent } from './header/header.component';
 
 // Service
 import { ApiService } from '@service/api.service';
+import { InformationService } from '@service/Information.service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { ApiService } from '@service/api.service';
     ContactComponent,
     MessageComponent,
     AboutComponent,
-    ServicePageComponent
+    ServicePageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { ApiService } from '@service/api.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, InformationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,16 +7,24 @@ import { ContactComponent } from './contact/contact.component';
 import { MessageComponent } from './message/message.component';
 import { ServicePageComponent } from './servicePage/servicePage.component';
 import { AboutComponent } from './about/about.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/VA-Technology', pathMatch: 'full' },
+  { path: '', redirectTo: '/Valleys_Awesome', pathMatch: 'full' },
   { path: 'load', component: LoadComponent },
-  { path: 'VA-Technology', component: IndexComponent },
-  { path: 'Contact', component: ContactComponent },
-  { path: 'Message', component: MessageComponent },
-  { path: 'Service', component: ServicePageComponent },
-  { path: 'About', component: AboutComponent },
-  { path: '**', redirectTo: '/VA-Technology', pathMatch: 'full' }
+  {
+    path: 'Valleys_Awesome', component: HeaderComponent,
+    children: [
+      { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
+      { path: 'Welcome', component: IndexComponent },
+      { path: 'Contact', component: ContactComponent },
+      { path: 'Message', component: MessageComponent },
+      { path: 'Service', component: ServicePageComponent },
+      { path: 'About', component: AboutComponent },
+      { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
+    ]
+  },
+  { path: '**', redirectTo: '/Valleys_Awesome', pathMatch: 'full' }
 ];
 
 @NgModule({

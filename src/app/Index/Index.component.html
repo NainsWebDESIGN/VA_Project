@@ -5,34 +5,25 @@
 
         <ul class="slider-list">
 
-            <li class="slider-list__item ">
-                <span class="back__element">
-                    <img src="assets/image/html2.png">
-                </span>
-                <span class="main__element">
-                    <img src="assets/image/htmlimage.png">
-                </span>
-                <span class="front__element">
-                    <img src="assets/image/htmlfront.png">
-                </span>
-                <span class="title__element">
-                    <span class="title">HTMLWEB</span>
-                </span>
+            <li *ngFor="let even of data" class="slider-list__item ">
+                <span class="back__element"><img [src]="even.big_p"></span>
+                <span class="main__element"><img [src]="even.small_p"></span>
+                <span class="front__element"><img [src]="even.main_p"></span>
+                <span class="title__element"><span class="title">{{even.text}}</span></span>
                 <span class="more__element">
                     <span class="content">
-                        <span class="headline">HTML</span>
-                        <span class="excerpt">About nains' HTML writing ability is very outstanding,
-                            he is a very good talent, he is a web designer full of wisdom,
-                            technology and beauty.</span>
+                        <span class="headline">{{even.title}}</span>
+                        <span class="excerpt">{{even.content}}</span>
                         <span class="link">
-                            <div class="fill"></div>
-                            <a href="#">Read More</a>
+                            <div [class]="even.readStyle"></div>
+                            <!-- <a href="#">Read More</a> -->
+                            <a (click)='Change(0)'>Read More</a>
                         </span>
                     </span>
                 </span>
             </li>
 
-            <li class="slider-list__item">
+            <!-- <li class="slider-list__item">
                 <span class="back__element">
                     <img src="assets/image/css2.png">
                 </span>
@@ -84,7 +75,7 @@
                         </span>
                     </span>
                 </span>
-            </li>
+            </li> -->
 
         </ul>
 
