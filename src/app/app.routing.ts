@@ -5,7 +5,7 @@ import { LoadComponent } from './load/load.component';
 import { IndexComponent } from './Index/Index.component';
 import { ContactComponent } from './contact/contact.component';
 import { MessageComponent } from './message/message.component';
-import { ServiceComponent } from './service/service.component';
+import { ServicePageComponent } from './servicePage/servicePage.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'VA-Technology', component: IndexComponent },
   { path: 'Contact', component: ContactComponent },
   { path: 'Message', component: MessageComponent },
-  { path: 'Service', component: ServiceComponent },
+  { path: 'Service', component: ServicePageComponent },
   { path: 'About', component: AboutComponent },
   { path: '**', redirectTo: '/VA-Technology', pathMatch: 'full' }
 ];

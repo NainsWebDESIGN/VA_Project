@@ -7,19 +7,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class IndexComponent implements OnInit {
-
+  data: any = [];
   constructor() { }
-  // el: any = [];
   ngOnInit() {
-    document.addEventListener(
-      "DOMContentLoaded", () => {
-        daisyjs(document.getElementById("nains"), {
-          dotColor: "#4eaaf9",
-          lineColor: "#4eaaf9",
-        });
-      },
-      false
-    );
   }
 
 }
