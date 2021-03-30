@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "scss/font.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "my_font", "微軟正黑體", sans-serif;
+}
+a {
+  text-decoration: none;
+}
 #header {
   position: fixed;
   display: block;
@@ -11,7 +20,7 @@
   opacity: 1; */
   top: 0px;
   right: 0px;
-  z-index: 99999;
+  z-index: 9999;
   background-color: #aaa;
   transition: 0.3s ease-in-out;
 }
@@ -24,6 +33,50 @@ ol,
 ul {
   list-style: none;
 }
+.menu {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 99999;
+}
+.menuContent {
+  position: relative;
+  background: #fff;
+  height: 3px;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+}
+.menu .m_1 {
+  width: 100%;
+  top: 25%;
+  left: 0;
+}
+.menu .m_2 {
+  width: 50%;
+  top: 50%;
+  left: 50%;
+}
+.menu .m_3 {
+  width: 75%;
+  top: 75%;
+  left: 25%;
+}
+.menu .m_1.active {
+  top: 50%;
+  transform: rotate(45deg);
+}
+.menu .m_2.active {
+  opacity: 0;
+}
+.menu .m_3.active {
+  width: 100%;
+  top: 37%;
+  left: 0;
+  transform: rotate(135deg);
+}
 .menuHref {
   position: absolute;
   top: 0;
@@ -33,20 +86,26 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   border-left: solid 1px #666666;
+  padding: 20% 5%;
 }
-.menuHref a {
+.menuHref .menuTitle {
   letter-spacing: 0.5em;
-  width: 192px;
-  height: 68px;
-  position: relative;
-  left: 50%;
-  top: 30%;
-  margin-top: -34px;
-  margin-left: -96px;
+  width: 100%;
+  height: 40%;
   font-size: 2em;
-  text-decoration: none;
+  color: #000;
   font-weight: bold;
   font-family: "微軟正黑體", sans-serif;
+}
+.munebx {
+  margin-top: 30%;
+  text-align: center;
+}
+.munebx p a {
+  font-family: "微軟正黑體", sans-serif;
+  color: #000;
+  font-size: 1.3em;
+  font-weight: 700;
 }
 .menuHref:nth-child(1) {
   left: 0%;

@@ -38,16 +38,6 @@ export class IndexComponent implements OnInit {
     }
   ];
   constructor(private menu: InformationService) { }
-  Change(_Effect) {
-    switch (_Effect) {
-      case 0:
-        this.menu.MenuEffect(true);
-        break;
-      case 1:
-        this.menu.MenuEffect(false);
-        break;
-    }
-  }
   ngOnInit() {
   }
 

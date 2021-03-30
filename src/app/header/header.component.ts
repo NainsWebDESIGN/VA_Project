@@ -8,12 +8,14 @@ import { InformationService } from '@service/Information.service';
 })
 export class HeaderComponent implements OnInit {
   Menu: boolean;
+  menuStyle: boolean = false;
   constructor(private menu: InformationService) { }
+  openMenu() {
+    this.menu.MenuEffect(!this.menuStyle);
+    this.menuStyle = !this.menuStyle;
+  }
   ngOnInit() {
-    this.menu.Menu$.subscribe(el => {
-      console.log(el);
-      this.Menu = el;
-    })
+    this.menu.Menu$.subscribe(el => { this.Menu = el; })
   }
 
 }
