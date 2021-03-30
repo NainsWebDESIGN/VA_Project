@@ -1,36 +1,19 @@
-<div class="menu" (click)='openMenu()'>
+<div class="menu" (click)='openMenu("open")'>
   <p [class.active]="menuStyle" class="m_1 menuContent"></p>
   <p [class.active]="menuStyle" class="m_2 menuContent"></p>
   <p [class.active]="menuStyle" class="m_3 menuContent"></p>
 </div>
 <header id="header" [class.active]="Menu">
   <ul>
-    <li class="menuHref">
-      <a [routerLink]="['/Valleys_Awesome/About']" class="menuTitle">關於我們</a>
+    <li *ngFor="let even of data" class="menuHref">
+      <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle"
+        (click)='openMenu("close")'>{{even.title}}</a>
       <div class="munebx">
-        <p><a href="">品牌故事</a></p>
-        <p><a href="">團隊介紹</a></p>
-        <p><a href="">相關單位</a></p>
+        <p *ngFor="let arr of even.content"><a href="">{{arr}}</a></p>
       </div>
-    </li>
-    <li class="menuHref">
-      <a [routerLink]="['/Valleys_Awesome/Message']" class="menuTitle">最新消息</a>
-      <div class="munebx">
-        <p><a href="">最新公告</a></p>
-        <p><a href="">相關消息</a></p>
-      </div>
-    </li>
-    <li class="menuHref">
-      <a [routerLink]="['/Valleys_Awesome/Service']" class="menuTitle">服務內容</a>
-      <div class="munebx">
-        <p><a href="">項目A</a></p>
-        <p><a href="">項目B</a></p>
-        <p><a href="">項目C</a></p>
-      </div>
-    </li>
-    <li class="menuHref">
-      <a [routerLink]="['/Valleys_Awesome/Contact']" class="menuTitle">聯絡我們</a>
     </li>
   </ul>
 </header>
-<router-outlet></router-outlet>
+<router-outlet>
+  <!-- <load></load> -->
+</router-outlet>

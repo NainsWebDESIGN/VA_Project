@@ -16,6 +16,8 @@ export class ApiService {
             return data;
         }
         switch (_Gatewey) {
+            case 113:
+                return this.http.get('assets/json/header.json').map(el => { return el; });
         }
     }
 }

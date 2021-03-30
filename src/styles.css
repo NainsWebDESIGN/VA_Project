@@ -107,9 +107,9 @@ ul {
   font-size: 1.3em;
   font-weight: 700;
 }
-.menuHref:nth-child(1) {
+/* .menuHref:nth-child(1) {
   left: 0%;
-}
+} */
 .menuHref:nth-child(2) {
   left: 25%;
 }

@@ -5,89 +5,31 @@
 
         <ul class="slider-list">
 
-            <li *ngFor="let even of data" class="slider-list__item ">
-                <span class="back__element"><img [src]="even.big_p"></span>
-                <span class="main__element"><img [src]="even.small_p"></span>
-                <span class="front__element"><img [src]="even.main_p"></span>
-                <span class="title__element"><span class="title">{{even.text}}</span></span>
-                <span class="more__element">
+            <li *ngFor="let even of data; let i = index" [class.slider-list__item_active]="slider(i, 'need')"
+                [class.slider-list_item_display]="slider(i, 'not')" class="slider-list__item">
+                <span [class.move]="slider(i, 'need')" class="back__element"><img [src]="even.big_p"></span>
+                <span [class.move]="slider(i, 'need')" class="main__element"><img [src]="even.small_p"></span>
+                <span [class.move]="slider(i, 'need')" class="front__element"><img [src]="even.main_p"></span>
+                <span [class.move]="slider(i, 'need')" class="title__element">
+                    <span class="title">{{even.text}}</span>
+                </span>
+                <span [class.move]="slider(i, 'need')" class="more__element">
                     <span class="content">
                         <span class="headline">{{even.title}}</span>
                         <span class="excerpt">{{even.content}}</span>
                         <span class="link">
                             <div [class]="even.readStyle"></div>
-                            <!-- <a href="#">Read More</a> -->
                             <a>Read More</a>
                         </span>
                     </span>
                 </span>
             </li>
 
-            <!-- <li class="slider-list__item">
-                <span class="back__element">
-                    <img src="assets/image/css2.png">
-                </span>
-                <span class="main__element">
-                    <img src="assets/image/cssimage.png">
-                </span>
-                <span class="front__element">
-                    <img src="assets/image/cssfront.png">
-                </span>
-                <span class="title__element">
-                    <span class="title">CSSWEB</span>
-                </span>
-                <span class="more__element">
-                    <span class="content">
-                        <span class="headline">CSS</span>
-                        <span class="excerpt">About nains' CSS writing ability is very outstanding,
-                            he is a very good talent, he is a web designer full of wisdom,
-                            technology and beauty.</span>
-                        <span class="link">
-                            <div class="fill fill-dark"></div>
-                            <a href="#">Read More</a>
-                        </span>
-                    </span>
-                </span>
-            </li>
-
-            <li class="slider-list__item">
-                <span class="back__element">
-                    <img src="assets/image/js2.png">
-                </span>
-                <span class="main__element">
-                    <img src="assets/image/jsimage.png">
-                </span>
-                <span class="front__element">
-                    <img src="assets/image/jsfront.png">
-                </span>
-                <span class="title__element">
-                    <span class="title">Javascript</span>
-                </span>
-                <span class="more__element">
-                    <span class="content">
-                        <span class="headline">Javascript</span>
-                        <span class="excerpt">About nains' Javascript writing ability is very outstanding,
-                            he is a very good talent, he is a web designer full of wisdom,
-                            technology and beauty.</span>
-                        <span class="link">
-                            <div class="fill"></div>
-                            <a href="#">Read More</a>
-                        </span>
-                    </span>
-                </span>
-            </li> -->
-
         </ul>
 
-        <div class="slider__nav-bar">
-            <a class="nav-control"></a>
-            <a class="nav-control"></a>
-            <a class="nav-control"></a>
-        </div>
-
         <div class="slider__controls">
-            <a class="slider__arrow slider__arrow_prev"></a>
-            <a class="slider__arrow slider__arrow_next"></a>
+            <a class="slider__arrow slider__arrow_prev" (click)='changePage(0, -1)'></a>
+            <a class="slider__arrow slider__arrow_next" (click)='changePage(1, 1)'></a>
         </div>
 
     </div>

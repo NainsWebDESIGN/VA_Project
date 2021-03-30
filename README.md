@@ -4,4 +4,4 @@
 
 #### 目前階段
 
-完成 menu 按鈕及動畫操作
+Slider Banner 編譯到一半

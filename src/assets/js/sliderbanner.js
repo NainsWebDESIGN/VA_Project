@@ -35,13 +35,10 @@ class Slider {
       },
     };
 
-    this.navBar = this.rootElement.querySelector(".slider__nav-bar");
-    this.thumbs = Array.from(this.rootElement.querySelectorAll(".nav-control"));
     this.prevButton = this.rootElement.querySelector(".slider__arrow_prev");
     this.nextButton = this.rootElement.querySelector(".slider__arrow_next");
 
     this.slides[this.current].classList.add("slider-list__item_active");
-    this.thumbs[this.current].classList.add("nav-control_active");
 
     this._bindEvents();
   }
@@ -96,10 +93,6 @@ class Slider {
         complete: function (anim) {
           self.isAnimating = false;
           prevSlide.classList.remove("slider-list__item_active");
-          self.thumbs.forEach((item, index) => {
-            var action = index === self.current ? "add" : "remove";
-            item.classList[action]("nav-control_active");
-          });
         },
       })
     );
@@ -162,7 +155,6 @@ class Slider {
     });
     self.nextButton.addEventListener("click", self.goNext);
     self.prevButton.addEventListener("click", self.goPrev);
-    self.navBar.addEventListener("click", self._navClickHandler);
   }
 }
 
