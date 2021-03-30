@@ -5,15 +5,15 @@
 
         <ul class="slider-list">
 
-            <li *ngFor="let even of data; let i = index" [class.slider-list__item_active]="slider(i, 'need')"
-                [class.slider-list_item_display]="slider(i, 'not')" class="slider-list__item">
-                <span [class.move]="slider(i, 'need')" class="back__element"><img [src]="even.big_p"></span>
-                <span [class.move]="slider(i, 'need')" class="main__element"><img [src]="even.small_p"></span>
-                <span [class.move]="slider(i, 'need')" class="front__element"><img [src]="even.main_p"></span>
-                <span [class.move]="slider(i, 'need')" class="title__element">
+            <li *ngFor="let even of data; let i = index" [class.slider-list__item_active]="sliderPage[i]"
+                [class.slider-list_item_display]="!sliderPage[i]" class="slider-list__item">
+                <span [class.move]="sliderPage[i]" class="back__element"><img [src]="even.big_p"></span>
+                <span [class.move]="sliderPage[i]" class="main__element"><img [src]="even.small_p"></span>
+                <span [class.move]="sliderPage[i]" class="front__element"><img [src]="even.main_p"></span>
+                <span [class.move]="sliderPage[i]" class="title__element">
                     <span class="title">{{even.text}}</span>
                 </span>
-                <span [class.move]="slider(i, 'need')" class="more__element">
+                <span [class.move]="sliderPage[i]" class="more__element">
                     <span class="content">
                         <span class="headline">{{even.title}}</span>
                         <span class="excerpt">{{even.content}}</span>

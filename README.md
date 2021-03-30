@@ -4,4 +4,4 @@
 
 #### 目前階段
 
-Slider Banner 編譯到一半
+從 GoStep 開始編譯
