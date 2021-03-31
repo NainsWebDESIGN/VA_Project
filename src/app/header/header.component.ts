@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { InformationService } from '@service/Information.service';
 import { ApiService } from '@service/api.service';
 
 @Component({
@@ -9,9 +8,9 @@ import { ApiService } from '@service/api.service';
 })
 export class HeaderComponent implements OnInit {
   data: any = [];
-  Menu: boolean;
+  Menu: boolean = false;
   menuStyle: boolean = false;
-  constructor(private menu: InformationService, private api: ApiService) { }
+  constructor(private api: ApiService) { }
   openMenu(_Effect: string) {
     switch (_Effect) {
       case 'open':
@@ -21,10 +20,9 @@ export class HeaderComponent implements OnInit {
         this.menuStyle = false;
         break;
     }
-    this.menu.MenuEffect(this.menuStyle);
+    this.Menu = this.menuStyle;
   }
   ngOnInit() {
-    this.menu.Menu$.subscribe(el => { this.Menu = el; })
     this.api.postApi(113).subscribe(el => { this.data = el; })
   }
 

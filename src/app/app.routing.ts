@@ -10,7 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/Valleys_Awesome', pathMatch: 'full' },
+  { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
   { path: 'load', component: LoadComponent },
   {
     path: 'Valleys_Awesome', component: HeaderComponent,
@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
     ]
   },
-  { path: '**', redirectTo: '/Valleys_Awesome', pathMatch: 'full' }
+  { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
 ];
 
 @NgModule({

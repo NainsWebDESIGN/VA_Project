@@ -16,7 +16,6 @@ import { HeaderComponent } from './header/header.component';
 
 // Service
 import { ApiService } from '@service/api.service';
-import { InformationService } from '@service/Information.service';
 
 
 @NgModule({
@@ -36,7 +35,7 @@ import { InformationService } from '@service/Information.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ApiService, InformationService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
