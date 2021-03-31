@@ -1,17 +1,24 @@
-<div class="menu" (click)='openMenu("open")'>
-  <p [class.active]="menuStyle" class="m_1 menuContent"></p>
-  <p [class.active]="menuStyle" class="m_2 menuContent"></p>
-  <p [class.active]="menuStyle" class="m_3 menuContent"></p>
-</div>
-<header id="header" [class.active]="Menu">
+<header>
+  <a class="headerImg" [routerLink]="['/Valleys_Awesome/Welcome']"><img src="assets/image/Webcenter.png" class="nains"
+      alt=""></a>
+  <div class="menu" (click)='openMenu("open")'>
+    <p [class.active]="menuStyle" class="m_1 menuContent"></p>
+    <p [class.active]="menuStyle" class="m_2 menuContent"></p>
+    <p [class.active]="menuStyle" class="m_3 menuContent"></p>
+  </div>
+</header>
+<div id="header" [class.active]="Menu">
   <ul>
     <li *ngFor="let even of data" class="menuHref">
-      <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle"
-        (click)='openMenu("close")'>{{even.title}}</a>
-      <div class="munebx">
+      <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle" (click)='openMenu("close")'>
+        {{even.title}}
+        <p class="menuBorder"></p>
+      </a>
+
+      <div class="menubx">
         <p *ngFor="let arr of even.content"><a href="">{{arr}}</a></p>
       </div>
     </li>
   </ul>
-</header>
+</div>
 <router-outlet></router-outlet>

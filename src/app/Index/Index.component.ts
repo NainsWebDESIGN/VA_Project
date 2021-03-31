@@ -5,7 +5,7 @@ import { ApiService } from '@service/api.service';
   selector: 'app-Index',
   templateUrl: './Index.component.html',
   styleUrls: ['./Index.component.css'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class IndexComponent implements OnInit {
   data: any;
