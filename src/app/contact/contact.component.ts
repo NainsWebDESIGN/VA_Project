@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -17,7 +17,6 @@ export class ContactComponent implements OnInit {
       "entry.1995154974": this.email,
       "entry.2137997242": this.message
     }
-    // const header = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
     let req = new FormData();
     let keys = Object.keys(data);
     for (let i = 0; i < keys.length; i++) {
