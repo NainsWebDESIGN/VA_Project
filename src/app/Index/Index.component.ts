@@ -88,8 +88,10 @@ export class IndexComponent implements OnInit {
     );
   }
   ngOnInit() {
-    this.sliderPage = [true, false, false];
-    this.api.postApi(127).subscribe(el => { this.data = el; });
+    this.api.postApi(127).subscribe(el => {
+      this.data = el;
+      this.sliderPage = [true, false, false];
+    });
   }
 
 }

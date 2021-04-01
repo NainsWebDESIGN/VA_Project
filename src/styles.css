@@ -3,7 +3,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 * {
@@ -16,9 +16,8 @@ a {
   text-decoration: none;
 }
 header {
-  height: 86px;
+  height: 113px;
   width: 100%;
-  line-height: 86px;
 }
 #header {
   position: fixed;
@@ -45,17 +44,16 @@ ul {
   text-align: center;
 }
 .menu {
-  position: fixed;
+  display: none;
   width: 40px;
   height: 27px;
-  top: 27px;
-  right: 27px;
   cursor: pointer;
+  margin-top: -13px;
   z-index: 99999;
 }
 .menuContent {
   position: relative;
-  background: #fff;
+  background: #cbd5e0;
   height: 3px;
   border-radius: 10px;
   transition: 0.5s ease-in-out;
@@ -236,9 +234,9 @@ body {
   min-height: 100%;
   min-height: 100vh;
 }
-.page-wrapper {
+/* .page-wrapper {
   margin-top: -49px;
-}
+} */
 .headerImg {
   position: absolute;
   top: 10px;
@@ -614,5 +612,17 @@ body {
   .menuHref:nth-child(4) {
     top: 75%;
     left: 0%;
+  }
+}
+@media (max-width: 767px) {
+  .menu-nav {
+    display: none;
+  }
+  .menu {
+    position: absolute;
+    display: block;
+    top: 35px;
+    right: 19px;
+    margin-top: 0px;
   }
 }

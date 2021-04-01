@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
 
@@ -8,6 +9,7 @@ import { ApiService } from '@service/api.service';
 })
 export class HeaderComponent implements OnInit {
   data: any = [];
+  Year: any = new Date().getFullYear();
   Menu: boolean = false;
   menuStyle: boolean = false;
   constructor(private api: ApiService) { }

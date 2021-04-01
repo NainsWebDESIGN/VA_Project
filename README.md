@@ -4,5 +4,4 @@
 
 #### 目前階段
 
-1. header 缺 RWD 後的細項及內容
-2. index 完成(缺內容)
+1. 新增 header 與 footer
