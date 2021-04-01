@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class ApiService {
 
     constructor(private http: HttpClient) { }
-    postApi(_Gatewey: number, ..._Obj: any) {
+    postApi(_Gatewey: number, ..._Obj: Array<any>) {
         let postData = (el: any) => {
             let keys = Object.keys(el);
             let data = new FormData();
