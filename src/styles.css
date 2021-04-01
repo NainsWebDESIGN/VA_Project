@@ -130,12 +130,12 @@ ul {
 }
 .menubx p a {
   font-family: "微軟正黑體", sans-serif;
-  color: #fff;
+  color: #cbd5e0;
   font-size: 1.3em;
   font-weight: 700;
 }
 .menubx p:hover a {
-  color: rgb(127, 144, 219);
+  color: #fff;
 }
 .menuHref:nth-child(1) {
   left: 0%;
