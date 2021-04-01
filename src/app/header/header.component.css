@@ -4,3 +4,7 @@
 .p-5 {
   padding: 13px 1.25rem;
 }
+h2.tracking-widest a {
+  font-weight: bold;
+  font-size: 1rem;
+}
