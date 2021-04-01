@@ -54,14 +54,14 @@ export class IndexComponent implements OnInit {
         translateX: [90 * dir + "%", 0]
       })
     );
+    this.sliderPage[position(_Move)] = true;
     anime(
       Object.assign({}, main, {
         targets: data[index],
         rotate: [0, -90 * dir + "deg"],
         translateX: [0, -100 * dir + "%"],
         complete: anim => {
-          for (let i = 0; i < this.sliderPage.length; i++) { this.sliderPage[i] = false; }
-          this.sliderPage[position(_Move)] = true;
+          this.sliderPage[index] = false;
         }
       })
     );

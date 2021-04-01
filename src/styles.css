@@ -16,7 +16,7 @@ a {
   text-decoration: none;
 }
 header {
-  height: 113px;
+  height: 94px;
   width: 100%;
 }
 #header {
@@ -44,7 +44,7 @@ ul {
   text-align: center;
 }
 .menu {
-  display: none;
+  display: block;
   width: 40px;
   height: 27px;
   cursor: pointer;
@@ -346,13 +346,29 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   font-size: 16vw;
   color: #000;
   will-change: transform;
   z-index: 1;
+}
+.slider-list__item.slider-list__item_active {
+  display: flex;
+}
+.ch-name {
+  font-weight: bold;
+  text-align: center;
+  line-height: 19px;
+  padding-top: 13px;
+  color: #cbd5e0;
+}
+.us-name {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  font-weight: 100;
+  margin-left: -0.5px;
 }
 .slider-list__item .back__element {
   position: absolute;

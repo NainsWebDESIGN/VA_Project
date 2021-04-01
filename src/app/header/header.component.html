@@ -2,19 +2,15 @@
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
       <img class="nains" src="assets/image/Webcenter.png" alt="">
-      <span class="ml-3 text-xl">Valleys Awesome</span>
+      <p class="ml-3 text-xl ch-name">維安科技<br><span class="ml-3 text-xl us-name">Valleys Awesome</span></p>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center menu-nav">
-      <a class="mr-5 hover:text-white">First Link</a>
-      <a class="mr-5 hover:text-white">Second Link</a>
-      <a class="mr-5 hover:text-white">Third Link</a>
-      <a class="mr-5 hover:text-white">Fourth Link</a>
+      <div class="menu" (click)='openMenu("open")'>
+        <p [class.active]="menuStyle" class="m_1 menuContent"></p>
+        <p [class.active]="menuStyle" class="m_2 menuContent"></p>
+        <p [class.active]="menuStyle" class="m_3 menuContent"></p>
+      </div>
     </nav>
-    <div class="menu" (click)='openMenu("open")'>
-      <p [class.active]="menuStyle" class="m_1 menuContent"></p>
-      <p [class.active]="menuStyle" class="m_2 menuContent"></p>
-      <p [class.active]="menuStyle" class="m_3 menuContent"></p>
-    </div>
   </div>
 </header>
 
@@ -41,9 +37,9 @@
     <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
         <img class="nains" src="assets/image/LOGO.png" alt="">
-        <span class="ml-3 text-xl">Valleys Awesome</span>
+        <p class="ml-3 text-xl ch-name">維安科技<br><span class="ml-3 text-xl us-name">Valleys Awesome</span></p>
       </a>
-      <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
+      <p class="mt-2 text-sm text-gray-500">Nains is a web designer full of wisdom, technology and beauty.</p>
     </div>
     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
