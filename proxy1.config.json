@@ -1,0 +1,7 @@
+{
+  "/forms": {
+    "target": "https://docs.google.com/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

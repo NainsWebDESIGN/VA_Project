@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpHeaderResponse } from '@angular/common/http';
+import { Http, Headers, ResponseOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private post: Http) { }
     postApi(_Gatewey: number, ..._Obj: Array<any>) {
         let postData = (el: any) => {
             let keys = Object.keys(el);
@@ -22,8 +23,10 @@ export class ApiService {
                 return this.http.get('assets/json/index.json').map(el => { return el; });
             case 131:
                 let $obj = postData(_Obj[0]);
-                let url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdWJlLDYntz5U423tsDTrXMa4hkfxc7sw3J0-f2f59wbRjaEA/formResponse';
-                return this.http.post(url, $obj).map(el => { return el; });
+                let url = '/forms/u/0/d/e/1FAIpQLSdWJlLDYntz5U423tsDTrXMa4hkfxc7sw3J0-f2f59wbRjaEA/formResponse';
+                let headers = new Headers({ 'Access-Control-Allow-Origin': '*' });
+                let options = new ResponseOptions({ headers: headers });
+                return this.post.post(url, $obj, options).map(el => { return el; });
         }
     }
 }
