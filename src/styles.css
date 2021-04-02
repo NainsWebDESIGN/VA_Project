@@ -12,12 +12,33 @@ body {
   box-sizing: border-box;
   font-family: "my_font", "微軟正黑體", sans-serif;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  width: 5px;
+  background: linear-gradient(to bottom, #cbd5e0, #1a202c);
+  border-radius: 10px;
+  border-left: 0 solid #fff;
+  border-right: 0 solid #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  width: 0;
+  height: 35%;
+  transition: 0.5s ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
 a {
   text-decoration: none;
 }
 header {
   height: 94px;
   width: 100%;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
 }
 #header {
   position: fixed;
@@ -53,10 +74,13 @@ ul {
 }
 .menuContent {
   position: relative;
-  background: #cbd5e0;
   height: 3px;
   border-radius: 10px;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
+  background: #1a202c;
+}
+.menuContent.scroll {
+  background: #cbd5e0;
 }
 .menu .m_1 {
   width: 100%;
@@ -362,7 +386,6 @@ body {
   text-align: center;
   line-height: 19px;
   padding-top: 13px;
-  color: #cbd5e0;
 }
 .us-name {
   font-size: 0.72rem;

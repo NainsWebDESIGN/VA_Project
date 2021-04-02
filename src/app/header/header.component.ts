@@ -1,5 +1,4 @@
-import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
 
 @Component({
@@ -8,7 +7,14 @@ import { ApiService } from '@service/api.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @HostListener('window:scroll', ['$event'])
+  SetWidth(_Event) {
+    //客戶端高度
+    let clientH = _Event.srcElement.scrollingElement.scrollTop;
+    this.scrollBar = clientH > 0 ? true : false;
+  }
   data: any = [];
+  scrollBar: boolean;
   Year: any = new Date().getFullYear();
   Menu: boolean = false;
   menuStyle: boolean = false;
