@@ -8,20 +8,3 @@ h2.tracking-widest a {
   font-weight: bold;
   font-size: 1rem;
 }
-.bg-gray-900 {
-  background-color: inherit;
-  transition: 0.3s ease-in-out;
-}
-.bg-gray-900.active {
-  background-color: #1a202c;
-}
-.ch-name {
-  color: #1a202c;
-  transition: 0.3s ease-in-out;
-}
-.ch-name.active {
-  color: #cbd5e0;
-}
-.menuContent.active {
-  background: #cbd5e0;
-}
