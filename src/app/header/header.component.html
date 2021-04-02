@@ -7,14 +7,15 @@
           Awesome</span></p>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center menu-nav">
-      <div class="menu" (click)='openMenu("open")'>
-        <p [class.active]="menuStyle" [class.scroll]="scrollBar" class="m_1 menuContent"></p>
-        <p [class.active]="menuStyle" [class.scroll]="scrollBar" class="m_2 menuContent"></p>
-        <p [class.active]="menuStyle" [class.scroll]="scrollBar" class="m_3 menuContent"></p>
-      </div>
     </nav>
   </div>
 </header>
+
+<div class="menu" (click)='openMenu("open")'>
+  <p [class.active]="menuStyle" [class.scroll]="scrollBar" class="m_1 menuContent"></p>
+  <p [class.active]="menuStyle" [class.scroll]="scrollBar" class="m_2 menuContent"></p>
+  <p [class.active]="menuStyle" [class.scroll]="scrollBar" class="m_3 menuContent"></p>
+</div>
 
 <div id="header" [class.active]="Menu">
   <ul>

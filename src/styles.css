@@ -37,7 +37,7 @@ header {
   height: 94px;
   width: 100%;
   position: fixed;
-  z-index: 9999;
+  z-index: 995;
   top: 0;
 }
 #header {
@@ -48,7 +48,7 @@ header {
   height: 0;
   top: 0px;
   right: 0px;
-  z-index: 9999;
+  z-index: 999;
   background-color: #aaa;
   transition: 0.5s ease-in-out;
 }
@@ -65,18 +65,20 @@ ul {
   text-align: center;
 }
 .menu {
+  position: fixed;
+  top: 31px;
+  right: 31px;
   display: block;
   width: 40px;
   height: 27px;
   cursor: pointer;
-  margin-top: -13px;
-  z-index: 99999;
+  z-index: 9999;
 }
 .menuContent {
   position: relative;
   height: 3px;
   border-radius: 10px;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
   background: #1a202c;
 }
 .menuContent.scroll {
