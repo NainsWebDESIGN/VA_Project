@@ -67,35 +67,35 @@ ul {
 }
 .menu {
   position: fixed;
-  top: 31px;
+  top: 35px;
   right: 31px;
   display: block;
-  width: 40px;
-  height: 27px;
+  width: 27px;
+  height: 13px;
   cursor: pointer;
   z-index: 9999;
 }
 .menuContent {
   position: relative;
-  height: 3px;
+  height: 2px;
   border-radius: 10px;
   transition: 0.5s ease-in-out;
   background: #cbd5e0;
 }
 .menu .m_1 {
-  width: 100%;
+  width: 94%;
   top: 25%;
-  left: 0;
+  left: 6%;
 }
 .menu .m_2 {
-  width: 50%;
+  width: 49%;
   top: 50%;
-  left: 50%;
+  left: 51%;
 }
 .menu .m_3 {
-  width: 75%;
+  width: 72%;
   top: 75%;
-  left: 25%;
+  left: 28%;
 }
 .menu .m_1.active {
   top: 50%;
@@ -106,7 +106,7 @@ ul {
 }
 .menu .m_3.active {
   width: 100%;
-  top: 33%;
+  top: 27%;
   left: 0;
   transform: rotate(135deg);
 }
