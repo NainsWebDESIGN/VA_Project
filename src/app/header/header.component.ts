@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ApiService } from '@service/api.service';
 
 @Component({
@@ -7,6 +7,13 @@ import { ApiService } from '@service/api.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @HostListener('window:scroll', ['$event'])
+  SetWidth(_Event) {
+    let height = _Event.srcElement.scrollingElement.scrollHeight - _Event.srcElement.scrollingElement.clientHeight;
+    let scrollbar = (_Event.srcElement.scrollingElement.scrollTop / height) * 100;
+    document.getElementById("myBar").style.width = scrollbar + "%";
+    console.log(_Event);
+  }
   data: any = [];
   Year: any = new Date().getFullYear();
   Menu: boolean = false;
