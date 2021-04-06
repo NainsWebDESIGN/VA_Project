@@ -557,6 +557,49 @@ p.text {
   transform: translateX(0);
   z-index: 2;
 }
+.storyItem {
+  width: 100%;
+}
+.flex-wrap {
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  position: fixed;
+  right: 0;
+  top: 27%;
+  height: 100%;
+  width: 20%;
+  padding-left: 49px;
+}
+.left {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 80%;
+}
+.aboutText {
+  font-size: 1.86rem;
+  width: 200px;
+  position: relative;
+  left: 50%;
+  margin: 31px 0 -49px -60px;
+  color: #000;
+  font-weight: 400;
+}
+.aboutUL li {
+  margin: 7px 0;
+  border-bottom: #fff solid 1px;
+  width: 68px;
+}
+
+.aboutUL li:hover {
+  border-bottom: #000 solid 1px;
+}
+.bg-gray-200 {
+  background-color: #ccc;
+}
 
 /* RWD 跟動畫 */
 @keyframes rotar1 {
@@ -608,6 +651,12 @@ p.text {
     background-position: 0% 50%;
   }
 }
+@media (max-width: 813px) {
+  .slider-list__item .more__element .content {
+    top: 0;
+    left: 0;
+  }
+}
 
 @media (max-width: 1149px) {
   .menuHref {
@@ -637,12 +686,21 @@ p.text {
     left: 0%;
   }
 }
+@media (max-width: 600px) {
+  .right {
+    width: 0;
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+}
 @media (max-width: 767px) {
   .menu-nav {
     display: none;
   }
   .menu {
-    position: absolute;
+    position: fixed;
     display: block;
     top: 35px;
     right: 19px;

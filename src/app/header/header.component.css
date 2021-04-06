@@ -15,7 +15,7 @@ h2.tracking-widest a {
 
 .progress-bar {
   height: 5px;
-  background: linear-gradient(to right, #cbd2d3, #4299e1);
+  background: linear-gradient(to right, #adcee9, #4299e1);
   width: 0%;
   border-radius: 5px;
 }

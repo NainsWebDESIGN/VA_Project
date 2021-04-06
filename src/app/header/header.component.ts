@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
     let height = _Event.srcElement.scrollingElement.scrollHeight - _Event.srcElement.scrollingElement.clientHeight;
     let scrollbar = (_Event.srcElement.scrollingElement.scrollTop / height) * 100;
     document.getElementById("myBar").style.width = scrollbar + "%";
-    console.log(_Event);
   }
   data: any = [];
   Year: any = new Date().getFullYear();
