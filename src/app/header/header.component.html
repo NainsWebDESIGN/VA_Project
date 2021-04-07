@@ -53,7 +53,7 @@
 
     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
 
-      <div *ngFor="let even of data" class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div *ngFor="let even of data;let i = index;" class="lg:w-1/4 md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">
           <a [routerLink]="['/Valleys_Awesome/' + even.href]">
             {{even.title}}
@@ -62,7 +62,7 @@
 
         <nav class="list-none mb-10">
           <li *ngFor="let arr of even.content">
-            <a class="text-gray-400 hover:text-white">{{arr}}</a>
+            <a class="text-gray-400 hover:text-white" (click)='ScrollToElement(i, arr.route)'>{{arr.name}}</a>
           </li>
         </nav>
 

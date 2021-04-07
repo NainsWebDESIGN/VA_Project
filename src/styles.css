@@ -560,10 +560,6 @@ p.text {
 .storyItem {
   width: 100%;
 }
-.flex-wrap {
-  justify-content: center;
-  align-items: center;
-}
 .right {
   position: fixed;
   right: 0;
@@ -592,6 +588,7 @@ p.text {
   margin: 7px 0;
   border-bottom: #fff solid 1px;
   width: 68px;
+  cursor: pointer;
 }
 
 .aboutUL li:hover {
@@ -702,16 +699,13 @@ p.text {
     padding: 10% 0 0 0;
   }
 }
-@media (max-width: 600px) {
-  .right {
-    width: 0;
-    display: none;
+@media (max-width: 768px) {
+  .md\:flex-row {
+    flex-direction: column;
   }
-  .left {
-    width: 100%;
+  .text-center {
+    text-align: center;
   }
-}
-@media (max-width: 767px) {
   .menu-nav {
     display: none;
   }
@@ -721,5 +715,12 @@ p.text {
     top: 35px;
     right: 19px;
     margin-top: 0px;
+  }
+  .right {
+    width: 0;
+    display: none;
+  }
+  .left {
+    width: 100%;
   }
 }

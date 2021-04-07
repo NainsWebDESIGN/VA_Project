@@ -69,7 +69,7 @@
                     </path>
                   </svg>
                 </a>
-                <a class="ml-2 text-gray-500">
+                <a id="story" class="ml-2 text-gray-500">
                   <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
                     viewBox="0 0 24 24">
                     <path
@@ -170,7 +170,7 @@
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
-          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+          <div id="about" class="flex-grow sm:pl-6 mt-6 sm:mt-0">
             <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">標題</h2>
             <p class="leading-relaxed">內容</p>
           </div>
@@ -233,8 +233,8 @@
 
 <section class="right">
   <ul class="aboutUL">
-    <li><a href="">團隊介紹</a></li>
-    <li><a href="">品牌故事</a></li>
-    <li><a href="">相關單位</a></li>
+    <li><a href="javascript:scroll(0,0)">團隊介紹</a></li>
+    <li><a (click)='ScrollToElemenet("story")'>品牌故事</a></li>
+    <li><a (click)='ScrollToElemenet("about")'>相關單位</a></li>
   </ul>
 </section>

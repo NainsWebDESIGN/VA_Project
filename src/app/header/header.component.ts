@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { ApiService } from '@service/api.service';
+import { Information } from '@service/information.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,7 @@ export class HeaderComponent implements OnInit {
   Year: any = new Date().getFullYear();
   Menu: boolean = false;
   menuStyle: boolean = false;
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private infor: Information, private router: Router) { }
   openMenu(_Effect: string) {
     switch (_Effect) {
       case 'open':
@@ -28,6 +30,22 @@ export class HeaderComponent implements OnInit {
         break;
     }
     this.Menu = this.menuStyle;
+  }
+  ScrollToElement(_Item: number, $element: string) {
+    let local = '/Valleys_Awesome/';
+    switch (_Item) {
+      case 0:
+        if (this.infor.Page == (local + 'About')) {
+          if ($element == 'team') { return scroll(0, 0); }
+          else {
+            let el = document.getElementById($element);
+            return el.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          this.infor.AboutLink = $element;
+          return this.router.navigate(['/Valleys_Awesome/About']);
+        }
+    }
   }
   ngOnInit() {
     this.api.postApi(113).subscribe(el => { this.data = el; })

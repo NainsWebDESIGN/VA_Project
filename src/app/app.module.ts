@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 
 // Service
 import { ApiService } from '@service/api.service';
+import { Information } from '@service/information.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { ApiService } from '@service/api.service';
     HttpClientModule,
     HttpModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, Information],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
