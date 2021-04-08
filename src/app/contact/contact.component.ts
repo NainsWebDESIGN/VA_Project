@@ -20,7 +20,11 @@ export class ContactComponent implements OnInit {
     else if (!myreg.test(this.email)) { alert('信箱格式錯誤') }
     else { this.api.postApi(131, data).subscribe(Observer); }
   }
+  copy() {
+
+  }
   ngOnInit() {
+    scroll(0, 0);
   }
 
 }

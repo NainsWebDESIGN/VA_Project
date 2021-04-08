@@ -31,6 +31,9 @@ export class HeaderComponent implements OnInit {
     }
     this.Menu = this.menuStyle;
   }
+  toTop() {
+    scroll(0, 0);
+  }
   ScrollToElement(_Item: number, $element: string) {
     let local = '/Valleys_Awesome/';
     switch (_Item) {
@@ -46,6 +49,7 @@ export class HeaderComponent implements OnInit {
           return this.router.navigate(['/Valleys_Awesome/About']);
         }
     }
+    this.openMenu('close');
   }
   ngOnInit() {
     this.api.postApi(113).subscribe(el => { this.data = el; })

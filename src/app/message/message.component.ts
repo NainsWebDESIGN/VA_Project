@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '@service/api.service';
 
 @Component({
   selector: 'app-message',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
-
-  constructor() { }
+  data: any;
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.api.postApi(127).subscribe(el => {
+      this.data = el;
+    });
   }
 
 }

@@ -561,7 +561,7 @@ p.text {
   z-index: 2;
 }
 .storyItem {
-  width: 100%;
+  width: 80%;
 }
 .right {
   position: fixed;
@@ -599,6 +599,31 @@ p.text {
 }
 .bg-gray-200 {
   background-color: #ccc;
+}
+.flex.flex-wrap.-m-4 {
+  justify-content: center;
+  align-items: center;
+}
+.copy {
+  padding: 2px 13px;
+  font-weight: 400;
+  border: 2px solid #667eea;
+  border-radius: 19px;
+  cursor: pointer;
+}
+.copy:hover {
+  color: #fff;
+  background: linear-gradient(to bottom, #667eea, #718096);
+  border: none;
+}
+.itemCenter {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+.imgBack {
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* RWD 跟動畫 */
