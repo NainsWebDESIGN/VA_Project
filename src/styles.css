@@ -621,9 +621,50 @@ p.text {
   position: relative;
   left: 10%;
 }
+.outside {
+  transition: 0.3s ease-in-out;
+}
+.outside.events {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+  pointer-events: none;
+}
 .imgBack {
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+  background-position: center center;
+  height: 12rem;
+}
+.messagepopup {
+  position: fixed;
+  padding: 20px;
+  z-index: -1;
+  border-radius: 20px;
+  width: 80%;
+  height: 80%;
+  top: 30%;
+  left: -10%;
+  background-color: #fff;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+.messagepopup.display {
+  top: 10%;
+  left: 10%;
+  z-index: 99999;
+  opacity: 1;
+}
+.closebtn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+.learnbtn {
+  cursor: pointer;
+}
+.learnbtn:hover {
+  color: #2443c8;
 }
 
 /* RWD 跟動畫 */

@@ -36,9 +36,11 @@
     </li>
   </ul>
 </div>
-<br><br><br><br>
-
-<router-outlet></router-outlet>
+<div class="outside" [class.events]="infor.filter">
+  <br><br><br><br>
+  <router-outlet></router-outlet>
+</div>
+<popup></popup>
 
 <footer class="text-gray-400 bg-gray-900 body-font">
   <div

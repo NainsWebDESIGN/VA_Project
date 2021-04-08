@@ -26,6 +26,7 @@ export class IndexComponent implements OnInit {
     let title = { rotation: 45, duration: 1750, elasticity: function (el, i, l) { return 200 + i * 200; } };
     let index = this.sliderPage.indexOf(true);
     let data = Array.from(document.querySelectorAll('.slider-list__item'));
+    console.log(data);
     anime(
       Object.assign({}, main, {
         targets: data[position(_Move)],

@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   Year: any = new Date().getFullYear();
   Menu: boolean = false;
   menuStyle: boolean = false;
-  constructor(private api: ApiService, private infor: Information, private router: Router) { }
+  constructor(private api: ApiService, public infor: Information, private router: Router) { }
   openMenu(_Effect: string) {
     switch (_Effect) {
       case 'open':

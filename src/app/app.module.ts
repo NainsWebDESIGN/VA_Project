@@ -15,9 +15,11 @@ import { AboutComponent } from './about/about.component';
 import { ServicePageComponent } from './servicePage/servicePage.component';
 import { HeaderComponent } from './header/header.component';
 
+
 // Service
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
+import { PopupComponent } from './popup/popup.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { Information } from '@service/information.service';
     MessageComponent,
     AboutComponent,
     ServicePageComponent,
-    HeaderComponent
+    HeaderComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

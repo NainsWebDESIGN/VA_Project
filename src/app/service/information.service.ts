@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable()
 export class Information {
+    filter: boolean = false;
     Page: string;
     AboutLink: string = 'team';
     constructor(private router: Router) {
