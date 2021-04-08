@@ -22,14 +22,15 @@
 
 <div id="header" [class.active]="Menu">
   <ul>
-    <li *ngFor="let even of data" class="menuHref">
+    <li *ngFor="let even of data; let i = index;" class="menuHref">
       <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle" (click)='openMenu("close")'>
         {{even.title}}
         <p class="menuBorder"></p>
       </a>
 
       <div class="menubx">
-        <p *ngFor="let arr of even.content"><a href="">{{arr}}</a></p>
+        <p class="hrefchild" *ngFor="let arr of even.content"><a
+            (click)='ScrollToElement(i, arr.route)'>{{arr.name}}</a></p>
       </div>
     </li>
   </ul>

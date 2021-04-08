@@ -4,4 +4,4 @@
 
 #### 目前階段
 
-1. menu 縮小樣式更動
+1. menu 新增 content.name
