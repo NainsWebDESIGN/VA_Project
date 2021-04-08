@@ -19,9 +19,7 @@ h2.tracking-widest a {
   width: 0%;
   border-radius: 5px;
 }
-.text-gray-400 {
-  cursor: pointer;
-}
 .mr-5:hover {
+  cursor: pointer;
   color: #fff;
 }

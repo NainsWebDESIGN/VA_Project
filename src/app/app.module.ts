@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 // Component & Route
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
-import { LoadComponent } from './load/load.component';
 import { IndexComponent } from './Index/Index.component';
 import { ContactComponent } from './contact/contact.component';
 import { MessageComponent } from './message/message.component';
@@ -25,7 +24,6 @@ import { PopupComponent } from './popup/popup.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoadComponent,
     IndexComponent,
     ContactComponent,
     MessageComponent,

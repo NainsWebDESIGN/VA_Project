@@ -8,7 +8,7 @@ import { Information } from '@service/information.service';
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
-  data: any;
+  data: any = [];
   constructor(private api: ApiService, private infor: Information) { }
   news(_Position: number) {
     return "url(./" + this.data[_Position].small_p + ")";

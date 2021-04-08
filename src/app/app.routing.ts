@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoadComponent } from './load/load.component';
 import { IndexComponent } from './Index/Index.component';
 import { ContactComponent } from './contact/contact.component';
 import { MessageComponent } from './message/message.component';
@@ -11,7 +10,6 @@ import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
-  { path: 'load', component: LoadComponent },
   {
     path: 'Valleys_Awesome', component: HeaderComponent,
     children: [
