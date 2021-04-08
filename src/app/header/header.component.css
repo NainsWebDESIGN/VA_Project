@@ -22,3 +22,6 @@ h2.tracking-widest a {
 .text-gray-400 {
   cursor: pointer;
 }
+.mr-5:hover {
+  color: #fff;
+}

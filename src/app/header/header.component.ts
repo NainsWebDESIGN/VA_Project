@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   }
   ScrollToElement(_Item: number, $element: string) {
     let local = '/Valleys_Awesome/';
+    this.openMenu('close');
     switch (_Item) {
       case 0:
         if (this.infor.Page == (local + 'About')) {
@@ -49,7 +50,6 @@ export class HeaderComponent implements OnInit {
           return this.router.navigate(['/Valleys_Awesome/About']);
         }
     }
-    this.openMenu('close');
   }
   ngOnInit() {
     this.api.postApi(113).subscribe(el => { this.data = el; })

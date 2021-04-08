@@ -10,7 +10,14 @@ import { ApiService } from '@service/api.service';
 export class IndexComponent implements OnInit {
   data: any;
   sliderPage: Array<boolean>;
+  arrow: boolean = false;
   constructor(private api: ApiService) { }
+  openArrow() {
+    this.arrow = true;
+  }
+  closeArrow() {
+    this.arrow = false;
+  }
   changePage(_Move: number, dir: number) {
     let position = (el: number) => {
       switch (el) {

@@ -1,5 +1,4 @@
-<section class="left">
-
+<div class="itemCenter">
   <!-- 團隊介紹 -->
   <section class="text-gray-600 body-font">
     <h2 class="aboutText">團隊介紹</h2>
@@ -8,7 +7,7 @@
         <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">OUR TEAM</h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">標題內容</p>
       </div>
-      <div class="flex flex-wrap -m-4">
+      <div class="flex flex-wrap -m-4 aboutTeam">
 
         <div [class.active]="team" class="p-4 lg:w-1/4 md:w-1/2 teamItem">
           <div class="h-full flex flex-col items-center text-center">
@@ -227,14 +226,4 @@
       </div>
     </div>
   </section>
-
-
-</section>
-
-<section class="right">
-  <ul class="aboutUL">
-    <li><a href="javascript:scroll(0,0)">團隊介紹</a></li>
-    <li><a (click)='ScrollToElemenet("story")'>品牌故事</a></li>
-    <li><a (click)='ScrollToElemenet("about")'>相關單位</a></li>
-  </ul>
-</section>
+</div>

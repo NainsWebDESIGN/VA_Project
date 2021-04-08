@@ -1,5 +1,5 @@
 <!-- banner -->
-<section class="page-wrapper">
+<section class="page-wrapper" (mouseover)="openArrow()" (mouseout)="closeArrow()">
 
     <div class="slider">
 
@@ -28,8 +28,8 @@
         </ul>
 
         <div class="slider__controls">
-            <a class="slider__arrow slider__arrow_prev" (click)='changePage(0, -1)'></a>
-            <a class="slider__arrow slider__arrow_next" (click)='changePage(1, 1)'></a>
+            <a [class.active]="arrow" class="slider__arrow slider__arrow_prev" (click)='changePage(0, -1)'></a>
+            <a [class.active]="arrow" class="slider__arrow slider__arrow_next" (click)='changePage(1, 1)'></a>
         </div>
 
     </div>

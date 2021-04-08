@@ -289,7 +289,7 @@ p.text {
   opacity: 1;
 }
 .slider__arrow_prev {
-  left: 16px;
+  left: -72px;
   width: 64px;
   height: 64px;
   background-image: url(./assets/image/arrowleft.png);
@@ -297,14 +297,20 @@ p.text {
   background-position: center center;
   background-size: auto 64px;
 }
+.slider__arrow_prev.active {
+  left: 16px;
+}
 .slider__arrow_next {
-  right: 16px;
+  right: -72px;
   width: 64px;
   height: 64px;
   background-image: url(./assets/image/arrowright.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 64px;
+}
+.slider__arrow_next.active {
+  right: 16px;
 }
 .nav-control {
   position: relative;
@@ -600,7 +606,7 @@ p.text {
 .bg-gray-200 {
   background-color: #ccc;
 }
-.flex.flex-wrap.-m-4 {
+.aboutTeam {
   justify-content: center;
   align-items: center;
 }
@@ -634,6 +640,13 @@ p.text {
   background-repeat: no-repeat;
   background-position: center center;
   height: 12rem;
+}
+.wwdImg {
+  height: 40px;
+  width: 40px;
+  font-size: x-large;
+  text-align: center;
+  line-height: 40px;
 }
 .messagepopup {
   position: fixed;
