@@ -1,0 +1,36 @@
+<section [class.active]="changeSign">
+  <a class="loginbtn" [routerLink]="['/Valleys_Awesome']">
+    <i class="fad fa-reply-all" [class.active]="changeSign"></i>
+  </a>
+  <div [class.active]="changeSign" class="container">
+
+    <div class="user signinBx">
+      <div class="imgBx"><img src="assets/image/lock.jpg" alt=""></div>
+      <div class="formBx">
+        <form action="">
+          <h2>登入</h2>
+          <input type="text" [(ngModel)]="username" placeholder="帳號" name="username">
+          <input type="password" [(ngModel)]="password" placeholder="密碼" name="password">
+          <input type="submit" value="登入" (click)='Login(113)'>
+          <p class="signup">還沒有帳號? <a class="loginSign" (click)='toggleForm()'>註冊</a></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="user signupBx">
+      <div class="formBx">
+        <form action="">
+          <h2>Create an account</h2>
+          <input type="text" placeholder="帳號" [(ngModel)]="signname" name="signname">
+          <input type="text" placeholder="信箱" [(ngModel)]="email" name="email">
+          <input type="password" placeholder="密碼" [(ngModel)]="signpass" name="signpass">
+          <input type="password" placeholder="再次確認" [(ngModel)]="signpass_2" name="signpass_2">
+          <input type="submit" value="註冊" (click)='Login(127)'>
+          <p class="signup">已經有帳號了? <a class="loginSign" (click)='toggleForm()'>登入</a></p>
+        </form>
+      </div>
+      <div class="imgBx"><img src="assets/image/unlock.jpg" alt=""></div>
+    </div>
+
+  </div>
+</section>

@@ -13,7 +13,8 @@ import { MessageComponent } from './message/message.component';
 import { AboutComponent } from './about/about.component';
 import { ServicePageComponent } from './servicePage/servicePage.component';
 import { HeaderComponent } from './header/header.component';
-
+import { LoginComponent } from './Login/Login.component';
+import { ConsoleComponent } from './Console/Console.component';
 
 // Service
 import { ApiService } from '@service/api.service';
@@ -30,7 +31,9 @@ import { PopupComponent } from './popup/popup.component';
     AboutComponent,
     ServicePageComponent,
     HeaderComponent,
-    PopupComponent
+    PopupComponent,
+    LoginComponent,
+    ConsoleComponent
   ],
   imports: [
     BrowserModule,

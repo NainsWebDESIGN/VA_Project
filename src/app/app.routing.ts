@@ -7,6 +7,8 @@ import { MessageComponent } from './message/message.component';
 import { ServicePageComponent } from './servicePage/servicePage.component';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './Login/Login.component';
+import { ConsoleComponent } from './Console/Console.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
     ]
   },
+  { path: 'Login', component: LoginComponent },
+  { path: 'Member', component: ConsoleComponent },
   { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
 ];
 
