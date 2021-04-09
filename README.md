@@ -4,10 +4,5 @@
 
 #### 目前階段
 
-1. menu 新增 content.name
-2. 新增最新消息
-3. 新增聯絡我們欄位
-4. 新增 Popup
-5. 新增 header 背景模式
-6. 雛型建立完成
-7. 新增 Load
+1. 清理緩存 `npm cache clean --force`
+2. 重新 `npm i`
