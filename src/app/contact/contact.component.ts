@@ -21,11 +21,18 @@ export class ContactComponent implements OnInit {
     else if (!myreg.test(this.email)) { alert('信箱格式錯誤') }
     else { this.api.postApi(131, data).subscribe(Observer); }
   }
-  copy() {
-
+  copy(_Text: HTMLElement) {
+    var TextRange = document.createRange();
+    let sel = window.getSelection();
+    TextRange.selectNode(_Text);
+    sel.removeAllRanges();
+    sel.addRange(TextRange);
+    document.execCommand("copy");
+    alert("已成功複製到剪貼簿");
   }
   ngOnInit() {
-    let link = this.infor.pageLink[0];
+    console.log(this.infor.pageLink);
+    let link = this.infor.pageLink[3];
     (link == 'ConTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
   }
 

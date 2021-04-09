@@ -11,7 +11,7 @@ export class ServicePageComponent implements OnInit {
   constructor(private infor: Information) { }
 
   ngOnInit() {
-    let link = this.infor.pageLink[0];
+    let link = this.infor.pageLink[2];
     (link == 'SerTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
   }
 
