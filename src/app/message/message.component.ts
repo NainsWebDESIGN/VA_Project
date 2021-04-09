@@ -9,6 +9,7 @@ import { Information } from '@service/information.service';
 })
 export class MessageComponent implements OnInit {
   data: any = [];
+  Total: any = [];
   constructor(private api: ApiService, private infor: Information) { }
   news(_Position: number) {
     return "url(./" + this.data[_Position].small_p + ")";
@@ -18,8 +19,10 @@ export class MessageComponent implements OnInit {
     this.infor.changeItem(_Item);
   }
   ngOnInit() {
-    this.api.postApi('message').subscribe(el => {
-      this.data = el;
+    this.api.postApi('message').subscribe((el: Array<any>) => {
+      let news = -4;
+      for (let i = -1; i > news; i--) { this.data.push(el[el.length + i]); }
+      this.Total = el.reverse();
       let link = this.infor.pageLink[1];
       (link == 'MessTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
     });

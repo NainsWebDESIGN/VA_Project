@@ -19,7 +19,7 @@ export class ApiService {
         }
         let url = 'assets/json/' + _Gatewey + '.json';
         switch (_Gatewey) {
-            case 'contact':
+            case 'formdata':
                 let $obj = postData(_Obj[0]);
                 url = '/forms/u/0/d/e/1FAIpQLSdWJlLDYntz5U423tsDTrXMa4hkfxc7sw3J0-f2f59wbRjaEA/formResponse';
                 let headers = new Headers({ 'Access-Control-Allow-Origin': '*' });

@@ -1,32 +1,46 @@
 [
   {
     "type": "WEB",
-    "big_p": "assets/image/html2.png",
-    "small_p": "assets/image/htmlimage.png",
-    "main_p": "assets/image/htmlfront.png",
-    "text": "HTMLWEB",
+    "date": "27 Jun 2021",
+    "big_p": "assets/image/Angular.png",
+    "small_p": "assets/image/Angular.png",
+    "main_p": "assets/image/Angular.png",
+    "text": "Angular",
     "readStyle": "fill",
-    "title": "HTML",
-    "content": "About Nains' HTML writing ability is very outstanding, he is a very good talent, he is a web designer full of wisdom, technology and beauty."
+    "title": "Angular",
+    "content": "關於Nains的Angular寫作能力非常出色，他是非常優秀的人才，他是一個充滿智慧，技術和熱情的網頁設計師。"
   },
   {
     "type": "WEB",
-    "big_p": "assets/image/css2.png",
-    "small_p": "assets/image/cssimage.png",
-    "main_p": "assets/image/cssfront.png",
-    "text": "CSSWEB",
-    "readStyle": "fill fill-dark",
-    "title": "CSS",
-    "content": "About Nains' CSS writing ability is very outstanding, he is a very good talent, he is a web designer full of wisdom, technology and beauty."
-  },
-  {
-    "type": "WEB",
+    "date": "27 Jun 2021",
     "big_p": "assets/image/js2.png",
     "small_p": "assets/image/jsimage.png",
     "main_p": "assets/image/jsfront.png",
     "text": "Javascript",
     "readStyle": "fill",
     "title": "Javascript",
-    "content": "About Nains' Javascript writing ability is very outstanding, he is a very good talent, he is a web designer full of wisdom, technology and beauty."
+    "content": "關於Nains的Javascript寫作能力非常出色，他是非常優秀的人才，他是一個充滿智慧，技術和熱情的網頁設計師。"
+  },
+  {
+    "type": "WEB",
+    "date": "27 Jun 2021",
+    "big_p": "assets/image/css2.png",
+    "small_p": "assets/image/cssimage.png",
+    "main_p": "assets/image/cssfront.png",
+    "text": "CSSWEB",
+    "readStyle": "fill fill-dark",
+    "title": "CSS",
+    "content": "關於Nains的CSS寫作能力非常出色，他是非常優秀的人才，他是一個充滿智慧，技術和熱情的網頁設計師。"
+  },
+  {
+    "type": "WEB",
+    "date": "27 Jun 2021",
+    "big_p": "assets/image/html2.png",
+    "small_p": "assets/image/htmlimage.png",
+    "main_p": "assets/image/htmlfront.png",
+    "text": "HTMLWEB",
+    "readStyle": "fill",
+    "title": "HTML",
+    "content": "關於Nains的HTML寫作能力非常出色，他是非常優秀的人才，他是一個充滿智慧，技術和熱情的網頁設計師。"
   }
 ]

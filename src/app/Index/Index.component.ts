@@ -1,14 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
 
 @Component({
   selector: 'app-Index',
   templateUrl: './Index.component.html',
-  styleUrls: ['./Index.component.css'],
-  // encapsulation: ViewEncapsulation.None
+  styleUrls: ['./Index.component.css']
 })
 export class IndexComponent implements OnInit {
-  data: any;
+  data: any = [];
   sliderPage: Array<boolean>;
   arrow: boolean = false;
   constructor(private api: ApiService) { }
@@ -95,8 +94,9 @@ export class IndexComponent implements OnInit {
     );
   }
   ngOnInit() {
-    this.api.postApi('message').subscribe(el => {
-      this.data = el;
+    this.api.postApi('message').subscribe((el: Array<any>) => {
+      let news = -4;
+      for (let i = -1; i > news; i--) { this.data.push(el[el.length + i]); }
       this.sliderPage = [true, false, false];
     });
   }

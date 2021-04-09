@@ -12,51 +12,19 @@
         </div>
       </div>
       <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 Media">
-        <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+
+        <div *ngFor="let even of data" class="p-4 md:w-1/3 flex flex-col text-center items-center">
           <div
             class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              class="w-10 h-10" viewBox="0 0 24 24">
-              <path
-                d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
-              </path>
-            </svg>
+            <i [class]="even.style"></i>
           </div>
           <div class="flex-grow">
-            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Line@</h2>
-            <p #line class="leading-relaxed text-base">@cnm30678</p>
-            <a class="mt-3 text-indigo-500 inline-flex items-center copy" (click)='copy(line)'>一鍵複製</a>
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">{{even.media}}</h2>
+            <p [id]="even.media" class="leading-relaxed text-base">{{even.href}}</p>
+            <a class="mt-3 text-indigo-500 inline-flex items-center copy" (click)='copy(even.media)'>一鍵複製</a>
           </div>
         </div>
-        <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-          <div
-            class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              class="w-10 h-10" viewBox="0 0 24 24">
-              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-            </svg>
-          </div>
-          <div class="flex-grow">
-            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">FaceBook</h2>
-            <p #fb class="leading-relaxed text-base">http://facebook.cnm30678.com</p>
-            <a class="mt-3 text-indigo-500 inline-flex items-center copy" (click)='copy(fb)'>一鍵複製</a>
-          </div>
-        </div>
-        <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-          <div
-            class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              class="w-10 h-10" viewBox="0 0 24 24">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-            </svg>
-          </div>
-          <div class="flex-grow">
-            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Instagram</h2>
-            <p #ig class="leading-relaxed text-base">http://instagram.cnm30678.com</p>
-            <a id="Email" class="mt-3 text-indigo-500 inline-flex items-center copy" (click)='copy(ig)'>一鍵複製</a>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>

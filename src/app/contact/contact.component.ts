@@ -8,6 +8,7 @@ import { Information } from '@service/information.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  data: any = [];
   name: string;
   email: string;
   message: string;
@@ -19,19 +20,21 @@ export class ContactComponent implements OnInit {
 
     if (this.name.trim() == '' || this.email.trim() == '' || this.message.trim() == '') { alert('請務必填寫完整'); }
     else if (!myreg.test(this.email)) { alert('信箱格式錯誤') }
-    else { this.api.postApi('contact', data).subscribe(Observer); }
+    else { this.api.postApi('formdata', data).subscribe(Observer); }
   }
-  copy(_Text: HTMLElement) {
+  copy(_Text: string) {
     var TextRange = document.createRange();
     let sel = window.getSelection();
-    TextRange.selectNode(_Text);
+    TextRange.selectNode(document.getElementById(_Text));
     sel.removeAllRanges();
     sel.addRange(TextRange);
     document.execCommand("copy");
     alert("已成功複製到剪貼簿");
   }
   ngOnInit() {
-    console.log(this.infor.pageLink);
+    this.api.postApi('contact').subscribe(el => {
+      this.data = el;
+    })
     let link = this.infor.pageLink[3];
     (link == 'ConTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
   }
