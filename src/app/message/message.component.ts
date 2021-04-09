@@ -13,8 +13,9 @@ export class MessageComponent implements OnInit {
   news(_Position: number) {
     return "url(./" + this.data[_Position].small_p + ")";
   }
-  openPopup() {
+  openPopup(_Item: number) {
     this.infor.filter = true;
+    this.infor.changeItem(_Item);
   }
   ngOnInit() {
     this.api.postApi(127).subscribe(el => {
