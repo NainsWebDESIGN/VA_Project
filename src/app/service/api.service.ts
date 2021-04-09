@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpHeaderResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Http, Headers, ResponseOptions } from '@angular/http';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiService {
 
-    constructor(private http: HttpClient, private post: Http) { }
+    constructor(private http: HttpClient, private post: Http, private router: Router) { }
     postApi(_Gatewey: number, ..._Obj: Array<any>) {
         let postData = (el: any) => {
             let keys = Object.keys(el);
@@ -27,6 +28,14 @@ export class ApiService {
                 let headers = new Headers({ 'Access-Control-Allow-Origin': '*' });
                 let options = new ResponseOptions({ headers: headers });
                 return this.post.post(url, $obj, options).map(el => { return el; });
+            case 1491:
+                this.http.get('assets/json/member.json').subscribe((el: any) => {
+                    let username = el.map(res => { return res.username }).indexOf(_Obj[0].username) !== -1;
+                    let password = el.map(res => { return res.password }).indexOf(_Obj[0].password) !== -1;
+                    if (username && password) { localStorage.setItem('login', 'OK'); }
+                    else { localStorage.removeItem('login'); }
+                    return this.router.navigate(['/Member']);
+                })
         }
     }
 }

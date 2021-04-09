@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '@service/api.service';
 
 @Component({
   selector: 'app-Login',
@@ -13,8 +14,13 @@ export class LoginComponent implements OnInit {
   signpass: string = "";
   signpass_2: string = "";
   email: string = "";
-  constructor() { }
+  constructor(private api: ApiService) { }
   Login(_Need: number) {
+    switch (_Need) {
+      case 113:
+        const req = { username: this.username, password: this.password };
+        this.api.postApi(1491, req);
+    }
   }
   toggleForm() {
     this.changeSign = !this.changeSign;

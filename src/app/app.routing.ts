@@ -10,6 +10,9 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './Login/Login.component';
 import { ConsoleComponent } from './Console/Console.component';
 
+// Service
+import { AuthGuard } from '@service/AuthGuard.service';
+
 const routes: Routes = [
   { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
   {
@@ -25,13 +28,16 @@ const routes: Routes = [
     ]
   },
   { path: 'Login', component: LoginComponent },
-  { path: 'Member', component: ConsoleComponent },
+  {
+    path: 'Member', component: ConsoleComponent,
+    canActivate: [AuthGuard]
+  },
   { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
-  providers: []
+  providers: [AuthGuard]
 })
 export class AppRouting { }

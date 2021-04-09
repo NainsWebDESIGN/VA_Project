@@ -620,7 +620,6 @@ p.text {
 .copy:hover {
   color: #fff;
   background: linear-gradient(to bottom, #667eea, #718096);
-  border: none;
 }
 .itemCenter {
   width: 80%;
@@ -679,7 +678,18 @@ p.text {
 .learnbtn:hover {
   color: #2443c8;
 }
-
+.Media {
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .Media {
+    position: relative;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+  }
+}
 /* RWD 跟動畫 */
 @keyframes rotar1 {
   0% {

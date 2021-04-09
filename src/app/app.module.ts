@@ -20,6 +20,7 @@ import { ConsoleComponent } from './Console/Console.component';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
 import { PopupComponent } from './popup/popup.component';
+import { AuthGuard } from '@service/AuthGuard.service';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { PopupComponent } from './popup/popup.component';
     HttpClientModule,
     HttpModule
   ],
-  providers: [ApiService, Information],
+  providers: [ApiService, Information, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
