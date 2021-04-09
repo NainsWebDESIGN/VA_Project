@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Information } from '@service/information.service';
+import { ApiService } from '@service/api.service';
 
 @Component({
   selector: 'app-about',
@@ -7,11 +8,15 @@ import { Information } from '@service/information.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  data: any = [];
   team: boolean;
-  constructor(private infor: Information) { }
+  constructor(private infor: Information, private api: ApiService) { }
   ngOnInit() {
-    let link = this.infor.pageLink[0];
-    (link == 'AboutTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
+    this.api.postApi('about').subscribe(el => {
+      this.data = el;
+      let link = this.infor.pageLink[0];
+      (link == 'AboutTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
+    })
   }
 
 }

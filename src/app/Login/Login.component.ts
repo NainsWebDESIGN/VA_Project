@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         let password = this.password.trim();
         if (username == '' || password == '') { return alert("帳號及密碼不得為空"); }
         else if (password.length < 4 || password.length > 12) { return alert('密碼於4-12字之間'); }
-        else { return this.api.postApi(1491, { username: this.username, password: this.password }); };
+        else { return this.api.postApi('member', { username: this.username, password: this.password }); };
       case 'signup':
         break;
     }

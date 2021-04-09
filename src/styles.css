@@ -18,7 +18,15 @@ body {
 a {
   text-decoration: none;
 }
-.hrefchild {
+.hrefchild,
+.menu,
+.slider__arrow,
+.nav-control,
+.slider-list__item .more__element .content .link,
+.aboutUL li,
+.copy,
+.closebtn,
+.learnbtn {
   cursor: pointer;
 }
 header {
@@ -59,7 +67,6 @@ ul {
   display: block;
   width: 27px;
   height: 13px;
-  cursor: pointer;
   z-index: 9999;
 }
 .menuContent {
@@ -281,7 +288,6 @@ p.text {
   width: 64px;
   height: 64px;
   transition: 0.2s;
-  cursor: pointer;
   z-index: 100;
   opacity: 0.8;
 }
@@ -320,7 +326,6 @@ p.text {
   width: 32px;
   height: 32px;
   transition: 0.2s;
-  cursor: pointer;
   background-image: url(./assets/image/nainsdot.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -521,7 +526,6 @@ p.text {
   line-height: 24px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.06);
   transition: all 0.4s ease;
-  cursor: pointer;
 }
 .slider-list__item .more__element .content .link .fill {
   position: absolute;
@@ -597,7 +601,6 @@ p.text {
   margin: 7px 0;
   border-bottom: #fff solid 1px;
   width: 68px;
-  cursor: pointer;
 }
 
 .aboutUL li:hover {
@@ -615,7 +618,6 @@ p.text {
   font-weight: 400;
   border: 2px solid #667eea;
   border-radius: 19px;
-  cursor: pointer;
 }
 .copy:hover {
   color: #fff;
@@ -671,10 +673,6 @@ p.text {
   position: absolute;
   top: 30px;
   right: 30px;
-  cursor: pointer;
-}
-.learnbtn {
-  cursor: pointer;
 }
 .learnbtn:hover {
   color: #2443c8;
@@ -683,6 +681,32 @@ p.text {
   justify-content: center;
   align-items: center;
 }
+.py-24 {
+  padding: 49px 4.9rem;
+}
+.p-5 {
+  padding: 13px 1.25rem;
+}
+h2.tracking-widest a {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.progress-container {
+  width: 100%;
+  height: 5px;
+}
+
+.progress-bar {
+  height: 5px;
+  background: linear-gradient(to right, #adcee9, #4299e1);
+  width: 0%;
+  border-radius: 5px;
+}
+.mr-5:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .Media {
     position: relative;
@@ -754,7 +778,7 @@ p.text {
     width: 100%;
     height: 25%;
     left: 0%;
-    padding: 5% 0 0 0;
+    padding: 0;
   }
   .menuHref .menuTitle {
     font-size: 1.8em;
@@ -789,7 +813,7 @@ p.text {
 }
 @media (max-width: 500px) {
   .menuHref {
-    padding: 10% 0 0 0;
+    padding: 2% 0 0 0;
   }
 }
 @media (max-width: 768px) {

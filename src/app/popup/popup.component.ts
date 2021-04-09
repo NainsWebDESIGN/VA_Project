@@ -14,7 +14,7 @@ export class PopupComponent implements OnInit {
     this.infor.filter = false;
   }
   ngOnInit() {
-    this.api.postApi(127).subscribe(el => {
+    this.api.postApi('message').subscribe(el => {
       this.infor.messItem$.subscribe(arr => {
         this.data = el[arr];
       })

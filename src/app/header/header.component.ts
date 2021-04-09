@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.api.postApi(113).subscribe(el => { this.data = el; })
+    this.api.postApi('header').subscribe(el => { this.data = el; })
   }
 
 }
