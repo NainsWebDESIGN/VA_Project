@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Information } from '@service/information.service';
 
 @Component({
@@ -6,21 +6,12 @@ import { Information } from '@service/information.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit, OnDestroy {
+export class AboutComponent implements OnInit {
   team: boolean;
   constructor(private infor: Information) { }
-  ScrollToElemenet($element: string) {
-    if ($element == 'team') { scroll(0, 0); }
-    else {
-      let el = document.getElementById($element);
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
   ngOnInit() {
-    this.ScrollToElemenet(this.infor.AboutLink);
-  }
-  ngOnDestroy() {
-    this.infor.AboutLink = 'team';
+    let link = this.infor.pageLink[0];
+    (link == 'AboutTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
   }
 
 }

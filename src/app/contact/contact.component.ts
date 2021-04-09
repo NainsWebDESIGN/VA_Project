@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
+import { Information } from '@service/information.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,7 @@ export class ContactComponent implements OnInit {
   name: string;
   email: string;
   message: string;
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private infor: Information) { }
   Test() {
     const data = { "entry.2002706790": this.name, "entry.1995154974": this.email, "entry.2137997242": this.message }
     let Observer = { next: el => { console.log(el.ok); }, error: err => { console.log(err); }, complete: () => { console.log('OK'); } }
@@ -24,7 +25,8 @@ export class ContactComponent implements OnInit {
 
   }
   ngOnInit() {
-    scroll(0, 0);
+    let link = this.infor.pageLink[0];
+    (link == 'ConTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
   }
 
 }

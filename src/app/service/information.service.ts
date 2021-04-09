@@ -5,12 +5,12 @@ import { NavigationEnd, Router } from '@angular/router';
 export class Information {
     filter: boolean = false;
     Page: string;
-    AboutLink: string = 'team';
+    pageLink: Array<string> = ['AboutTop', 'MessTop', 'SerTop', 'ConTop'];
     constructor(private router: Router) {
         this.router.events.subscribe(el => {
             if (el instanceof NavigationEnd) {
-                console.log(el['url']);
-                this.Page = el['url']
+                this.Page = el['url'];
+                console.log(this.Page);
             }
         })
     }

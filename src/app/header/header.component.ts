@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
     document.getElementById("myBar").style.width = scrollbar + "%";
   }
   data: any = [];
-  Year: any = new Date().getFullYear();
   Menu: boolean = false;
   menuStyle: boolean = false;
   constructor(private api: ApiService, public infor: Information, private router: Router) { }
@@ -31,24 +30,29 @@ export class HeaderComponent implements OnInit {
     }
     this.Menu = this.menuStyle;
   }
-  toTop() {
-    scroll(0, 0);
+  toTop(_Where: number, ..._ID: Array<any>) {
+    (_Where == 0) ? scroll(0, 0) : document.getElementById(_ID[0]).scrollIntoView({ behavior: 'smooth' });
   }
   ScrollToElement(_Item: number, $element: string) {
-    let local = '/Valleys_Awesome/';
+    let Contact = '/Valleys_Awesome/Contact';
+    let Message = '/Valleys_Awesome/Message';
+    let Service = '/Valleys_Awesome/Service';
+    let About = '/Valleys_Awesome/About';
     this.openMenu('close');
+    this.infor.pageLink[_Item] = $element;
     switch (_Item) {
       case 0:
-        if (this.infor.Page == (local + 'About')) {
-          if ($element == 'team') { return scroll(0, 0); }
-          else {
-            let el = document.getElementById($element);
-            return el.scrollIntoView({ behavior: 'smooth' });
-          }
-        } else {
-          this.infor.AboutLink = $element;
-          return this.router.navigate(['/Valleys_Awesome/About']);
-        }
+        (this.infor.Page == About) ? this.toTop($element == 'AboutTop' ? 0 : 1, $element) : this.router.navigate([About]);
+        break;
+      case 1:
+        (this.infor.Page == Message) ? this.toTop($element == 'MessTop' ? 0 : 1, $element) : this.router.navigate([Message]);
+        break;
+      case 2:
+        (this.infor.Page == Service) ? this.toTop($element == 'SerTop' ? 0 : 1, $element) : this.router.navigate([Service]);
+        break;
+      case 3:
+        (this.infor.Page == Contact) ? this.toTop($element == 'ConTop' ? 0 : 1, $element) : this.router.navigate([Contact]);
+        break;
     }
   }
   ngOnInit() {

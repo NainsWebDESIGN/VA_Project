@@ -19,6 +19,8 @@ export class MessageComponent implements OnInit {
   ngOnInit() {
     this.api.postApi(127).subscribe(el => {
       this.data = el;
+      let link = this.infor.pageLink[0];
+      (link == 'MessTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
     });
   }
 

@@ -1,7 +1,7 @@
 <header class="text-gray-400 bg-gray-900 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
-      [routerLink]="['/Valleys_Awesome/Welcome']">
+      [routerLink]="['/Valleys_Awesome/Welcome']" (click)='toTop(0)'>
       <img class="nains" src="assets/image/Webcenter.png" alt="">
       <p class="ml-3 text-xl ch-name">維安科技<br><span class="ml-3 text-xl us-name">Valleys
           Awesome</span></p>
@@ -26,7 +26,7 @@
   <ul>
     <li *ngFor="let even of data; let i = index;" class="menuHref">
       <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle" (click)='openMenu("close")'
-        (click)='toTop()'>
+        (click)='toTop(0)'>
         {{even.title}}
         <p class="menuBorder"></p>
       </a>
@@ -61,7 +61,7 @@
 
       <div *ngFor="let even of data;let i = index;" class="lg:w-1/4 md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">
-          <a [routerLink]="['/Valleys_Awesome/' + even.href]" (click)='toTop()'>
+          <a [routerLink]="['/Valleys_Awesome/' + even.href]" (click)='toTop(0)'>
             {{even.title}}
           </a>
         </h2>
@@ -78,7 +78,7 @@
   </div>
   <div class="bg-gray-800 bg-opacity-75">
     <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p class="text-gray-400 text-sm text-center sm:text-left">© {{Year}} Valleys Awesome —
+      <p class="text-gray-400 text-sm text-center sm:text-left">© 2021 Valleys Awesome —
         <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-500 ml-1"
           target="_blank">@Nains</a>
       </p>
