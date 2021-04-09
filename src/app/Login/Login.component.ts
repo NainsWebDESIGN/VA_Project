@@ -15,11 +15,16 @@ export class LoginComponent implements OnInit {
   signpass_2: string = "";
   email: string = "";
   constructor(private api: ApiService) { }
-  Login(_Need: number) {
+  Login(_Need: string) {
     switch (_Need) {
-      case 113:
-        const req = { username: this.username, password: this.password };
-        this.api.postApi(1491, req);
+      case 'login':
+        let username = this.username.trim();
+        let password = this.password.trim();
+        if (username == '' || password == '') { return alert("帳號及密碼不得為空"); }
+        else if (password.length < 4 || password.length > 12) { return alert('密碼於4-12字之間'); }
+        else { return this.api.postApi(1491, { username: this.username, password: this.password }); };
+      case 'signup':
+        break;
     }
   }
   toggleForm() {
