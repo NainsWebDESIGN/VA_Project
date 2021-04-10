@@ -1,3 +1,4 @@
+import { Information } from '@service/information.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Http, Headers, ResponseOptions } from '@angular/http';
@@ -7,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiService {
 
-    constructor(private http: HttpClient, private post: Http, private router: Router) { }
+    constructor(private http: HttpClient, private post: Http, private router: Router, private infor: Information) { }
     postApi(_Gatewey: string, ..._Obj: Array<any>) {
         let postData = (el: any) => {
             let keys = Object.keys(el);

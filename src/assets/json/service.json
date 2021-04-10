@@ -1,0 +1,72 @@
+[
+  [
+    {
+      "title": "HTML",
+      "style": "fas fa-code wwdImg",
+      "content": "我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。"
+    },
+    {
+      "title": "CSS",
+      "style": "fab fa-css3 wwdImg",
+      "content": "我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。"
+    },
+    {
+      "title": "Javascript",
+      "style": "fab fa-js-square wwdImg",
+      "content": "我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。"
+    },
+    {
+      "title": "Angular",
+      "style": "fab fa-angular wwdImg",
+      "content": "我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。"
+    },
+    {
+      "title": "PHP",
+      "style": "fab fa-php wwdImg",
+      "content": "我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。"
+    },
+    {
+      "title": "DataBase",
+      "style": "fas fa-database wwdImg",
+      "content": "我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。"
+    }
+  ],
+  {
+    "left": [
+      {
+        "title": "Angular",
+        "percentage": "86"
+      },
+      {
+        "title": "TypeScript",
+        "percentage": "68"
+      },
+      {
+        "title": "CSS",
+        "percentage": "49"
+      },
+      {
+        "title": "PHP",
+        "percentage": "27"
+      }
+    ],
+    "right": [
+      {
+        "title": "溝通",
+        "percentage": "94"
+      },
+      {
+        "title": "團隊合作",
+        "percentage": "86"
+      },
+      {
+        "title": "項目管理",
+        "percentage": "68"
+      },
+      {
+        "title": "創造力",
+        "percentage": "72"
+      }
+    ]
+  }
+]
