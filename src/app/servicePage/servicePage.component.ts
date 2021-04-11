@@ -34,7 +34,7 @@ export class ServicePageComponent implements OnInit {
       $('#circle_' + i).circleProgress({
         value: (Number(animate[i].percentage) / 100),
         size: 72,
-        fill: { gradient: ["#3bb78f", "#0bab64"] }
+        fill: { gradient: ["#667eea"] }
       })
     }
   }
