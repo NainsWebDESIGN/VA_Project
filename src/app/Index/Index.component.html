@@ -19,7 +19,7 @@
                         <span class="excerpt">{{even.content}}</span>
                         <span class="link">
                             <div [class]="even.readStyle"></div>
-                            <a>Read More</a>
+                            <a (click)='openPopup(i)'>Read More</a>
                         </span>
                     </span>
                 </span>

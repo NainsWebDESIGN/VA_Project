@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
+import { Information } from '@service/information.service';
 
 @Component({
   selector: 'app-Index',
@@ -10,7 +11,7 @@ export class IndexComponent implements OnInit {
   data: any = [];
   sliderPage: Array<boolean>;
   arrow: boolean = false;
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private infor: Information) { }
   openArrow() {
     this.arrow = true;
   }
@@ -92,6 +93,10 @@ export class IndexComponent implements OnInit {
         translateX: [0, -100 * dir + "%"]
       })
     );
+  }
+  openPopup(_Item: number) {
+    this.infor.filter = true;
+    this.infor.changeItem(_Item);
   }
   ngOnInit() {
     this.api.postApi('message').subscribe((el: Array<any>) => {
