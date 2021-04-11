@@ -805,6 +805,10 @@ h2.tracking-widest a {
 .serviceWork {
   padding: 13px;
 }
+.workTitle {
+  justify-content: center;
+  align-items: center;
+}
 
 @media (max-width: 768px) {
   .Media {
