@@ -1,0 +1,19 @@
+.workChild {
+  cursor: pointer;
+  margin-right: 1.25rem;
+}
+.workChild:hover {
+  color: #667eea;
+}
+.works {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.worksbet {
+  width: 34%;
+  margin-left: 34%;
+}
+.worksright {
+  margin-left: 66.66%;
+  width: 33.33%;
+}
