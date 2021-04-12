@@ -8,7 +8,8 @@
       </div>
       <div class="flex flex-wrap -m-4 aboutTeam">
 
-        <div *ngFor="let even of data[0];let i = index;" [class.active]="team" class="p-4 lg:w-1/4 md:w-1/2 teamItem">
+        <div *ngFor="let even of data[0]; let i = index;" [class.active]="ScrollBl('team', i)" [id]="'Scroll_Team_' + i"
+          [ngClass]="{'teamItem-left': i == 0, 'teamItem-right': i == 1}" class="p-4 lg:w-1/4 md:w-1/2">
           <div class="h-full flex flex-col items-center text-center">
             <div class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4 aboutimgbx">
               <img alt="Valleys Awesome" class="aboutImg" [src]="even.pic">

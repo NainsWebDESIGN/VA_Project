@@ -25,7 +25,7 @@ export class AboutComponent implements OnInit {
     }
   }
   data: any = [];
-  team: boolean;
+  scrollTeam: any = [false, false];
   scrollLineL: any = [];
   scrollPlace: any = [];
   constructor(private infor: Information, private api: ApiService) { }
@@ -35,13 +35,18 @@ export class AboutComponent implements OnInit {
         return this.scrollLineL[_Position];
       case 'place':
         return this.scrollPlace[_Position];
+      case 'team':
+        return this.scrollTeam[_Position];
     }
   }
   ngOnInit() {
     this.api.postApi('about').subscribe((el: any) => {
+      this.scrollTeam = [];
       el[1].forEach(res => { this.scrollLineL.push(false) });
-      el[2].forEach(res => { this.scrollLineL.push(false) });
+      el[2].forEach(res => { this.scrollPlace.push(false) });
       this.data = el;
+      setTimeout(() => { el[0].forEach(res => { this.scrollTeam.push(true) }); }, 1000);
+
 
       let link = this.infor.pageLink[0];
       (link == 'AboutTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });

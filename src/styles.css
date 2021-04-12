@@ -70,25 +70,30 @@ header {
   transform: translateX(-200px);
   transition: 1s ease-in-out;
 }
+.teamItem-left {
+  opacity: 0;
+  transform: translateX(-200px) translateY(200px);
+  transition: 1s ease-in-out;
+}
+.teamItem-right {
+  opacity: 0;
+  transform: translateX(200px) translateY(200px);
+  transition: 1s ease-in-out;
+}
 .scrollAbout-right,
 .place-right {
   opacity: 0;
   transform: translateX(200px);
   transition: 1s ease-in-out;
 }
-.place-left.active {
-  opacity: 1;
-  transform: translateX(0px);
-}
-.scrollAbout.active {
-  opacity: 1;
-  transform: translateY(0px);
-}
+.teamItem-left.active,
+.teamItem-right.active,
+.place-left.active,
+.scrollAbout.active,
 .scrollAbout-right.active,
 .place-right.active {
   opacity: 1;
-  transform: translateX(0px);
-  right: 0;
+  transform: translateX(0px) translateY(0px);
 }
 #header.active {
   width: 100%;
