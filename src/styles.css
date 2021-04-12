@@ -60,12 +60,25 @@ header {
   transform: translateX(100px) translateY(200px);
   transition: 1s ease-in-out;
 }
-.indexLeft_1.active,
-.indexLeft_2.active,
-.indexRight_1.active,
-.indexRight_2.active {
-  opacity: 1;
-  transform: translateX(0px) translateY(0px);
+.scroll-message {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: 1s ease-in-out;
+}
+.news-left {
+  opacity: 0;
+  transform: translateX(-200px) translateY(200px);
+  transition: 1s ease-in-out;
+}
+.news-bet {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: 1s ease-in-out;
+}
+.news-right {
+  opacity: 0;
+  transform: translateX(200px) translateY(200px);
+  transition: 1s ease-in-out;
 }
 #header {
   position: fixed;
@@ -122,7 +135,15 @@ header {
 .place-left.active,
 .scrollAbout.active,
 .scrollAbout-right.active,
-.place-right.active {
+.place-right.active,
+.indexLeft_1.active,
+.indexLeft_2.active,
+.indexRight_1.active,
+.indexRight_2.active,
+.news-left.active,
+.news-bet.active,
+.news-right.active,
+.scroll-message.active {
   opacity: 1;
   transform: translateX(0px) translateY(0px);
 }

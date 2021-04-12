@@ -45,7 +45,8 @@ export class AboutComponent implements OnInit {
       el[1].forEach(res => { this.scrollLineL.push(false) });
       el[2].forEach(res => { this.scrollPlace.push(false) });
       this.data = el;
-      setTimeout(() => { el[0].forEach(res => { this.scrollTeam.push(true) }); }, 1000);
+      setTimeout(() => { el[0].forEach(res => { this.scrollTeam.push(true) }); }, 500);
+
 
 
       let link = this.infor.pageLink[0];
