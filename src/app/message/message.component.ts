@@ -14,15 +14,15 @@ export class MessageComponent implements OnInit {
   news(_Position: number) {
     return "url(./" + this.data[_Position].small_p + ")";
   }
-  openPopup(_Item: number) {
+  openPopup(_Item: any) {
     this.infor.filter = true;
     this.infor.changeItem(_Item);
   }
   ngOnInit() {
     this.api.postApi('message').subscribe((el: Array<any>) => {
-      let news = -4;
-      for (let i = -1; i > news; i--) { this.data.push(el[el.length + i]); }
+      let news = 3;
       this.Total = el.reverse();
+      for (let i = 0; i < news; i++) { this.data.push(this.Total[i]); };
       let link = this.infor.pageLink[1];
       (link == 'MessTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
     });

@@ -4,13 +4,13 @@
       "name": "Nains",
       "type": "前端",
       "content": "關於Nains的前端寫作能力非常出色，他是非常優秀的人才，他是一個充滿智慧，技術和熱情的網頁設計師。",
-      "pic": "https://dummyimage.com/202x202"
+      "pic": "assets/image/LOGO.png"
     },
     {
       "name": "Todd",
       "type": "後端",
       "content": "關於Todd的後端寫作能力非常出色，他是非常優秀的人才，他是一個充滿智慧，技術和熱情的網頁設計師。",
-      "pic": "https://dummyimage.com/203x203"
+      "pic": "assets/image/logo_bg.jpg"
     }
   ],
   [

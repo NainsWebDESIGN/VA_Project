@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
 
@@ -8,5 +8,7 @@ import { Information } from '@service/information.service';
   styleUrls: ['./app.component.css'],
   providers: [ApiService, Information]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit() {
+  }
 }

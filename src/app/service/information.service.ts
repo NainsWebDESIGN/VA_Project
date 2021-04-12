@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class Information {
     filter: boolean = false;
     Message: boolean = false;
-    private messItem: number = 0;
+    private messItem: any = {};
     private SubMessItem = new BehaviorSubject(this.messItem);
     messItem$ = this.SubMessItem.asObservable();
     Page: string;
@@ -19,7 +19,7 @@ export class Information {
             }
         })
     }
-    changeItem(_Item: number) {
+    changeItem(_Item: any) {
         this.messItem = _Item;
         this.SubMessItem.next(this.messItem);
     }

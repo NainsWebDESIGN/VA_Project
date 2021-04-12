@@ -9,16 +9,25 @@ import { ApiService } from '@service/api.service';
 })
 export class PopupComponent implements OnInit {
   data: any = {};
+  Total: Array<any> = [];
   constructor(public infor: Information, private api: ApiService) { }
   closePopup() {
     this.infor.filter = false;
   }
+  next() {
+    let index = this.Total.map(el => { return el.title + el.content }).indexOf(this.data.title + this.data.content);
+    this.data = this.Total[(index >= (this.Total.length - 1)) ? 0 : (index + 1)];
+    // console.log(this.Total.length);
+    // console.log(this.Total);
+    // console.log(index);
+  }
   ngOnInit() {
-    this.api.postApi('message').subscribe(el => {
-      this.infor.messItem$.subscribe(arr => {
-        this.data = el[arr];
-      })
-    });
+    this.api.postApi('message').subscribe((el: any) => {
+      this.Total = el.reverse();
+    })
+    this.infor.messItem$.subscribe((el: any) => {
+      this.data = el;
+    })
   }
 
 }

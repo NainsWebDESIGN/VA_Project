@@ -94,7 +94,7 @@ export class IndexComponent implements OnInit {
       })
     );
   }
-  openPopup(_Item: number) {
+  openPopup(_Item: any) {
     this.infor.filter = true;
     this.infor.changeItem(_Item);
   }
