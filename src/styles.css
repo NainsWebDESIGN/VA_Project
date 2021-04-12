@@ -36,6 +36,37 @@ header {
   top: 0;
   background: #1a202c;
 }
+.indexChoice {
+  color: #4299e1;
+  margin-bottom: 0.75rem;
+}
+.indexLeft_1 {
+  opacity: 0;
+  transform: translateX(-200px) translateY(200px);
+  transition: 1s ease-in-out;
+}
+.indexLeft_2 {
+  opacity: 0;
+  transform: translateX(-100px) translateY(200px);
+  transition: 1s ease-in-out;
+}
+.indexRight_1 {
+  opacity: 0;
+  transform: translateX(200px) translateY(200px);
+  transition: 1s ease-in-out;
+}
+.indexRight_2 {
+  opacity: 0;
+  transform: translateX(100px) translateY(200px);
+  transition: 1s ease-in-out;
+}
+.indexLeft_1.active,
+.indexLeft_2.active,
+.indexRight_1.active,
+.indexRight_2.active {
+  opacity: 1;
+  transform: translateX(0px) translateY(0px);
+}
 #header {
   position: fixed;
   display: block;

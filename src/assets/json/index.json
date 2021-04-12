@@ -1,0 +1,22 @@
+[
+  {
+    "style": "fas fa-cloud-download-alt",
+    "content": "2.7K",
+    "name": "下載"
+  },
+  {
+    "style": "fas fa-users",
+    "content": "1.3K",
+    "name": "會員"
+  },
+  {
+    "style": "fas fa-headphones-alt",
+    "content": "74K",
+    "name": "使用者"
+  },
+  {
+    "style": "fas fa-globe-americas",
+    "content": "46",
+    "name": "據點"
+  }
+]

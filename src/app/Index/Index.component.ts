@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
 
@@ -8,9 +8,20 @@ import { Information } from '@service/information.service';
   styleUrls: ['./Index.component.css']
 })
 export class IndexComponent implements OnInit {
+  @HostListener('window:scroll', ['$event'])
+  SetWidth(_Event) {
+    if (this.Choice) {
+      let finalTop = (el: any) => { return el.getBoundingClientRect().top - window.screen.availHeight; }
+      let item = document.getElementById('ChoiecID');
+      let placeHeight = item.clientHeight * 0.8;
+      this.IndexChoice = (finalTop(item) + placeHeight) < 0 ? true : false;
+    }
+  }
   data: any = [];
   sliderPage: Array<boolean>;
   arrow: boolean = false;
+  Choice: Array<any> = [];
+  IndexChoice: boolean = false;
   constructor(private api: ApiService, private infor: Information) { }
   openArrow() {
     this.arrow = true;
@@ -99,6 +110,9 @@ export class IndexComponent implements OnInit {
     this.infor.changeItem(_Item);
   }
   ngOnInit() {
+    this.api.postApi('index').subscribe((el: Array<any>) => {
+      this.Choice = el;
+    })
     this.api.postApi('message').subscribe((el: Array<any>) => {
       let news = -4;
       for (let i = -1; i > news; i--) { this.data.push(el[el.length + i]); }
