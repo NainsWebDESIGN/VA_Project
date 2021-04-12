@@ -60,7 +60,9 @@ header {
   transform: translateX(100px) translateY(200px);
   transition: 1s ease-in-out;
 }
-.scroll-message {
+.scroll-message,
+.media-bet,
+.news-bet {
   opacity: 0;
   transform: translateY(200px);
   transition: 1s ease-in-out;
@@ -68,16 +70,6 @@ header {
 .news-left {
   opacity: 0;
   transform: translateX(-200px) translateY(200px);
-  transition: 1s ease-in-out;
-}
-.news-bet {
-  opacity: 0;
-  transform: translateY(200px);
-  transition: 1s ease-in-out;
-}
-.news-right {
-  opacity: 0;
-  transform: translateX(200px) translateY(200px);
   transition: 1s ease-in-out;
 }
 #header {
@@ -93,6 +85,7 @@ header {
   transition: 0.5s ease-in-out;
 }
 .aboutimgbx {
+  border-radius: 50%;
   overflow: hidden;
 }
 .h-56 {
@@ -114,12 +107,15 @@ header {
   transform: translateX(-200px);
   transition: 1s ease-in-out;
 }
-.teamItem-left {
+.teamItem-left,
+.media-left {
   opacity: 0;
   transform: translateX(-200px) translateY(200px);
   transition: 1s ease-in-out;
 }
-.teamItem-right {
+.news-right,
+.teamItem-right,
+.media-right {
   opacity: 0;
   transform: translateX(200px) translateY(200px);
   transition: 1s ease-in-out;
@@ -129,6 +125,15 @@ header {
   opacity: 0;
   transform: translateX(200px);
   transition: 1s ease-in-out;
+}
+.Feeback {
+  opacity: 0;
+  transform: rotate3d(1, 1, 1, 72deg) translateX(-400px) translateY(720px);
+  transition: 1s ease-in-out;
+}
+.Feeback.active {
+  opacity: 1;
+  transform: rotate3d(0, 0, 0, 72deg) translateX(0px) translateY(0px);
 }
 .teamItem-left.active,
 .teamItem-right.active,
@@ -143,7 +148,10 @@ header {
 .news-left.active,
 .news-bet.active,
 .news-right.active,
-.scroll-message.active {
+.scroll-message.active,
+.media-left.active,
+.media-bet.active,
+.media-right.active {
   opacity: 1;
   transform: translateX(0px) translateY(0px);
 }

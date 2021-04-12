@@ -11,6 +11,7 @@ export class Information {
     messItem$ = this.SubMessItem.asObservable();
     Page: string;
     pageLink: Array<string> = ['AboutTop', 'MessTop', 'SerTop', 'ConTop'];
+    bodyWidth: number = document.body.clientWidth;
     constructor(private router: Router) {
         this.router.events.subscribe(el => {
             if (el instanceof NavigationEnd) {
