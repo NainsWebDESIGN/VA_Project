@@ -10,17 +10,14 @@ import { ApiService } from '@service/api.service';
 export class AboutComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   SetWidth(_Event) {
-    for (let i = 0; i < this.data[1].length; i++) {
-      let item = document.getElementById('Scroll_1_line_' + i);
-      let itemHeight = item.clientHeight * 0.8;
-      let toTop = item.getBoundingClientRect().top - window.screen.availHeight;
-      this.scrollBL[i] = (toTop + itemHeight) < 0 ? true : false;
+    if (this.data[1]) {
+      for (let i = 0; i < this.data[1].length; i++) {
+        let item = document.getElementById('Scroll_1_line_' + i);
+        let itemHeight = item.clientHeight * 0.8;
+        let toTop = item.getBoundingClientRect().top - window.screen.availHeight;
+        this.scrollBL[i] = (toTop + itemHeight) < 0 ? true : false;
+      }
     }
-    // let item1Scroll = document.getElementById('Scroll_1_line_2');
-    // let itemHeight = item1Scroll.clientHeight * 0.8;
-    // let toTop = item1Scroll.getBoundingClientRect().top;
-    // let finalTop = toTop - window.screen.availHeight;
-    // this.scrollBL = (finalTop + itemHeight) < 0 ? true : false;
   }
   data: any = [];
   team: boolean;
