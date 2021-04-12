@@ -11,27 +11,36 @@ export class AboutComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   SetWidth(_Event) {
     if (this.data[1]) {
+      let finalTop = (el: any) => { return el.getBoundingClientRect().top - window.screen.availHeight; }
       for (let i = 0; i < this.data[1].length; i++) {
-        let item = document.getElementById('Scroll_1_line_' + i);
-        let itemHeight = item.clientHeight * 0.8;
-        let toTop = item.getBoundingClientRect().top - window.screen.availHeight;
-        this.scrollBL[i] = (toTop + itemHeight) < 0 ? true : false;
+        let itemLine = document.getElementById('Scroll_line_' + i);
+        let lineHeight = itemLine.clientHeight * 0.8;
+        this.scrollLineL[i] = (finalTop(itemLine) + lineHeight) < 0 ? true : false;
+      }
+      for (let i = 0; i < this.data[2].length; i++) {
+        let itemPlace = document.getElementById('Scroll_Place_' + i);
+        let placeHeight = itemPlace.clientHeight * 0.6;
+        this.scrollPlace[i] = (finalTop(itemPlace) + placeHeight) < 0 ? true : false;
       }
     }
   }
   data: any = [];
   team: boolean;
-  scrollBL: any = [];
+  scrollLineL: any = [];
+  scrollPlace: any = [];
   constructor(private infor: Information, private api: ApiService) { }
   ScrollBl(_Need: string, _Position: number) {
     switch (_Need) {
       case 'line':
-        return this.scrollBL[_Position];
+        return this.scrollLineL[_Position];
+      case 'place':
+        return this.scrollPlace[_Position];
     }
   }
   ngOnInit() {
     this.api.postApi('about').subscribe((el: any) => {
-      el.forEach(res => { this.scrollBL.push(false) });
+      el[1].forEach(res => { this.scrollLineL.push(false) });
+      el[2].forEach(res => { this.scrollLineL.push(false) });
       this.data = el;
 
       let link = this.infor.pageLink[0];

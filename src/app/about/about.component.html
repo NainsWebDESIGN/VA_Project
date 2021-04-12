@@ -54,7 +54,7 @@
     <h2 class="aboutText" (click)='test()'>品牌故事</h2>
     <div class="container px-5 py-24 mx-auto flex flex-wrap">
 
-      <div *ngFor="let even of data[1]; let i = index;" [id]="'Scroll_1_line_' + i"
+      <div *ngFor="let even of data[1]; let i = index;" [id]="'Scroll_line_' + i"
         class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto storyItem">
         <div [class.active]="ScrollBl('line', i)"
           class="scrollAbout h-full w-6 absolute inset-0 flex items-center justify-center">
@@ -86,7 +86,8 @@
     <h2 class="aboutText">相關單位</h2>
     <div class="container px-5 py-24 mx-auto">
 
-      <div *ngFor="let even of data[2]; let evItem = even; let odItem = odd;"
+      <div *ngFor="let even of data[2]; let evItem = even; let odItem = odd; let i = index;" [id]="'Scroll_Place_' + i"
+        [ngClass]="{'place-right': evItem, 'place-left': odItem}" [class.active]="ScrollBl('place', i)"
         class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
 
         <div *ngIf="odItem" class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
