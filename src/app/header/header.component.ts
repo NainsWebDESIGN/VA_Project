@@ -34,24 +34,37 @@ export class HeaderComponent implements OnInit {
     (_Where == 0) ? scroll(0, 0) : document.getElementById(_ID[0]).scrollIntoView({ behavior: 'smooth' });
   }
   ScrollToElement(_Item: number, $element: string) {
-    let Contact = '/Valleys_Awesome/Contact';
-    let Message = '/Valleys_Awesome/Message';
-    let Service = '/Valleys_Awesome/Service';
-    let About = '/Valleys_Awesome/About';
+    let route = (el: string) => { return '/Valleys_Awesome/' + el; };
     this.openMenu('close');
     this.infor.pageLink[_Item] = $element;
     switch (_Item) {
       case 0:
-        (this.infor.Page == About) ? this.toTop($element == 'AboutTop' ? 0 : 1, $element) : this.router.navigate([About]);
+        if (this.infor.Page == route('About')) { this.toTop($element == 'AboutTop' ? 0 : 1, $element) }
+        else {
+          this.infor.pageLink[_Item] = $element;
+          this.router.navigate([route('About')]);
+        }
         break;
       case 1:
-        (this.infor.Page == Message) ? this.toTop($element == 'MessTop' ? 0 : 1, $element) : this.router.navigate([Message]);
+        if (this.infor.Page == route('Message')) { this.toTop($element == 'MessTop' ? 0 : 1, $element) }
+        else {
+          this.infor.pageLink[_Item] = $element;
+          this.router.navigate([route('Message')]);
+        }
         break;
       case 2:
-        (this.infor.Page == Service) ? this.toTop($element == 'SerTop' ? 0 : 1, $element) : this.router.navigate([Service]);
+        if (this.infor.Page == route('Service')) { this.toTop($element == 'SerTop' ? 0 : 1, $element) }
+        else {
+          this.infor.pageLink[_Item] = $element;
+          this.router.navigate([route('Service')]);
+        }
         break;
       case 3:
-        (this.infor.Page == Contact) ? this.toTop($element == 'ConTop' ? 0 : 1, $element) : this.router.navigate([Contact]);
+        if (this.infor.Page == route('Contact')) { this.toTop($element == 'ConTop' ? 0 : 1, $element) }
+        else {
+          this.infor.pageLink[_Item] = $element;
+          this.router.navigate([route('Contact')]);
+        }
         break;
     }
   }
