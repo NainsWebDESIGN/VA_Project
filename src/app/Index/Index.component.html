@@ -50,7 +50,7 @@
             <div class="p-4 md:w-1/4 sm:w-1/2 w-full" *ngFor="let choice of Choice; let i = index;"
                 [class.active]="IndexChoice"
                 [ngClass]="{'indexLeft_1': i == 0, 'indexLeft_2': i == 1, 'indexRight_1': i == 3, 'indexRight_2': i == 2}">
-                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="border: none;">
                     <i [class]="choice.style + ' fa-3x indexChoice'"></i>
                     <h2 class="title-font font-medium text-3xl text-gray-900">{{choice.content}}</h2>
                     <p class="leading-relaxed">{{choice.name}}</p>

@@ -21,7 +21,7 @@
     "title": "服務內容",
     "content": [
       { "name": "項目", "route": "SerTop" },
-      { "name": "技能", "route": "Ser_two" },
+      { "name": "技能", "route": "Ser_Two" },
       { "name": "作品", "route": "Ser_Three" },
       { "name": "價格", "route": "Ser_Four" }
     ]

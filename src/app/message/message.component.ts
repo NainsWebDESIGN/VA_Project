@@ -15,6 +15,7 @@ export class MessageComponent implements OnInit {
       for (let i = 0; i < this.Total.length; i++) {
         let itemPlace = document.getElementById('Scroll_Total_' + i);
         let placeHeight = itemPlace.clientHeight * 0.2;
+        // this.Scroll_Total[i] = finalTop(itemPlace) < 0 ? true : false;
         this.Scroll_Total[i] = (finalTop(itemPlace) + placeHeight) < 0 ? true : false;
       }
     }
