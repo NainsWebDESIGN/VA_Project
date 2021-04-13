@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "VA Project"
+    "name": "undoneVA"
   },
   "apps": [
     {
       "root": "src",
-      "outDir": "VA Project",
+      "outDir": "undoneVA",
       "assets": ["assets", "favicon.ico", "scss"],
       "index": "index.html",
       "main": "main.ts",
