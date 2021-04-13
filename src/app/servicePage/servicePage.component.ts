@@ -14,8 +14,17 @@ export class ServicePageComponent implements OnInit {
       let finalTop = (el: any) => { return el.getBoundingClientRect().top - window.screen.availHeight; }
       let itemLeft = document.getElementById('Scroll_skill_left');
       let itemRight = document.getElementById('Scroll_skill_right');
+      let oneLine = document.getElementById('worksleft');
+      let twoLine = document.getElementById('worksbet');
+      let threeLine = document.getElementById('worksright');
       let leftHeight = itemLeft.clientHeight * 0.68;
       let rightHeight = itemRight.clientHeight * 0.68;
+      let oneHeight = oneLine.clientHeight;
+      let twoHeight = twoLine.clientHeight;
+      let threeHeight = threeLine.clientHeight;
+      this.Scroll_skill.titleLine[0] = (finalTop(oneLine) + oneHeight) < 0 ? true : false;
+      this.Scroll_skill.titleLine[1] = (finalTop(twoLine) + twoHeight) < 0 ? true : false;
+      this.Scroll_skill.titleLine[2] = (finalTop(threeLine) + threeHeight) < 0 ? true : false;
       this.ScrollSkill('left', (finalTop(itemLeft) + leftHeight) < 0 ? 1 : 0)
       this.ScrollSkill('right', (finalTop(itemRight) + rightHeight) < 0 ? 1 : 0)
     }
@@ -28,7 +37,8 @@ export class ServicePageComponent implements OnInit {
   Scroll_skill: any = {
     left: [],
     right: false,
-    rightAgain: false
+    rightAgain: false,
+    titleLine: [false, false, false]
   };
   constructor(private infor: Information, private api: ApiService) { }
   Price() {

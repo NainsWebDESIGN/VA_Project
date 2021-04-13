@@ -33,9 +33,9 @@
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col">
         <div class="h-1 bg-gray-200 rounded overflow-hidden">
-          <div class="w-24 h-full bg-indigo-500" style="width: 33.33%;"></div>
+          <div class="w-24 h-full bg-indigo-500 worksleft" [class.active]="Scroll_skill?.titleLine[0]"></div>
         </div>
-        <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+        <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12" id="worksleft">
           <h1 class="sm:w-2/5 text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0">
             技能與分工</h1>
           <p class="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
@@ -87,9 +87,9 @@
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap">
       <div class="h-1 bg-gray-200 rounded overflow-hidden works">
-        <div class="w-24 h-full bg-indigo-500 worksbet"></div>
+        <div class="w-24 h-full bg-indigo-500 worksbet" [class.active]="Scroll_skill?.titleLine[1]"></div>
       </div>
-      <div class="flex w-full mb-20 flex-wrap">
+      <div class="flex w-full mb-20 flex-wrap" id="worksbet">
         <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">近期作品</h1>
         <div class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base serviceWork">
           <nav style="text-align: center;">
@@ -123,9 +123,9 @@
   <section class="text-gray-600 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
       <div class="h-1 bg-gray-200 rounded overflow-hidden works">
-        <div class="w-24 h-full bg-indigo-500 worksright"></div>
+        <div class="w-24 h-full bg-indigo-500 worksright" [class.active]="Scroll_skill?.titleLine[2]"></div>
       </div>
-      <div class="flex flex-col text-center w-full mb-20">
+      <div class="flex flex-col text-center w-full mb-20" id="worksright">
         <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">方案</h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">使用簡單的聲明性模板快速構建功能。
           使用您自己的組件擴展模板語言，並使用各種各樣的現有組件。 幾乎所有的IDE和編輯器都可立即獲得特定於Angular的幫助和反饋。 所有這些結合在一起，因此您可以專注於構建出色的應用程序，而不是試圖使代碼正常工作。</p>

@@ -9,11 +9,27 @@
   margin-bottom: 1.5rem;
   width: 100%;
 }
-.worksbet {
+.worksleft,
+.worksbet,
+.worksright {
+  transition: 0.72s ease-in-out;
+}
+.worksleft {
+  width: 0%;
+}
+.worksright {
   width: 34%;
   margin-left: 34%;
 }
-.worksright {
-  margin-left: 66.66%;
-  width: 33.33%;
+.worksbet {
+  width: 34%;
+}
+.worksleft.active {
+  width: 34%;
+}
+.worksbet.active {
+  margin-left: 34%;
+}
+.worksright.active {
+  margin-left: 66%;
 }
