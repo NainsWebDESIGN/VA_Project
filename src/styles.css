@@ -742,6 +742,7 @@ p.text {
   background: linear-gradient(to bottom, #667eea, #718096);
 }
 .itemCenter {
+  padding: 49px 0 0 0;
   width: 80%;
   position: relative;
   left: 10%;
