@@ -952,6 +952,9 @@ h2.tracking-widest a {
   transform: translateY(200px);
   transition: 0.72s ease-in-out;
 }
+.protoforlio {
+  transition: 0.3s ease-in-out;
+}
 .circleProgress {
   margin-top: 13%;
 }
