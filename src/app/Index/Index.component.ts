@@ -13,7 +13,7 @@ export class IndexComponent implements OnInit {
     if (this.Choice) {
       let finalTop = (el: any) => { return el.getBoundingClientRect().top - window.screen.availHeight; }
       let item = document.getElementById('ChoiecID');
-      let placeHeight = item.clientHeight * 0.8;
+      let placeHeight = item.clientHeight * 0.4;
       this.IndexChoice = (finalTop(item) + placeHeight) < 0 ? true : false;
     }
   }

@@ -1071,14 +1071,12 @@ h2.tracking-widest a {
     left: 0%;
   }
 }
-@media (max-width: 500px) {
-  .menuHref {
-    padding: 2% 0 0 0;
-  }
-}
 @media (max-width: 768px) {
   .md\:flex-row {
     flex-direction: column;
+  }
+  .menuHref {
+    padding: 5% 0 0 0;
   }
   .text-center {
     text-align: center;
@@ -1099,5 +1097,9 @@ h2.tracking-widest a {
   }
   .left {
     width: 100%;
+  }
+  .itemCenter {
+    width: 100%;
+    left: 0;
   }
 }

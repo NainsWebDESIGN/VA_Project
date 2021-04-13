@@ -15,7 +15,7 @@ export class ServicePageComponent implements OnInit {
       let Name = (el: string) => { return document.getElementById(el); };
       let leftHeight = Name('Scroll_skill_left').clientHeight * 0.68;
       let rightHeight = Name('Scroll_skill_right').clientHeight * 0.68;
-      let protofioHeight = Name('Scroll_Protofio').clientHeight * 0.27;
+      let protofioHeight = Name('Scroll_Protofio').clientHeight * 0.13;
       let oneHeight = Name('worksleft').clientHeight;
       let twoHeight = Name('worksbet').clientHeight;
       let threeHeight = Name('worksright').clientHeight;
