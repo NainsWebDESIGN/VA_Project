@@ -161,7 +161,8 @@ header {
 .Do-bet.active,
 .Do-right.active,
 .Scroll_skill_left.active,
-#Scroll_skill_right.active {
+#Scroll_skill_right.active,
+.workTitle.active {
   opacity: 1;
   transform: translateX(0px) translateY(0px);
 }
@@ -924,14 +925,41 @@ h2.tracking-widest a {
 .serviceWork {
   padding: 13px;
 }
+.Item_Month {
+  position: absolute;
+  left: -500px;
+  opacity: 0;
+  transition: 0.72s ease-in-out;
+}
+.Item_Year {
+  position: relative;
+  right: -500px;
+  opacity: 0;
+  transition: 0.72s ease-in-out;
+}
+.Item_Month.active {
+  left: 10%;
+  opacity: 1;
+}
+.Item_Year.active {
+  right: 0px;
+  opacity: 1;
+}
 .workTitle {
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transform: translateY(200px);
+  transition: 0.72s ease-in-out;
 }
 .circleProgress {
   margin-top: 13%;
 }
-
+@media (max-width: 1280px) {
+  .Item_Month {
+    width: 80%;
+  }
+}
 @media (max-width: 768px) {
   .Media {
     position: relative;

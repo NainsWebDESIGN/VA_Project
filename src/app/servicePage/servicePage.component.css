@@ -1,9 +1,15 @@
 .workChild {
   cursor: pointer;
+  font-weight: 400;
+  text-transform: uppercase;
   margin-right: 1.25rem;
+  transition: 0.3s ease-in-out;
 }
 .workChild:hover {
   color: #667eea;
+}
+.workChild.active {
+  color: #334eca;
 }
 .works {
   margin-bottom: 1.5rem;

@@ -11,22 +11,20 @@ export class ServicePageComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   SetWidth(_Event) {
     if (this.data[1]) {
-      let finalTop = (el: any) => { return el.getBoundingClientRect().top - window.screen.availHeight; }
-      let itemLeft = document.getElementById('Scroll_skill_left');
-      let itemRight = document.getElementById('Scroll_skill_right');
-      let oneLine = document.getElementById('worksleft');
-      let twoLine = document.getElementById('worksbet');
-      let threeLine = document.getElementById('worksright');
-      let leftHeight = itemLeft.clientHeight * 0.68;
-      let rightHeight = itemRight.clientHeight * 0.68;
-      let oneHeight = oneLine.clientHeight;
-      let twoHeight = twoLine.clientHeight;
-      let threeHeight = threeLine.clientHeight;
-      this.Scroll_skill.titleLine[0] = (finalTop(oneLine) + oneHeight) < 0 ? true : false;
-      this.Scroll_skill.titleLine[1] = (finalTop(twoLine) + twoHeight) < 0 ? true : false;
-      this.Scroll_skill.titleLine[2] = (finalTop(threeLine) + threeHeight) < 0 ? true : false;
-      this.ScrollSkill('left', (finalTop(itemLeft) + leftHeight) < 0 ? 1 : 0)
-      this.ScrollSkill('right', (finalTop(itemRight) + rightHeight) < 0 ? 1 : 0)
+      let finalTop = (el: any) => { return el.getBoundingClientRect().top - window.screen.availHeight; };
+      let Name = (el: string) => { return document.getElementById(el); };
+      let leftHeight = Name('Scroll_skill_left').clientHeight * 0.68;
+      let rightHeight = Name('Scroll_skill_right').clientHeight * 0.68;
+      let protofioHeight = Name('Scroll_Protofio').clientHeight * 0.27;
+      let oneHeight = Name('worksleft').clientHeight;
+      let twoHeight = Name('worksbet').clientHeight;
+      let threeHeight = Name('worksright').clientHeight;
+      this.Scroll_skill.titleLine[0] = (finalTop(Name('worksleft')) + oneHeight) < 0 ? true : false;
+      this.Scroll_skill.titleLine[1] = (finalTop(Name('worksbet')) + twoHeight) < 0 ? true : false;
+      this.Scroll_skill.titleLine[2] = (finalTop(Name('worksright')) + threeHeight) < 0 ? true : false;
+      this.Scroll_Protofio = (finalTop(Name('Scroll_Protofio')) + protofioHeight) < 0 ? true : false;
+      this.ScrollSkill('left', (finalTop(Name('Scroll_skill_left')) + leftHeight) < 0 ? 1 : 0)
+      this.ScrollSkill('right', (finalTop(Name('Scroll_skill_right')) + rightHeight) < 0 ? 1 : 0)
     }
   }
   data: Array<any> = [];
@@ -34,6 +32,7 @@ export class ServicePageComponent implements OnInit {
   finalWork: Array<string> = ["one", "two", "three"];
   Choice: boolean = false;
   Scroll_Do: any = [];
+  Scroll_Protofio: boolean = false;
   Scroll_skill: any = {
     left: [],
     right: false,
@@ -41,8 +40,12 @@ export class ServicePageComponent implements OnInit {
     titleLine: [false, false, false]
   };
   constructor(private infor: Information, private api: ApiService) { }
-  Price() {
-    this.Choice = !this.Choice;
+  Price(_Boolin: boolean) {
+    this.Choice = _Boolin;
+  }
+  filterStyle(_Type: string) {
+    if (_Type == 'totle') { return this.finalWork.length == 3 ? true : false; }
+    else { return this.finalWork.indexOf(_Type) !== -1 && this.finalWork.length !== 3 ? true : false; }
   }
   filterWork(_Type: string) {
     this.finalWork = [];
