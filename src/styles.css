@@ -190,17 +190,22 @@ ul {
 .closeCircle {
   height: 27px;
   width: 27px;
-  opacity: 0.6;
+  opacity: 0.72;
   border-radius: 50%;
   border: 2px solid #667eea;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  position: fixed;
+  right: 12%;
+  top: 30%;
+  margin-top: -13.5px;
+  margin-right: -13.5px;
   cursor: pointer;
-  transition: 0.2s all ease-in-out;
+  transition: 0.5s all ease-in-out;
 }
 .closeCircle:hover {
   opacity: 1;
+}
+.messagepopup.display > .closeCircle {
+  top: 13%;
 }
 .close-one {
   position: relative;
@@ -661,7 +666,6 @@ p.text {
   position: relative;
   display: block;
   max-width: 240px;
-  /* font-family: "ZCOOL KuaiLe", cursive; */
   font-weight: 700;
   font-size: 38px;
   line-height: 46px;
@@ -1015,6 +1019,9 @@ h2.tracking-widest a {
   .leftItem,
   .rightItem {
     width: 100%;
+  }
+  .closeCircle {
+    right: 16%;
   }
 }
 /* RWD 跟動畫 */

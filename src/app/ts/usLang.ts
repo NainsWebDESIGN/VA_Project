@@ -89,5 +89,6 @@ export const usLang = {
     "帳號": "Username",
     "密碼": "Password",
     "信箱": "Email",
-    "再次確認": "Double Confirm"
+    "再次確認": "Double Confirm",
+    "下一則": "Next"
 }
