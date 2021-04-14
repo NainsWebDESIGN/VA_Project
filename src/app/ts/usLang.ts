@@ -81,5 +81,13 @@ export const usLang = {
     "全部": "All",
     "第一種": "first",
     "第二種": "second",
-    "第三種": "third"
+    "第三種": "third",
+    "登入": "Sign In",
+    "還沒有帳號": "don`t have an account",
+    "註冊": "Sign Up",
+    "已經有帳號了": "Already have an account",
+    "帳號": "Username",
+    "密碼": "Password",
+    "信箱": "Email",
+    "再次確認": "Double Confirm"
 }

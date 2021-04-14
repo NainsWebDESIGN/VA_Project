@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
   bodyWidth: boolean = true;
   Scroll_Media: any = [];
   Feeback: boolean = false;
-  constructor(private api: ApiService, private infor: Information) { }
+  constructor(private api: ApiService, public infor: Information) { }
   Submit() {
     const data = { "entry.2002706790": this.name, "entry.1995154974": this.email, "entry.2137997242": this.message }
     let Observer = { next: el => { console.log(el.ok); }, error: err => { console.log(err); }, complete: () => { console.log('OK'); } }

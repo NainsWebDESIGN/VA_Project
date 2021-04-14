@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit {
   arrow: boolean = false;
   Choice: Array<any> = [];
   IndexChoice: boolean = false;
-  constructor(private api: ApiService, private infor: Information) { }
+  constructor(private api: ApiService, public infor: Information) { }
   openArrow() {
     this.arrow = true;
   }

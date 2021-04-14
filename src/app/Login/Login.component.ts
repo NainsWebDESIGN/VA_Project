@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
+import { Information } from '@service/information.service';
+import { Translate } from '@ts/translation';
 
 @Component({
   selector: 'app-Login',
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   signpass: string = "";
   signpass_2: string = "";
   email: string = "";
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public infor: Information) { }
   Login(_Need: string) {
     switch (_Need) {
       case 'login':
@@ -27,11 +29,13 @@ export class LoginComponent implements OnInit {
         break;
     }
   }
+  transLate(_Str: string) {
+    return Translate[this.infor.Language][_Str];
+  }
   toggleForm() {
     this.changeSign = !this.changeSign;
   }
   ngOnInit() {
-
 
   }
 

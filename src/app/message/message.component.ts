@@ -24,7 +24,7 @@ export class MessageComponent implements OnInit {
   Total: any = [];
   News: boolean = false;
   Scroll_Total: any = [];
-  constructor(private api: ApiService, private infor: Information) { }
+  constructor(private api: ApiService, public infor: Information) { }
   news(_Position: number) {
     return "url(./" + this.data[_Position].small_p + ")";
   }

@@ -28,7 +28,7 @@ export class AboutComponent implements OnInit {
   scrollTeam: any = [false, false];
   scrollLineL: any = [];
   scrollPlace: any = [];
-  constructor(private infor: Information, private api: ApiService) { }
+  constructor(public infor: Information, private api: ApiService) { }
   ScrollBl(_Need: string, _Position: number) {
     switch (_Need) {
       case 'line':

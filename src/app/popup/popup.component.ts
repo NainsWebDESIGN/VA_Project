@@ -17,9 +17,6 @@ export class PopupComponent implements OnInit {
   next() {
     let index = this.Total.map(el => { return el.title + el.content }).indexOf(this.data.title + this.data.content);
     this.data = this.Total[(index >= (this.Total.length - 1)) ? 0 : (index + 1)];
-    // console.log(this.Total.length);
-    // console.log(this.Total);
-    // console.log(index);
   }
   ngOnInit() {
     this.api.postApi('message').subscribe((el: any) => {

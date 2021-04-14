@@ -14,3 +14,5 @@
 8. messagepopup 的關閉改善
 9. 簡約字體變化
 10. 增加語系(目前唯一英語)
+11. information 共享成 public
+12. 新增登入翻譯
