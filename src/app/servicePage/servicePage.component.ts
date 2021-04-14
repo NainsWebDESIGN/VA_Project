@@ -114,10 +114,12 @@ export class ServicePageComponent implements OnInit {
       if (el[1]) { el[1].left.forEach(json => { this.Scroll_skill.left.push(0) }); }
       this.data = el;
       this.Scroll_Do = [];
-      setTimeout(() => { this.data[0].forEach(json => { this.Scroll_Do.push(true); }); }, 500);
+      setTimeout(() => {
+        this.data[0].forEach(json => { this.Scroll_Do.push(true); });
+        let link = this.infor.pageLink[2];
+        (link == 'SerTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
+      }, 500);
 
-      let link = this.infor.pageLink[2];
-      (link == 'SerTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
     })
   }
 

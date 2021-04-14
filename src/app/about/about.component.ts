@@ -45,12 +45,12 @@ export class AboutComponent implements OnInit {
       el[1].forEach(res => { this.scrollLineL.push(false) });
       el[2].forEach(res => { this.scrollPlace.push(false) });
       this.data = el;
-      setTimeout(() => { el[0].forEach(res => { this.scrollTeam.push(true) }); }, 500);
+      setTimeout(() => {
+        el[0].forEach(res => { this.scrollTeam.push(true) });
+        let link = this.infor.pageLink[0];
+        (link == 'AboutTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
+      }, 500);
 
-
-
-      let link = this.infor.pageLink[0];
-      (link == 'AboutTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
     })
   }
 

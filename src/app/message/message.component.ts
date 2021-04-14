@@ -41,10 +41,12 @@ export class MessageComponent implements OnInit {
       this.Total = el.reverse();
       this.Total.forEach(el => { this.Scroll_Total.push(false); });
       for (let i = 0; i < news; i++) { this.data.push(this.Total[i]); };
-      let link = this.infor.pageLink[1];
-      (link == 'MessTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
 
-      setTimeout(() => { this.News = true; }, 500);
+      setTimeout(() => {
+        this.News = true;
+        let link = this.infor.pageLink[1];
+        (link == 'MessTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
+      }, 500);
     });
   }
 

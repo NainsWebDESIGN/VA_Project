@@ -52,11 +52,15 @@ export class ContactComponent implements OnInit {
     this.api.postApi('contact').subscribe(el => {
       this.data = el;
 
-      setTimeout(() => { this.data.forEach(el => { this.Scroll_Media.push(true); }); }, 500);
+      setTimeout(() => {
+        this.data.forEach(el => {
+          this.Scroll_Media.push(true);
+          let link = this.infor.pageLink[3];
+          (link == 'ConTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
+        });
+      }, 500);
     })
     this.bodyWidth = this.infor.bodyWidth < 768 ? false : true;
-    let link = this.infor.pageLink[3];
-    (link == 'ConTop') ? scroll(0, 0) : document.getElementById(link).scrollIntoView({ behavior: 'smooth' });
   }
 
 }

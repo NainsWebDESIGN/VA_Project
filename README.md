@@ -10,4 +10,5 @@
 4. 正要進行控制台
 5. RWD 基礎改善
 6. 改善 scrollIntoView 的 ID
-7. 更改 header 子連結函式 ScrollToElement() 但還未測試
+7. 調整 scrollIntoView 位置
+8. messagepopup 的關閉改善
