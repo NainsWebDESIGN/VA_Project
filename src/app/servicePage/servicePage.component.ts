@@ -28,7 +28,12 @@ export class ServicePageComponent implements OnInit {
     }
   }
   data: Array<any> = [];
-  filterWorks: Array<any> = ["totle", "one", "two", "three"];
+  filterWorks: Array<any> = [
+    { filtername: "全部", filter: "totle" },
+    { filtername: "第一種", filter: "one" },
+    { filtername: "第二種", filter: "two" },
+    { filtername: "第三種", filter: "three" }
+  ];
   finalWork: Array<string> = ["one", "two", "three"];
   Choice: boolean = false;
   Scroll_Do: any = [];

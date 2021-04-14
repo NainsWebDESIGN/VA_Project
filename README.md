@@ -13,3 +13,4 @@
 7. 調整 scrollIntoView 位置
 8. messagepopup 的關閉改善
 9. 簡約字體變化
+10. 增加語系(目前唯一英語)

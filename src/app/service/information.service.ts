@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class Information {
+    Language: string = 'zh-tw';
     filter: boolean = false;
     Message: boolean = false;
     private messItem: any = {};

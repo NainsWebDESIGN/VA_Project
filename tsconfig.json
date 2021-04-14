@@ -17,8 +17,15 @@
       "dom"
     ],
     "paths": {
-      "@service/*":["app/service/*"],
-      "@pipe/*":["app/pipe/*"]
+      "@service/*": [
+        "app/service/*"
+      ],
+      "@pipe/*": [
+        "app/pipe/*"
+      ],
+      "@ts/*": [
+        "app/ts/*"
+      ]
     }
   }
 }

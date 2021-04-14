@@ -8,7 +8,9 @@
     </a>
     <nav
       class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-      <a class="mr-5" [routerLink]="['/Login']">控制台</a>
+      <a class="mr-5" [routerLink]="['/Login']">{{"控制台" | Translation: infor.Language}}</a>
+      <a class="mr-5" (click)='TestLang("zh-tw")'>中文</a>
+      <a class="mr-5" (click)='TestLang("en-us")'>English</a>
     </nav>
   </div>
   <div class="progress-container">
@@ -27,13 +29,13 @@
     <li *ngFor="let even of data; let i = index;" class="menuHref">
       <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle" (click)='openMenu("close")'
         (click)='toTop(0)'>
-        {{even.title}}
+        {{even.title | Translation: infor.Language}}
         <p class="menuBorder"></p>
       </a>
 
       <div class="menubx">
-        <p class="hrefchild" *ngFor="let arr of even.content"><a
-            (click)='ScrollToElement(i, arr.route)'>{{arr.name}}</a></p>
+        <p class="hrefchild" *ngFor="let arr of even.content"><a (click)='ScrollToElement(i, arr.route)'>{{arr.name |
+            Translation: infor.Language}}</a></p>
       </div>
     </li>
   </ul>
@@ -54,7 +56,8 @@
         <p class="ml-3 text-xl ch-name">維安科技<br><span class="ml-3 text-xl us-name">Valleys
             Awesome</span></p>
       </a>
-      <p class="mt-2 text-sm text-gray-500">Nains is a web designer full of wisdom, technology and beauty.</p>
+      <p class="mt-2 text-sm text-gray-500">
+        {{"關於Nains的前端寫作能力非常出色，他是一個充滿智慧，技術和熱情的網頁設計師。" | Translation: infor.Language}}</p>
     </div>
 
     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -62,13 +65,14 @@
       <div *ngFor="let even of data;let i = index;" class="lg:w-1/4 md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">
           <a [routerLink]="['/Valleys_Awesome/' + even.href]" (click)='toTop(0)'>
-            {{even.title}}
+            {{even.title | Translation: infor.Language}}
           </a>
         </h2>
 
         <nav class="list-none mb-10">
           <li class="hrefchild" *ngFor="let arr of even.content">
-            <a class="text-gray-400 hover:text-white" (click)='ScrollToElement(i, arr.route)'>{{arr.name}}</a>
+            <a class="text-gray-400 hover:text-white" (click)='ScrollToElement(i, arr.route)'>{{arr.name | Translation:
+              infor.Language}}</a>
           </li>
         </nav>
 

@@ -19,6 +19,9 @@ export class HeaderComponent implements OnInit {
   Menu: boolean = false;
   menuStyle: boolean = false;
   constructor(private api: ApiService, public infor: Information, private router: Router) { }
+  TestLang(_Lang: string) {
+    this.infor.Language = _Lang;
+  }
   openMenu(_Effect: string) {
     switch (_Effect) {
       case 'open':

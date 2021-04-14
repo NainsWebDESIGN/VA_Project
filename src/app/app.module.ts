@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+export const Lang: Lang = _Lang;
 
 // Component & Route
 import { AppRouting } from './app.routing';
@@ -22,6 +23,8 @@ import { Information } from '@service/information.service';
 import { PopupComponent } from './popup/popup.component';
 import { AuthGuard } from '@service/AuthGuard.service';
 
+// PIPE
+import { TranslationPipe } from '@pipe/translation.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { AuthGuard } from '@service/AuthGuard.service';
     HeaderComponent,
     PopupComponent,
     LoginComponent,
-    ConsoleComponent
+    ConsoleComponent,
+    TranslationPipe
   ],
   imports: [
     BrowserModule,
