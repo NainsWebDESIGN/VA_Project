@@ -16,7 +16,7 @@
                 <span class="more__element">
                     <span class="content">
                         <span class="headline">{{even.title}}</span>
-                        <span class="excerpt">{{even.content}}</span>
+                        <span class="excerpt">{{even.content | slice: 0:31}} ...</span>
                         <span class="link">
                             <div [class]="even.readStyle"></div>
                             <a (click)='openPopup(even)'>更多</a>

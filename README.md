@@ -12,3 +12,4 @@
 6. 改善 scrollIntoView 的 ID
 7. 調整 scrollIntoView 位置
 8. messagepopup 的關閉改善
+9. 簡約字體變化
