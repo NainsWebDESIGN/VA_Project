@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '@service/api.service';
 
 @Component({
   selector: 'app-Console',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class ConsoleComponent implements OnInit {
   Menu: boolean = true;
-  constructor(private router: Router) { }
+  time: any = new Date();
+  User: string = '';
+  constructor(private router: Router, private api: ApiService) { }
   menuEffect() {
     this.Menu = !this.Menu;
   }
@@ -21,6 +24,7 @@ export class ConsoleComponent implements OnInit {
     this.router.navigate(['/Valleys_Awesome']);
   }
   ngOnInit() {
+    this.User = localStorage.getItem('login');
   }
 
 }

@@ -18,7 +18,8 @@ export class ApiService {
             }
             return data;
         }
-        let url = 'assets/json/' + _Gatewey + '.json';
+        let geturl = el => { return 'assets/json/' + el + '.json' };
+        let url = geturl(_Gatewey);
         switch (_Gatewey) {
             case 'formdata':
                 let $obj = postData(_Obj[0]);
@@ -30,7 +31,7 @@ export class ApiService {
                 this.http.get(url).subscribe((el: any) => {
                     let username = el.map(res => { return res.username }).indexOf(_Obj[0].username) !== -1;
                     let password = el.map(res => { return res.password }).indexOf(_Obj[0].password) !== -1;
-                    if (username && password) { localStorage.setItem('login', 'OK'); }
+                    if (username && password) { localStorage.setItem('login', _Obj[0].username); }
                     else { localStorage.removeItem('login'); }
                     return this.router.navigate(['/Member']);
                 })

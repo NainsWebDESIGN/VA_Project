@@ -26,6 +26,10 @@
     </ul>
     <i class="fad fa-sign-out-alt fa-2x consoleMenu" (click)='logout()'></i>
 </div>
+<div class="logintitle" [class.active]="!Menu"><span class="logintitle-left">登陸時間 : {{time | date:'medium'}}</span><span
+        class="logintitle-right">用戶名 : {{User}}</span></div>
 <div class="routerPage" [class.active]="!Menu">
-    <router-outlet></router-outlet>
+    <div class="routerPageOutside">
+        <router-outlet></router-outlet>
+    </div>
 </div>
