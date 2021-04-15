@@ -22,7 +22,7 @@
   -webkit-transition: all 0.3s ease-in-out;
 }
 .loginHeader.active {
-  width: 10%;
+  width: 8%;
 }
 .consoleLeft {
   margin-top: 1.7rem;
