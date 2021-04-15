@@ -12,6 +12,10 @@ export class ConsoleComponent implements OnInit {
   menuEffect() {
     this.Menu = !this.Menu;
   }
+  childRoute(_Route: string) {
+    let route = '/Member/';
+    this.router.navigate([route + _Route]);
+  }
   logout() {
     localStorage.removeItem('login');
     this.router.navigate(['/Valleys_Awesome']);

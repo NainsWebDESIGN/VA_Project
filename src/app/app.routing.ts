@@ -9,7 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './Login/Login.component';
 import { ConsoleComponent } from './Console/Console.component';
-import { LoginAbout } from './Console/loginchild/loginchild.component';
+import { LoginAbout, LoginMessage, LoginService, LoginContact } from './Console/loginchild/loginchild.component';
 
 // Service
 import { AuthGuard } from '@service/AuthGuard.service';
@@ -36,6 +36,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/Member/loginAbout', pathMatch: 'full' },
       { path: 'loginAbout', component: LoginAbout },
+      { path: 'loginMessage', component: LoginMessage },
+      { path: 'loginService', component: LoginService },
+      { path: 'loginContact', component: LoginContact },
       { path: '**', redirectTo: '/Member/loginAbout', pathMatch: 'full' }
     ]
   },

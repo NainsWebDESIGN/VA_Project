@@ -7,19 +7,19 @@
     </a>
     <i class="fad fa-bars fa-2x consoleMenu" (click)='menuEffect()'></i>
     <ul class="consoleLeft">
-        <li>
+        <li (click)='childRoute("loginAbout")'>
             <i [class.active]="Menu" class="far fa-address-card consoleBtn"></i>
             <span [class.active]="Menu" class="consoleText">關於我們</span>
         </li>
-        <li>
+        <li (click)='childRoute("loginMessage")'>
             <i [class.active]="Menu" class="far fa-file consoleBtn"></i>
             <span [class.active]="Menu" class="consoleText">最新消息</span>
         </li>
-        <li>
+        <li (click)='childRoute("loginService")'>
             <i [class.active]="Menu" class="fas fa-concierge-bell consoleBtn"></i>
             <span [class.active]="Menu" class="consoleText">服務內容</span>
         </li>
-        <li>
+        <li (click)='childRoute("loginContact")'>
             <i [class.active]="Menu" class="far fa-comments consoleBtn"></i>
             <span [class.active]="Menu" class="consoleText">聯絡我們</span>
         </li>
