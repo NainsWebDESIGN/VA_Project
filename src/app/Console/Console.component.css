@@ -1,0 +1,85 @@
+.logout {
+  font-weight: 400;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 68px;
+  height: 31px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.consoleImg {
+  padding: 1.2rem;
+  justify-content: center;
+  align-items: center;
+}
+.loginHeader {
+  height: 100vh;
+  width: 272px;
+  background-color: #1a202c;
+  border-right: 1px solid #000;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.loginHeader.active {
+  width: 10%;
+}
+.consoleLeft {
+  margin-top: 1.7rem;
+  color: #fff;
+}
+.consoleLeft li {
+  position: relative;
+  width: 100%;
+  height: 49px;
+  line-height: 60px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1.2rem;
+  color: #cbd5e0;
+  border: 1px solid #1a202c;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.consoleBtn {
+  position: relative;
+  right: 13px;
+  margin-right: 1.2rem;
+  font-size: 1.7rem;
+}
+.consoleText {
+  position: relative;
+  font-size: 1.2rem;
+  bottom: 3px;
+  right: 13px;
+}
+.consoleLeft li:hover {
+  background-color: #0f1013;
+  border: 1px solid #191a1f;
+  box-shadow: 0 0 2px 4px solid #191a1f;
+}
+.consoleMenu {
+  color: #cbd5e0;
+  text-align: center;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  margin-top: 1.72rem;
+}
+.consoleMenu:hover,
+.consoleLeft li:hover {
+  color: #4299e1;
+}
+.consoleBtn.active {
+  margin-right: 0;
+  right: 0;
+}
+.consoleImgText {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.consoleImgText.active,
+.consoleText.active {
+  display: none;
+}

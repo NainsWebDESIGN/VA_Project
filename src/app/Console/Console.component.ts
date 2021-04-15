@@ -7,8 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./Console.component.css']
 })
 export class ConsoleComponent implements OnInit {
-
+  Menu: boolean = false;
   constructor(private router: Router) { }
+  menuEffect() {
+    this.Menu = !this.Menu;
+  }
   logout() {
     localStorage.removeItem('login');
     this.router.navigate(['/Valleys_Awesome']);
