@@ -90,5 +90,7 @@ export const usLang = {
     "密碼": "Password",
     "信箱": "Email",
     "再次確認": "Double Confirm",
-    "下一則": "Next"
+    "下一則": "Next",
+    "用戶名": "UserName",
+    "登陸時間": "Login time"
 }

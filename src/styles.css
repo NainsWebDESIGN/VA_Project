@@ -1174,7 +1174,46 @@ h2.tracking-widest a {
 .consoleText.active {
   display: none;
 }
-
+.logintitle-left {
+  position: relative;
+  left: 2%;
+  top: 1px;
+}
+.logintitle-right {
+  position: relative;
+  left: 60%;
+  top: 1px;
+}
+.lang {
+  opacity: 0;
+  position: fixed;
+  width: 86px;
+  height: 72px;
+  left: 4%;
+  bottom: -72px;
+  margin-top: -36px;
+  margin-left: -43px;
+  z-index: 9;
+  background: #1a202c;
+  border-radius: 5px;
+  color: #fff;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  padding: 13px;
+  align-items: center;
+  text-align: center;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.lang.active {
+  opacity: 1;
+  bottom: 0;
+}
+.lang li:hover {
+  cursor: pointer;
+  color: #4299e1;
+}
 /* RWD 跟動畫 */
 @keyframes rotar1 {
   0% {

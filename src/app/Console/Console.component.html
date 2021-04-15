@@ -1,3 +1,9 @@
+<div class="lang" [class.active]="Language">
+    <ul>
+        <li (click)='ChangeLang("zh-tw")'>中文</li>
+        <li (click)='ChangeLang("en-us")'>English</li>
+    </ul>
+</div>
 <div class="loginHeader" [class.active]="Menu">
     <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0 consoleImg">
         <img class="nains" src="assets/image/Webcenter.png" alt="">
@@ -5,29 +11,32 @@
                 class="ml-3 text-xl us-name">Valleys
                 Awesome</span></p>
     </a>
-    <i class="fad fa-bars fa-2x consoleMenu" (click)='menuEffect()'></i>
+    <i class="fad fa-bars fa-2x consoleMenu" (click)='Effect("menu")'></i>
     <ul class="consoleLeft">
         <li (click)='childRoute("loginAbout")'>
             <i [class.active]="Menu" class="far fa-address-card consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">關於我們</span>
+            <span [class.active]="Menu" class="consoleText">{{"關於我們" | Translation: infor.Language}}</span>
         </li>
         <li (click)='childRoute("loginMessage")'>
             <i [class.active]="Menu" class="far fa-file consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">最新消息</span>
+            <span [class.active]="Menu" class="consoleText">{{"最新消息" | Translation: infor.Language}}</span>
         </li>
         <li (click)='childRoute("loginService")'>
             <i [class.active]="Menu" class="fas fa-concierge-bell consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">服務內容</span>
+            <span [class.active]="Menu" class="consoleText">{{"服務內容" | Translation: infor.Language}}</span>
         </li>
         <li (click)='childRoute("loginContact")'>
             <i [class.active]="Menu" class="far fa-comments consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">聯絡我們</span>
+            <span [class.active]="Menu" class="consoleText">{{"聯絡我們" | Translation: infor.Language}}</span>
         </li>
     </ul>
-    <i class="fad fa-sign-out-alt fa-2x consoleMenu" (click)='logout()'></i>
+    <i class="far fa-language fa-2x consoleMenu" (click)='Effect("lang")'></i>
+    <i class="fad fa-sign-out-alt fa-2x consoleMenu" (click)='logout()' style="transform: rotate(180deg);"></i>
 </div>
-<div class="logintitle" [class.active]="!Menu"><span class="logintitle-left">登陸時間 : {{time | date:'medium'}}</span><span
-        class="logintitle-right">用戶名 : {{User}}</span></div>
+<div class="logintitle" [class.active]="!Menu"><span class="logintitle-left">{{"登陸時間" | Translation:
+        infor.Language}}&nbsp;&nbsp;:&nbsp;&nbsp;
+        {{time | date:'medium'}}</span><span class="logintitle-right">{{"用戶名" | Translation:
+        infor.Language}}&nbsp;&nbsp;:&nbsp;&nbsp;{{User}}</span></div>
 <div class="routerPage" [class.active]="!Menu">
     <div class="routerPageOutside">
         <router-outlet></router-outlet>
