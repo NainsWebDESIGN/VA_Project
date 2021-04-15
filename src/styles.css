@@ -441,7 +441,7 @@ p.text {
 }
 .nains {
   width: 72px;
-  height: 72px;
+  height: auto;
 }
 .slider {
   position: relative;
@@ -1057,6 +1057,7 @@ h2.tracking-widest a {
 }
 .routerPage {
   position: absolute;
+  padding-bottom: 1%;
   height: 97%;
   width: 92%;
   right: 0;
@@ -1065,6 +1066,7 @@ h2.tracking-widest a {
   border-top: #ddd 1px solid;
   transition: 0.3s all ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
+  overflow: scroll;
 }
 .routerPage.active {
   width: 80%;
@@ -1092,9 +1094,7 @@ h2.tracking-widest a {
   left: 2%;
   border-radius: 20px;
   background-color: #fff;
-  border-width: 2px;
-  border-color: #939699;
-  border-style: outset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
   transition: 0.3s all ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   overflow: scroll;
@@ -1157,6 +1157,7 @@ h2.tracking-widest a {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   cursor: pointer;
+  font-size: 1.7rem;
   margin-top: 1.72rem;
 }
 .consoleMenu:hover,
@@ -1215,6 +1216,23 @@ h2.tracking-widest a {
   cursor: pointer;
   color: #4299e1;
 }
+hr {
+  border: 1px solid #ddd;
+}
+.checkBx {
+  cursor: pointer;
+}
+.checkbox {
+  font-size: 1.5rem;
+  margin-right: 1.1rem;
+  color: #667eea;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.aboutChangebtn {
+  margin-top: 1.25rem;
+}
+
 /* RWD 跟動畫 */
 @keyframes rotar1 {
   0% {
@@ -1315,6 +1333,17 @@ h2.tracking-widest a {
 @media (max-width: 768px) {
   .md\:flex-row {
     flex-direction: column;
+  }
+  .consoleBtn,
+  .consoleMenu {
+    font-size: 1rem;
+  }
+  .consoleText,
+  .WidthMenu {
+    display: none;
+  }
+  .lang {
+    left: 10%;
   }
   .menuHref {
     padding: 5% 0 0 0;

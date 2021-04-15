@@ -8,10 +8,15 @@ import { ApiService } from '@service/api.service';
 })
 export class LoginAbout implements OnInit {
   data: Array<any> = [];
+  check: Array<boolean> = [];
   constructor(private api: ApiService) { }
+  Check(_Position: number) {
+    this.check[_Position] = !this.check[_Position];
+  }
   ngOnInit() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
       this.data = el;
+      this.data[0].forEach(el => { this.check.push(true); });
     })
   }
 
