@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '@service/api.service';
 
 @Component({
   selector: 'loginabout',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loginchild.component.css']
 })
 export class LoginAbout implements OnInit {
-
-  constructor() { }
-
+  data: Array<any> = [];
+  constructor(private api: ApiService) { }
   ngOnInit() {
+    this.api.postApi('about').subscribe((el: Array<any>) => {
+      this.data = el;
+    })
   }
 
 }

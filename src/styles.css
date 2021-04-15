@@ -1097,6 +1097,7 @@ h2.tracking-widest a {
   border-style: outset;
   transition: 0.3s all ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
+  overflow: scroll;
 }
 
 .consoleImg {

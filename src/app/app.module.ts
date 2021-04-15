@@ -26,6 +26,7 @@ import { AuthGuard } from '@service/AuthGuard.service';
 
 // PIPE
 import { TranslationPipe } from '@pipe/translation.pipe';
+import { KeyPipe } from '@pipe/key.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TranslationPipe } from '@pipe/translation.pipe';
     LoginAbout,
     LoginMessage,
     LoginService,
-    LoginContact
+    LoginContact,
+    KeyPipe
   ],
   imports: [
     BrowserModule,
