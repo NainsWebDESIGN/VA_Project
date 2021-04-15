@@ -1,31 +1,35 @@
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="text-center mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">團隊介紹現有資料</h1>
+<div class="routerPageOutside">
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="text-center mb-20">
+        <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">團隊介紹現有資料</h1>
+      </div>
+
+      <div class="flex flex-wrap -m-4" style="justify-content: center;">
+        <ng-container *ngIf="data[0]">
+          <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[0] | key">
+            <h2 class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
+              {{team.key}}</h2>
+            <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
+              style="margin-left: -1.4rem;">
+              <a *ngFor="let content of team.value">
+                <span
+                  class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    class="w-3 h-3" viewBox="0 0 24 24">
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>{{content}}
+              </a>
+
+            </nav>
+          </div>
+        </ng-container>
+
+      </div>
     </div>
-
-    <div class="flex flex-wrap -m-4" style="justify-content: center;">
-      <ng-container *ngIf="data[0]">
-        <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[0] | key">
-          <h2 class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
-            {{team.key}}</h2>
-          <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
-            style="margin-left: -1.4rem;">
-            <a *ngFor="let content of team.value">
-              <span
-                class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                  class="w-3 h-3" viewBox="0 0 24 24">
-                  <path d="M20 6L9 17l-5-5"></path>
-                </svg>
-              </span>{{content}}
-            </a>
-
-          </nav>
-        </div>
-      </ng-container>
-
-    </div>
-  </div>
-</section>
-<hr>
+  </section>
+</div>
+<div class="routerPageOutside">
+  123456
+</div>
