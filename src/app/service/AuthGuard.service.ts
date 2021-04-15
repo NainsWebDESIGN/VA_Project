@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
 
     constructor(private router: Router) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -13,5 +14,8 @@ export class AuthGuard implements CanActivate {
             this.router.navigate(['/Login'])
             return false;
         }
+    }
+    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        return this.canActivate(childRoute, state);
     }
 }

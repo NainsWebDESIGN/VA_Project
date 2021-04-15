@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './Login/Login.component';
 import { ConsoleComponent } from './Console/Console.component';
+import { LoginAbout } from './Console/loginchild/loginchild.component';
 
 // Service
 import { AuthGuard } from '@service/AuthGuard.service';
@@ -30,7 +31,13 @@ const routes: Routes = [
   { path: 'Login', component: LoginComponent },
   {
     path: 'Member', component: ConsoleComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [
+      { path: '', redirectTo: '/Member/loginAbout', pathMatch: 'full' },
+      { path: 'loginAbout', component: LoginAbout },
+      { path: '**', redirectTo: '/Member/loginAbout', pathMatch: 'full' }
+    ]
   },
   { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
 ];

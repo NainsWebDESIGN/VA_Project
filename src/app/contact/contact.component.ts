@@ -29,11 +29,19 @@ export class ContactComponent implements OnInit {
   constructor(private api: ApiService, public infor: Information) { }
   Submit() {
     const data = { "entry.2002706790": this.name, "entry.1995154974": this.email, "entry.2137997242": this.message }
-    let Observer = { next: el => { console.log(el.ok); }, error: err => { console.log(err); }, complete: () => { console.log('OK'); } }
+    let Observer = {
+      next: el => {
+        if (el.ok) { alert(el.ok == true ? '建議已送出，我們將盡快與您聯繫!' : "未能成功送出意見"); }
+        this.name = "";
+        this.email = "";
+        this.message = "";
+      },
+      error: err => { alert("失敗囉!") }, complete: () => { console.log('OK'); }
+    }
     let myreg = /^[^\[\]\(\)\\<>:;,@.]+[^\[\]\(\)\\<>:;,@]*@[a-z0-9A-Z]+(([.]?[a-z0-9A-Z]+)*[-]*)*[.]([a-z0-9A-Z]+[-]*)+$/g; // 信箱驗證格式
 
     if (this.name.trim() == '' || this.email.trim() == '' || this.message.trim() == '') { alert('請務必填寫完整'); }
-    else if (!myreg.test(this.email)) { alert('信箱格式錯誤') }
+    else if (!myreg.test(this.email)) { alert('信箱格式錯誤'); }
     else { this.api.postApi('formdata', data).subscribe(Observer); }
   }
   ScrollFunction(_Position: number) {

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./Console.component.css']
 })
 export class ConsoleComponent implements OnInit {
-  Menu: boolean = false;
+  Menu: boolean = true;
   constructor(private router: Router) { }
   menuEffect() {
     this.Menu = !this.Menu;

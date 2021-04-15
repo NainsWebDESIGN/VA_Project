@@ -16,6 +16,7 @@ import { ServicePageComponent } from './servicePage/servicePage.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './Login/Login.component';
 import { ConsoleComponent } from './Console/Console.component';
+import { LoginAbout } from './Console/loginchild/loginchild.component';
 
 // Service
 import { ApiService } from '@service/api.service';
@@ -38,7 +39,8 @@ import { TranslationPipe } from '@pipe/translation.pipe';
     PopupComponent,
     LoginComponent,
     ConsoleComponent,
-    TranslationPipe
+    TranslationPipe,
+    LoginAbout
   ],
   imports: [
     BrowserModule,
