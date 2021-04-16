@@ -1264,10 +1264,15 @@ hr {
 .aboutChangebtn {
   margin-top: 1.25rem;
 }
-.loginfooter {
+.clearfix {
   clear: both;
 }
-
+.ServiceContent {
+  margin-bottom: 13px;
+}
+.ServiceContent:last-child {
+  margin-bottom: 0px;
+}
 /* RWD 跟動畫 */
 @keyframes rotar1 {
   0% {

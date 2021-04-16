@@ -1,3 +1,582 @@
-<p>
-    loginService works!
-</p>
+<div class="routerPageOutside">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">我們所做的</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">現有資料</p>
+            </div>
+
+            <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
+                <ng-container *ngIf="data[0]">
+                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[0] | key; let i = index;"
+                        [ngStyle]="{'width': Content(i, 'Do')}">
+                        <h2
+                            class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
+                            {{team.key}}<span *ngIf="i==1">&nbsp;&nbsp;(Font Awesome)</span></h2>
+                        <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
+                            style="margin-left: -1.4rem;">
+                            <a *ngFor="let content of team.value; let i = index" style="word-break: break-all;">
+                                <span
+                                    class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                    {{i + 1}}
+                                </span>{{content}}
+                            </a>
+
+                        </nav>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfLeft">
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">我們所做的</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">新增及更改資料</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                            <input type="email" name="email"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">style</label>
+                            <input type="text" name="pic"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="message" class="leading-7 text-sm text-gray-600">content</label>
+                            <textarea name="message"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-full p-2 aboutChangebtn">
+                        <button
+                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
+                        <button
+                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfRight">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">我們所做的</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">選取並刪除</p>
+            </div>
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+
+                <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let do of data[0]; let i = index;">
+                    <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Do")'>
+                        <i class="fad checkbox"
+                            [ngClass]="{'fa-circle-notch': check.Do[i], 'fa-check-circle': !check.Do[i]}"></i>
+                        <span class="title-font font-medium">{{do.title}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <button
+                class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">技能</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">現有資料</p>
+            </div>
+
+            <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
+                <ng-container *ngIf="data[1]">
+                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[1].left | key; let ii = index;">
+                        <h2
+                            class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
+                            {{team.key}}</h2>
+                        <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
+                            style="margin-left: -1.4rem;">
+                            <a *ngFor="let content of team.value; let i = index" style="word-break: break-all;">
+                                <span
+                                    class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                    {{i + 1}}
+                                </span>{{content}}<span *ngIf="ii == 1">&nbsp;&nbsp;%</span>
+                            </a>
+
+                        </nav>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfLeft">
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">技能</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">新增及更改資料</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                            <input type="email" name="email"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
+                            <input type="text" name="pic"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-full p-2 aboutChangebtn">
+                        <button
+                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
+                        <button
+                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfRight">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">技能</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">選取並刪除</p>
+            </div>
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+
+                <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let skill of data[1].left; let i = index;">
+                    <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Skill")'>
+                        <i class="fad checkbox"
+                            [ngClass]="{'fa-circle-notch': check.Skill[i], 'fa-check-circle': !check.Skill[i]}"></i>
+                        <span class="title-font font-medium">{{skill.title}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <button
+                class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">分工</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">現有資料</p>
+            </div>
+
+            <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
+                <ng-container *ngIf="data[1]">
+                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[1].right | key; let ii = index;">
+                        <h2
+                            class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
+                            {{team.key}}</h2>
+                        <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
+                            style="margin-left: -1.4rem;">
+                            <a *ngFor="let content of team.value; let i = index" style="word-break: break-all;">
+                                <span
+                                    class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                    {{i + 1}}
+                                </span>{{content}}<span *ngIf="ii == 1">&nbsp;&nbsp;%</span>
+                            </a>
+
+                        </nav>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfLeft">
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">分工</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">新增及更改資料</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                            <input type="email" name="email"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
+                            <input type="text" name="pic"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-full p-2 aboutChangebtn">
+                        <button
+                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
+                        <button
+                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfRight">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">分工</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">選取並刪除</p>
+            </div>
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+
+                <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let labor of data[1].right; let i = index;">
+                    <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Labor")'>
+                        <i class="fad checkbox"
+                            [ngClass]="{'fa-circle-notch': check.Labor[i], 'fa-check-circle': !check.Labor[i]}"></i>
+                        <span class="title-font font-medium">{{labor.title}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <button
+                class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">近期作品</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">現有資料</p>
+            </div>
+
+            <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
+                <ng-container *ngIf="data[2]">
+                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[2] | key; let ii = index;"
+                        [ngStyle]="{'width': Content(ii, 'Po')}">
+                        <h2
+                            class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
+                            {{team.key}}</h2>
+                        <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
+                            style="margin-left: -1.4rem;">
+                            <a *ngFor="let content of team.value; let i = index" style="word-break: break-all;">
+                                <span
+                                    class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                    {{i + 1}}
+                                </span>{{content}}
+                            </a>
+
+                        </nav>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfLeft">
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">近期作品</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">新增及更改資料</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                            <input type="email" name="email"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">type</label>
+                            <select type="text" name="pic" style="height: 42px;"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <option value="one">One</option>
+                                <option value="two">Two</option>
+                                <option value="three">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">image</label>
+                            <input type="text" name="pic"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="message" class="leading-7 text-sm text-gray-600">content</label>
+                            <textarea name="message"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-full p-2 aboutChangebtn">
+                        <button
+                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
+                        <button
+                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfRight">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">近期作品</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">選取並刪除</p>
+            </div>
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+
+                <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let Portofio of data[2]; let i = index;">
+                    <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Portofio")'>
+                        <i class="fad checkbox"
+                            [ngClass]="{'fa-circle-notch': check.Portofio[i], 'fa-check-circle': !check.Portofio[i]}"></i>
+                        <span class="title-font font-medium">{{Portofio.title}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <button
+                class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">價格(月)</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">現有資料</p>
+            </div>
+
+            <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
+                <ng-container *ngIf="data[3]">
+                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[3].month | key; let ii = index;">
+                        <h2
+                            class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
+                            {{team.key}}</h2>
+                        <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
+                            style="margin-left: -1.4rem;">
+                            <a *ngFor="let content of team.value; let i = index" style="word-break: break-all;">
+                                <span
+                                    class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                    {{i + 1}}
+                                </span>{{content}}
+                            </a>
+
+                        </nav>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfLeft">
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">價格(月)</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">新增及更改資料</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                            <input type="email" name="email"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
+                            <input type="text" name="pic"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
+                            <input type="text" name="pic" placeholder="條件1"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" placeholder="條件2"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" placeholder="條件3"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" placeholder="條件4"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-full p-2 aboutChangebtn">
+                        <button
+                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
+                        <button
+                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfRight">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">價格(月)</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">選取並刪除</p>
+            </div>
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+
+                <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let month of data[3].month; let i = index;">
+                    <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "month")'>
+                        <i class="fad checkbox"
+                            [ngClass]="{'fa-circle-notch': check.month[i], 'fa-check-circle': !check.month[i]}"></i>
+                        <span class="title-font font-medium">{{month.title}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <button
+                class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">價格(年)</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">現有資料</p>
+            </div>
+
+            <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
+                <ng-container *ngIf="data[3]">
+                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data[3].year | key; let ii = index;">
+                        <h2
+                            class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
+                            {{team.key}}</h2>
+                        <nav class="flex flex-col sm:items-start sm:text-left text-center items-center -mb-1 space-y-2.5"
+                            style="margin-left: -1.4rem;">
+                            <a *ngFor="let content of team.value; let i = index" style="word-break: break-all;">
+                                <span
+                                    class="bg-indigo-100 text-indigo-500 w-4 h-4 mr-2 rounded-full inline-flex items-center justify-center">
+                                    {{i + 1}}
+                                </span>{{content}}
+                            </a>
+
+                        </nav>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfLeft">
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">價格(年)</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">新增及更改資料</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                            <input type="email" name="email"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
+                            <input type="text" name="pic"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/3">
+                        <div class="relative">
+                            <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
+                            <input type="text" name="pic" placeholder="條件1"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" placeholder="條件2"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" placeholder="條件3"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" placeholder="條件4"
+                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-full p-2 aboutChangebtn">
+                        <button
+                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
+                        <button
+                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="routerPageOutside-halfRight">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto" style="padding: 49px 0;">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">價格(年)</h1>
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">選取並刪除</p>
+            </div>
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+
+                <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let year of data[3].year; let i = index;">
+                    <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "year")'>
+                        <i class="fad checkbox"
+                            [ngClass]="{'fa-circle-notch': check.year[i], 'fa-check-circle': !check.year[i]}"></i>
+                        <span class="title-font font-medium">{{year.title}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <button
+                class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
+        </div>
+    </section>
+</div>
+<div class="clearfix"></div>

@@ -88,7 +88,7 @@
       <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
 
         <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let team of data[0]; let i = index;">
-          <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i)'>
+          <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Team")'>
             <i class="fad checkbox"
               [ngClass]="{'fa-circle-notch': check.Team[i], 'fa-check-circle': !check.Team[i]}"></i>
             <span class="title-font font-medium">{{team.name}}</span>
@@ -186,7 +186,7 @@
       <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
 
         <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let place of data[2]; let i = index;">
-          <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i)'>
+          <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Place")'>
             <i class="fad checkbox"
               [ngClass]="{'fa-circle-notch': check.Place[i], 'fa-check-circle': !check.Place[i]}"></i>
             <span class="title-font font-medium">{{place.name}}</span>
@@ -199,4 +199,4 @@
     </div>
   </section>
 </div>
-<div class="loginfooter"></div>
+<div class="clearfix"></div>
