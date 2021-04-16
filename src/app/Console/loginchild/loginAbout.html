@@ -41,35 +41,35 @@
           <div class="p-2 w-1/3">
             <div class="relative">
               <label for="name" class="leading-7 text-sm text-gray-600">name</label>
-              <input type="text" name="name"
+              <input type="text" name="name" [(ngModel)]="formData.Team.name"
                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
           <div class="p-2 w-1/3">
             <div class="relative">
               <label for="email" class="leading-7 text-sm text-gray-600">type</label>
-              <input type="email" name="email"
+              <input type="email" name="email" [(ngModel)]="formData.Team.type"
                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
           <div class="p-2 w-1/3">
             <div class="relative">
               <label for="pic" class="leading-7 text-sm text-gray-600">pic</label>
-              <input type="text" name="pic"
+              <input type="text" name="pic" [(ngModel)]="formData.Team.pic"
                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
           <div class="p-2 w-full">
             <div class="relative">
               <label for="message" class="leading-7 text-sm text-gray-600">content</label>
-              <textarea name="message"
+              <textarea name="message" [(ngModel)]="formData.Team.content"
                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
             </div>
           </div>
           <div class="flex justify-center w-full p-2 aboutChangebtn">
-            <button
+            <button (click)='Submit("Add", "Team")'
               class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
-            <button
+            <button (click)='Submit("Update", "Team")'
               class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
           </div>
         </div>
@@ -96,7 +96,7 @@
         </div>
 
       </div>
-      <button
+      <button (click)='Delete("Team", 0)'
         class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
     </div>
   </section>
@@ -110,7 +110,7 @@
         <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">現有資料</p>
       </div>
 
-      <div class="flex flex-wrap -m-4" style="justify-content: start;letter-spacing: 2px;">
+      <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
         <ng-container *ngIf="data[2]">
           <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let place of data[2] | key; let i = index">
             <h2 class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
@@ -146,28 +146,28 @@
           <div class="p-2 w-1/2">
             <div class="relative">
               <label for="name" class="leading-7 text-sm text-gray-600">name</label>
-              <input type="text" name="name"
+              <input type="text" name="name" [(ngModel)]="formData.Place.name"
                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
           <div class="p-2 w-1/2">
             <div class="relative">
               <label for="email" class="leading-7 text-sm text-gray-600">style</label>
-              <input type="email" name="email"
+              <input type="email" name="email" [(ngModel)]="formData.Place.style"
                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
           <div class="p-2 w-full">
             <div class="relative">
               <label for="message" class="leading-7 text-sm text-gray-600">content</label>
-              <textarea name="message"
+              <textarea name="message" [(ngModel)]="formData.Place.content"
                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
             </div>
           </div>
           <div class="flex justify-center w-full p-2 aboutChangebtn">
-            <button
+            <button (click)='Submit("Add", "Place")'
               class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">新增</button>
-            <button
+            <button (click)='Submit("Update", "Place")'
               class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">更改</button>
           </div>
         </div>
@@ -194,7 +194,7 @@
         </div>
 
       </div>
-      <button
+      <button (click)='Delete("Place", 2)'
         class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">刪除</button>
     </div>
   </section>
