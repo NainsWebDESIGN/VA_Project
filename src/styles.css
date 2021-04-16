@@ -1207,16 +1207,12 @@ h2.tracking-widest a {
   display: none;
 }
 .logintitle-left {
-  /* position: relative; */
-  /* top: 1px; */
   float: left;
   margin-left: 2%;
 }
 .logintitle-right {
-  /* position: relative; */
   float: right;
   margin-right: 2%;
-  /* top: 1px; */
 }
 .lang {
   opacity: 0;
