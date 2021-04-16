@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   email: string = "";
   constructor(private api: ApiService, public infor: Information) { }
   Login(_Need: string) {
+    localStorage.removeItem('login')
     switch (_Need) {
       case 'login':
         let username = this.username.trim();

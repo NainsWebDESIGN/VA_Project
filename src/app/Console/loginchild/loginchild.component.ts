@@ -8,15 +8,19 @@ import { ApiService } from '@service/api.service';
 })
 export class LoginAbout implements OnInit {
   data: Array<any> = [];
-  check: Array<boolean> = [];
+  check: any = {
+    Team: [],
+    Place: []
+  }
   constructor(private api: ApiService) { }
-  Check(_Position: number) {
-    this.check[_Position] = !this.check[_Position];
+  Check(_Position: number, _Item: string) {
+    this.check[_Item][_Position] = !this.check[_Item][_Position];
   }
   ngOnInit() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
       this.data = el;
-      this.data[0].forEach(el => { this.check.push(true); });
+      this.data[0].forEach(el => { this.check['Team'].push(true); });
+      this.data[2].forEach(el => { this.check['Place'].push(true); });
     })
   }
 
@@ -28,10 +32,21 @@ export class LoginAbout implements OnInit {
   styleUrls: ['./loginchild.component.css']
 })
 export class LoginMessage implements OnInit {
-
-  constructor() { }
-
+  data: any = [];
+  check: Array<boolean> = [];
+  constructor(private api: ApiService) { }
+  Content(_Position: number) {
+    if (_Position == 8) { return '100%'; }
+    else { return; }
+  }
+  Check(_Position: number) {
+    this.check[_Position] = !this.check[_Position];
+  }
   ngOnInit() {
+    this.api.postApi('message').subscribe((el: Array<any>) => {
+      this.data = el;
+      this.data.forEach(el => { this.check.push(true); });
+    })
   }
 
 }

@@ -1081,6 +1081,7 @@ h2.tracking-widest a {
   border-bottom: solid 2px #939699;
   transition: 0.3s all ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
+  padding-top: 1px;
 }
 .logintitle.active {
   width: 80%;
@@ -1099,7 +1100,36 @@ h2.tracking-widest a {
   -webkit-transition: all 0.3s ease-in-out;
   overflow: scroll;
 }
-
+.routerPageOutside-halfLeft {
+  position: relative;
+  width: 47%;
+  height: auto;
+  margin: 2% 0 2% 0;
+  padding: 10px;
+  left: 2%;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  overflow: scroll;
+  float: left;
+}
+.routerPageOutside-halfRight {
+  position: relative;
+  width: 47%;
+  height: auto;
+  margin: 2% 0 2% 0;
+  padding: 10px;
+  right: 2%;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  overflow: scroll;
+  float: right;
+}
 .consoleImg {
   padding: 1.2rem;
   justify-content: center;
@@ -1177,14 +1207,16 @@ h2.tracking-widest a {
   display: none;
 }
 .logintitle-left {
-  position: relative;
-  left: 2%;
-  top: 1px;
+  /* position: relative; */
+  /* top: 1px; */
+  float: left;
+  margin-left: 2%;
 }
 .logintitle-right {
-  position: relative;
-  left: 60%;
-  top: 1px;
+  /* position: relative; */
+  float: right;
+  margin-right: 2%;
+  /* top: 1px; */
 }
 .lang {
   opacity: 0;
@@ -1333,6 +1365,19 @@ hr {
 @media (max-width: 768px) {
   .md\:flex-row {
     flex-direction: column;
+  }
+  .routerPageOutside-halfLeft,
+  .routerPageOutside-halfRight {
+    width: 96%;
+  }
+  .routerPageOutside-halfRight {
+    float: none;
+    left: 2%;
+  }
+  .logintitle-left,
+  .logintitle-right {
+    font-size: smaller;
+    margin-top: 4px;
   }
   .consoleBtn,
   .consoleMenu {
