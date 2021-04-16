@@ -33,10 +33,11 @@
     <i class="far fa-language consoleMenu" (click)='Effect("lang")'></i>
     <i class="fad fa-sign-out-alt consoleMenu" (click)='logout()' style="transform: rotate(180deg);"></i>
 </div>
-<div class="logintitle" [class.active]="!Menu"><span class="logintitle-left">{{"登陸時間" | Translation:
-        infor.Language}}&nbsp;&nbsp;:&nbsp;&nbsp;
-        {{time | date:'medium'}}</span><span class="logintitle-right">{{"用戶名" | Translation:
-        infor.Language}}&nbsp;&nbsp;:&nbsp;&nbsp;{{User}}</span></div>
+<div class="logintitle" [class.active]="!Menu"><span class="logintitle-left">
+        {{"登陸時間" | Translation: infor.Language}}&nbsp;&nbsp;:&nbsp;&nbsp;
+        {{time | date:'medium'}}</span><span class="logintitle-right">
+        {{"用戶名" | Translation: infor.Language}}&nbsp;&nbsp;:&nbsp;&nbsp;{{User}}</span>
+</div>
 <div class="routerPage" [class.active]="!Menu">
     <router-outlet></router-outlet>
 </div>
