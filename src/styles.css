@@ -313,17 +313,6 @@ ul {
   transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
 }
-.menuHref .menuTitle .menuBorder {
-  position: relative;
-  width: 0%;
-  height: 2px;
-  background: #fff;
-  transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-}
-.menuHref .menuTitle:hover .menuBorder {
-  width: 100%;
-}
 .menubx {
   margin-top: 30%;
   text-align: center;
@@ -334,6 +323,32 @@ ul {
   color: #cbd5e0;
   font-size: 1.3em;
   font-weight: 700;
+}
+.menuBefore {
+  position: relative;
+  overflow: hidden;
+  left: 50%;
+  display: block;
+  width: 200px;
+  height: auto;
+  text-align: center;
+  margin-left: -100px;
+}
+.menuBefore::after {
+  position: absolute;
+  transition: all 0.2s ease-in-out;
+  content: "";
+  left: 0;
+  bottom: auto;
+  top: -3px;
+  width: 95%;
+  height: 3px;
+  background: #f7f7f7;
+}
+.menuBefore:hover::after {
+  width: 95%;
+  left: 0;
+  top: calc(100% - 3px);
 }
 .menubx p:hover a {
   color: #fff;
@@ -1339,15 +1354,9 @@ hr {
     transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
   }
-  .menuTitle:hover {
-    font-size: 2em;
-  }
   .menubx {
     line-height: normal;
     margin-top: 1%;
-  }
-  .menuBorder {
-    display: none;
   }
   .menuHref:nth-child(1) {
     top: 0%;

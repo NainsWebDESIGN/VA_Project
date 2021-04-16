@@ -29,8 +29,7 @@
     <li *ngFor="let even of data; let i = index;" class="menuHref">
       <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle" (click)='openMenu("close")'
         (click)='toTop(0)'>
-        {{even.title | Translation: infor.Language}}
-        <p class="menuBorder"></p>
+        <span class="menuBefore">{{even.title | Translation: infor.Language}}</span>
       </a>
 
       <div class="menubx">
