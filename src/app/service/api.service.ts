@@ -19,24 +19,32 @@ export class ApiService {
             return data;
         }
         let geturl = el => { return 'assets/json/' + el + '.json' };
-        let url = geturl(_Gatewey);
+        let getphp = el => { return 'assets/php/' + el + '.php' };
+        let jsUrl = geturl(_Gatewey);
+        let phUrl = getphp(_Gatewey);
         switch (_Gatewey) {
             case 'formdata':
                 let $obj = postData(_Obj[0]);
-                url = '/forms/u/0/d/e/1FAIpQLSdWJlLDYntz5U423tsDTrXMa4hkfxc7sw3J0-f2f59wbRjaEA/formResponse';
+                jsUrl = '/forms/u/0/d/e/1FAIpQLSdWJlLDYntz5U423tsDTrXMa4hkfxc7sw3J0-f2f59wbRjaEA/formResponse';
                 let headers = new Headers({ 'Access-Control-Allow-Origin': '*' });
                 let options = new ResponseOptions({ headers: headers });
-                return this.post.post(url, $obj, options).map(el => { return el; });
+                return this.post.post(jsUrl, $obj, options).map(el => { return el; });
             case 'member':
-                this.http.get(url).subscribe((el: any) => {
-                    let username = el.map(res => { return res.username }).indexOf(_Obj[0].username) !== -1;
-                    let password = el.map(res => { return res.password }).indexOf(_Obj[0].password) !== -1;
-                    if (username && password) { localStorage.setItem('login', _Obj[0].username); }
+                let test = postData(_Obj[0]);
+                this.http.post(phUrl, test).subscribe((el: any) => {
+                    if (el.login) { localStorage.setItem('login', _Obj[0].username); }
                     else { localStorage.removeItem('login'); }
                     return this.router.navigate(['/Member']);
                 })
+            // this.http.get(url).subscribe((el: any) => {
+            //     let username = el.map(res => { return res.username }).indexOf(_Obj[0].username) !== -1;
+            //     let password = el.map(res => { return res.password }).indexOf(_Obj[0].password) !== -1;
+            //     if (username && password) { localStorage.setItem('login', _Obj[0].username); }
+            //     else { localStorage.removeItem('login'); }
+            //     return this.router.navigate(['/Member']);
+            // })
             default:
-                return this.http.get(url).map(el => { return el; });
+                return this.http.get(jsUrl).map(el => { return el; });
         }
     }
 }

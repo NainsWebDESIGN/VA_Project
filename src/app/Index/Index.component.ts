@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
@@ -8,7 +8,7 @@ import { Information } from '@service/information.service';
   templateUrl: './Index.component.html',
   styleUrls: ['./Index.component.css']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', ['$event'])
   SetWidth(_Event) {
     if (this.Choice) {
@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
   arrow: boolean = false;
   Choice: Array<any> = [];
   IndexChoice: boolean = false;
-  banner: any = setInterval(() => { this.changePage(1, 1); }, 5000);
+  banner: any;
   constructor(private api: ApiService, public infor: Information, private Acrouter: ActivatedRoute) { }
   openArrow() {
     this.arrow = true;
@@ -120,6 +120,10 @@ export class IndexComponent implements OnInit {
       for (let i = -1; i > news; i--) { this.data.push(el.data[el.data.length + i]); }
       this.sliderPage = [true, false, false];
     })
+    this.banner = setInterval(() => { this.changePage(1, 1); }, 5000);
   }
 
+  ngOnDestroy() {
+    clearInterval(this.banner);
+  }
 }
