@@ -78,6 +78,9 @@ export const usLang = {
     "月標題3": "Month title 3",
     "月標題4": "Month title 4",
     "年標題1": "Year title 1",
+    "年標題2": "Year title 2",
+    "年標題3": "Year title 3",
+    "年標題4": "Year title 4",
     "全部": "All",
     "第一種": "first",
     "第二種": "second",
@@ -92,5 +95,17 @@ export const usLang = {
     "再次確認": "Double Confirm",
     "下一則": "Next",
     "用戶名": "UserName",
-    "登陸時間": "Login time"
+    "登陸時間": "Login time",
+    "現有資料": "Existing information",
+    "新增及更改資料": "Add and change information",
+    "新增": "Add",
+    "更改": "Change",
+    "選取並刪除": "Select And Delete",
+    "刪除": "Delete",
+    "聯繫我們": "Contact Us",
+    "優惠": "Discount",
+    "系統": "System",
+    "分工": "Division of labor",
+    "月": "month",
+    "年": "year"
 }

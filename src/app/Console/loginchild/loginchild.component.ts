@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
+import { Information } from '@service/information.service';
 
 @Component({
   selector: 'loginabout',
@@ -16,7 +17,7 @@ export class LoginAbout implements OnInit {
     Team: [],
     Place: []
   };
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public infor: Information) { }
   Check(_Position: number, _Item: string) {
     this.check[_Item][_Position] = !this.check[_Item][_Position];
   }
@@ -52,7 +53,7 @@ export class LoginAbout implements OnInit {
 export class LoginMessage implements OnInit {
   data: any = [];
   check: Array<boolean> = [];
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public infor: Information) { }
   Content(_Position: number) {
     if (_Position == 8) { return '100%'; }
     else { return; }
@@ -77,7 +78,7 @@ export class LoginMessage implements OnInit {
 export class LoginContact implements OnInit {
   data: any = [];
   check: Array<boolean> = [];
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public infor: Information) { }
   Check(_Position: number) {
     this.check[_Position] = !this.check[_Position];
   }
@@ -105,7 +106,7 @@ export class LoginService implements OnInit {
     month: [],
     year: []
   }
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public infor: Information) { }
   Content(_Position: number, _Item: string) {
     switch (_Item) {
       case 'Do':

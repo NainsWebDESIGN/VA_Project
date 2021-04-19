@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
 
@@ -22,7 +23,8 @@ export class IndexComponent implements OnInit {
   arrow: boolean = false;
   Choice: Array<any> = [];
   IndexChoice: boolean = false;
-  constructor(private api: ApiService, public infor: Information) { }
+  banner: any = setInterval(() => { this.changePage(1, 1); }, 5000);
+  constructor(private api: ApiService, public infor: Information, private Acrouter: ActivatedRoute) { }
   openArrow() {
     this.arrow = true;
   }
@@ -113,11 +115,11 @@ export class IndexComponent implements OnInit {
     this.api.postApi('index').subscribe((el: Array<any>) => {
       this.Choice = el;
     })
-    this.api.postApi('message').subscribe((el: Array<any>) => {
+    this.Acrouter.data.subscribe((el: any) => {
       let news = -4;
-      for (let i = -1; i > news; i--) { this.data.push(el[el.length + i]); }
+      for (let i = -1; i > news; i--) { this.data.push(el.data[el.data.length + i]); }
       this.sliderPage = [true, false, false];
-    });
+    })
   }
 
 }

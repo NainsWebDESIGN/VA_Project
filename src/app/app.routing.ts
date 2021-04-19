@@ -13,6 +13,7 @@ import { LoginAbout, LoginMessage, LoginService, LoginContact } from './Console/
 
 // Service
 import { AuthGuard } from '@service/AuthGuard.service';
+import { Preload } from '@service/preload.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
@@ -20,7 +21,10 @@ const routes: Routes = [
     path: 'Valleys_Awesome', component: HeaderComponent,
     children: [
       { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
-      { path: 'Welcome', component: IndexComponent },
+      {
+        path: 'Welcome', component: IndexComponent,
+        resolve: { data: Preload }
+      },
       { path: 'Contact', component: ContactComponent },
       { path: 'Message', component: MessageComponent },
       { path: 'Service', component: ServicePageComponent },
@@ -48,6 +52,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard, Preload]
 })
 export class AppRouting { }
