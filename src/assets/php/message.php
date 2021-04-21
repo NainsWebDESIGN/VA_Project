@@ -3,9 +3,9 @@ header('Content-Type: application/json; charset=UTF-8'); //設定資料類型為
 if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     $data = array();
     $DB_server = "localhost"; # 你的網域IP
-    $DB_user = "Nains"; # 你的帳號
-    $DB_pass = "a8110271"; # 你的密碼
-    $DB_name = "Nains_DB"; # 你的資料庫
+    $DB_user = "username"; # 你的帳號
+    $DB_pass = "password"; # 你的密碼
+    $DB_name = "database"; # 你的資料庫
 
     $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
 
