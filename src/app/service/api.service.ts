@@ -10,9 +10,9 @@ export class ApiService {
 
     constructor(private http: HttpClient, private post: Http, private router: Router, private infor: Information) { }
     postApi(_Gatewey: string, ..._Obj: Array<any>) {
+        let data = new FormData();
         let postData = (el: any) => {
             let keys = Object.keys(el);
-            let data = new FormData();
             for (let i = 0; i < keys.length; i++) {
                 data.append(keys[i], el[keys[i]]);
             }
@@ -22,16 +22,15 @@ export class ApiService {
         let getphp = el => { return 'assets/php/' + el + '.php' };
         let jsUrl = geturl(_Gatewey);
         let phUrl = getphp(_Gatewey);
+        let $obj = _Obj[0] ? postData(_Obj[0]) : data;
         switch (_Gatewey) {
             case 'formdata':
-                let $obj = postData(_Obj[0]);
                 jsUrl = '/forms/u/0/d/e/1FAIpQLSdWJlLDYntz5U423tsDTrXMa4hkfxc7sw3J0-f2f59wbRjaEA/formResponse';
                 let headers = new Headers({ 'Access-Control-Allow-Origin': '*' });
                 let options = new ResponseOptions({ headers: headers });
                 return this.post.post(jsUrl, $obj, options).map(el => { return el; });
             case 'member':
-                let test = postData(_Obj[0]);
-                this.http.post(phUrl, test).subscribe((el: any) => {
+                this.http.post(phUrl, $obj).subscribe((el: any) => {
                     if (el.login) { localStorage.setItem('login', _Obj[0].username); }
                     else { localStorage.removeItem('login'); }
                     return this.router.navigate(['/Member']);
@@ -43,6 +42,10 @@ export class ApiService {
             //     else { localStorage.removeItem('login'); }
             //     return this.router.navigate(['/Member']);
             // })
+            // case 'header':
+            // case 'index':
+            // case 'contact':
+            //     return this.http.post(phUrl, $obj).map(el => { return el; });
             default:
                 return this.http.get(jsUrl).map(el => { return el; });
         }

@@ -23,14 +23,7 @@ export class HeaderComponent implements OnInit {
     this.infor.Language = _Lang;
   }
   openMenu(_Effect: string) {
-    switch (_Effect) {
-      case 'open':
-        this.menuStyle = !this.menuStyle;
-        break;
-      case 'close':
-        this.menuStyle = false;
-        break;
-    }
+    this.menuStyle = _Effect == 'open' ? !this.menuStyle : false;
     this.Menu = this.menuStyle;
   }
   toTop(_Where: number, ..._ID: Array<any>) {

@@ -9,16 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
 
     $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
 
-    $index = "index"; #資料表名稱
-    $sqlIndex = "SELECT * FROM $index;"; #查詢資料表
+    $contact = "contact"; #資料表名稱
+    $sqlContact = "SELECT * FROM $contact;"; #查詢資料表
 
     if($connection -> connect_error){
         $data = array( 'failed' => $connection -> connect_error );
     }else{
         // $data = array( 'succes' => "成功連線到資料庫" );
-        if($result = $connection->query($sqlIndex)){
+        if($result = $connection->query($sqlContact)){
             while($row = $result->fetch_row()){
-                array_push($data, array('style' => $row[0], 'content' => $row[1], 'name' => $row[2]));
+                array_push($data, array('media' => $row[0], 'href' => $row[1], 'style' => $row[2]));
             }
         }else{
             $data = array( 'selectFailed' => $connection->error );
