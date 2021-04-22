@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
@@ -8,7 +8,7 @@ import { Information } from '@service/information.service';
   templateUrl: './Console.component.html',
   styleUrls: ['./Console.component.css']
 })
-export class ConsoleComponent implements OnInit {
+export class ConsoleComponent implements OnInit, OnDestroy {
   Menu: boolean = true;
   Language: boolean = false;
   time: any = new Date();
@@ -37,6 +37,9 @@ export class ConsoleComponent implements OnInit {
   }
   ngOnInit() {
     this.User = localStorage.getItem('login');
+  }
+  ngOnDestroy() {
+    localStorage.removeItem('login');
   }
 
 }

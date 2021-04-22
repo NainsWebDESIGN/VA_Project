@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
     this.changeSign = !this.changeSign;
   }
   ngOnInit() {
-
   }
 
 }

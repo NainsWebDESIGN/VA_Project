@@ -25,19 +25,19 @@ export class ApiService {
                 let options = new ResponseOptions({ headers: headers });
                 return this.post.post(url, $submit, options).map(el => { return el; });
             case 'member':
-                let $login = postData(_Obj[0]);
-                this.http.post(Purl, $login).subscribe((el: any) => {
-                    if (el.login) { localStorage.setItem('login', _Obj[0].username); }
+                // let $login = postData(_Obj[0]);
+                // this.http.post(Purl, $login).subscribe((el: any) => {
+                //     if (el.login) { localStorage.setItem('login', _Obj[0].username); }
+                //     else { localStorage.removeItem('login'); }
+                //     return this.router.navigate(['/Member']);
+                // })
+                this.http.get(Jurl).subscribe((el: any) => {
+                    let username = el.map(res => { return res.username }).indexOf(_Obj[0].username) !== -1;
+                    let password = el.map(res => { return res.password }).indexOf(_Obj[0].password) !== -1;
+                    if (username && password) { localStorage.setItem('login', _Obj[0].username); }
                     else { localStorage.removeItem('login'); }
                     return this.router.navigate(['/Member']);
                 })
-            // this.http.get(url).subscribe((el: any) => {
-            //     let username = el.map(res => { return res.username }).indexOf(_Obj[0].username) !== -1;
-            //     let password = el.map(res => { return res.password }).indexOf(_Obj[0].password) !== -1;
-            //     if (username && password) { localStorage.setItem('login', _Obj[0].username); }
-            //     else { localStorage.removeItem('login'); }
-            //     return this.router.navigate(['/Member']);
-            // })
             // case 'header':
             // case 'index':
             // case 'contact':
