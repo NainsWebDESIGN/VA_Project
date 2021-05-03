@@ -115,6 +115,19 @@ export class ServicePageComponent implements OnInit {
   }
   ngOnInit() {
     this.api.postApi('service').subscribe((el: Array<any>) => {
+
+      el[3].month.forEach(element => {
+        for (let i = 0; i < element.content.length; i++) {
+          let index = element.content.indexOf('');
+          if (index !== -1) { element.content.splice(index, 1); };
+        }
+      });
+      el[3].year.forEach(element => {
+        for (let i = 0; i < element.content.length; i++) {
+          let index = element.content.indexOf('');
+          if (index !== -1) { element.content.splice(index, 1); };
+        }
+      });
       el[0].forEach(json => { this.Scroll_Do.push(false) });
       if (el[1]) { el[1].left.forEach(json => { this.Scroll_skill.left.push(0) }); }
       this.data = el;

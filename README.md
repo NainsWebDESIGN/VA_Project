@@ -7,5 +7,5 @@
 1. 清理緩存 `npm cache clean --force`
 2. 重新 `npm i`
 3. 新增 php 求取資料
-4. 缺 service.php
-5. 新增網域
+4. 求取資料庫已經完成
+5. 未新增增加、修改及刪除 php
