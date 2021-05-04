@@ -14,7 +14,7 @@ export class Information {
     pageLink: Array<string> = ['AboutTop', 'MessTop', 'SerTop', 'ConTop'];
     bodyWidth: number = document.body.clientWidth;
     constructor(private router: Router) {
-        sessionStorage.setItem('language', this.Language);
+        // sessionStorage.setItem('language', this.Language);
         this.router.events.subscribe(el => {
             if (el instanceof NavigationEnd) {
                 this.Page = el['url'];
@@ -26,19 +26,16 @@ export class Information {
         this.messItem = _Item;
         this.SubMessItem.next(this.messItem);
     }
-
     get lang(): string {
-        this.Language = sessionStorage.getItem('language');
+        // this.Language = sessionStorage.getItem('language');
         return this.Language;
     }
-
     set lang(lang: string) {
-        if (lang) {
-            sessionStorage.setItem('language', lang);
-        } else {
-            sessionStorage.removeItem('language');
-        }
-
+        // if (lang) {
+        //     sessionStorage.setItem('language', lang);
+        // } else {
+        //     sessionStorage.removeItem('language');
+        // }
         this.Language = lang;
     }
 }
