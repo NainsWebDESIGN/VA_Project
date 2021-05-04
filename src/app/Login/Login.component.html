@@ -9,9 +9,9 @@
       <div class="formBx">
         <div>
           <h2>{{"登入" | Translation: infor.Language}}</h2>
-          <input type="text" [(ngModel)]="username" [placeholder]="transLate('帳號')" name="username"
+          <input type="text" [(ngModel)]="member.username" [placeholder]="transLate('帳號')" name="username"
             (keyup.enter)='Login("login")'>
-          <input type="password" [(ngModel)]="password" [placeholder]="transLate('密碼')" name="password"
+          <input type="password" [(ngModel)]="member.password" [placeholder]="transLate('密碼')" name="password"
             (keyup.enter)='Login("login")'>
           <input type="submit" [value]="transLate('登入')" (click)='Login("login")'>
           <p class="signup">{{"還沒有帳號" | Translation: infor.Language}}? <a class="loginSign"

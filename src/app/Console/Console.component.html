@@ -11,7 +11,7 @@
                 class="ml-3 text-xl us-name">Valleys
                 Awesome</span></p>
     </a>
-    <i class="fad fa-bars consoleMenu WidthMenu" (click)='Effect("menu")'></i>
+    <i class="fad fa-bars consoleMenu WidthMenu" (click)='Effect("Menu")'></i>
     <ul class="consoleLeft">
         <li (click)='childRoute("loginAbout")'>
             <i [class.active]="Menu" class="far fa-address-card consoleBtn"></i>
@@ -30,7 +30,7 @@
             <span [class.active]="Menu" class="consoleText">{{"聯絡我們" | Translation: infor.Language}}</span>
         </li>
     </ul>
-    <i class="far fa-language consoleMenu" (click)='Effect("lang")'></i>
+    <i class="far fa-language consoleMenu" (click)='Effect("Language")'></i>
     <i class="fad fa-sign-out-alt consoleMenu" (click)='logout()'></i>
 </div>
 <div class="logintitle" [class.active]="!Menu"><span class="logintitle-left">

@@ -24,11 +24,20 @@ export class AboutComponent implements OnInit {
       }
     }
   }
-  data: any = [];
-  scrollTeam: any = [false, false];
-  scrollLineL: any = [];
-  scrollPlace: any = [];
+  /** data存放資料 */
+  data: Array<any> = [];
+  /** 團隊介紹樣式 */
+  scrollTeam: Array<boolean> = [false, false];
+  /** 品牌故事樣式 */
+  scrollLineL: Array<boolean> = [];
+  /** 相關單位樣式 */
+  scrollPlace: Array<boolean> = [];
   constructor(public infor: Information, private api: ApiService) { }
+  /**
+   * 滾動樣式由監聽完成陣列布林，HTML則透過這個函式完成對應樣式
+   * @param _Need HTML DOM位置
+   * @param _Position 對應的陣列位置
+   */
   ScrollBl(_Need: string, _Position: number) {
     switch (_Need) {
       case 'line':
