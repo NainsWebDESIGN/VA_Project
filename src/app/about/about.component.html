@@ -3,9 +3,9 @@
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-20">
-        <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">{{"團隊介紹" | Translation: infor.lang}}</h1>
+        <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">{{"團隊介紹" | Translation}}</h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{"我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。"
-          | Translation: infor.lang}}</p>
+          | Translation}}</p>
       </div>
       <div class="flex flex-wrap -m-4 aboutTeam">
 
@@ -16,9 +16,9 @@
               <img alt="Valleys Awesome" class="aboutImg" [src]="even.pic">
             </div>
             <div class="w-full">
-              <h2 class="title-font font-medium text-lg text-gray-900">{{even.name | Translation: infor.lang}}</h2>
-              <h3 class="text-gray-500 mb-3">{{even.type | Translation: infor.lang}}</h3>
-              <p class="mb-4">{{even.content | Translation: infor.lang}}</p>
+              <h2 class="title-font font-medium text-lg text-gray-900">{{even.name | Translation}}</h2>
+              <h3 class="text-gray-500 mb-3">{{even.type | Translation}}</h3>
+              <p class="mb-4">{{even.content | Translation}}</p>
               <span class="inline-flex">
                 <a class="text-gray-500">
                   <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
@@ -54,7 +54,7 @@
 
   <!-- 品牌故事 -->
   <section class="text-gray-600 body-font">
-    <h2 class="aboutText">{{"品牌故事" | Translation: infor.lang}}</h2>
+    <h2 class="aboutText">{{"品牌故事" | Translation}}</h2>
     <div class="container px-5 py-24 mx-auto flex flex-wrap">
 
       <div *ngFor="let even of data[1]; let i = index;" [id]="'Scroll_line_' + i"
@@ -75,9 +75,9 @@
             </svg>
           </div>
           <div [class.active]="ScrollBl('line', i)" class="scrollAbout-right flex-grow sm:pl-6 mt-6 sm:mt-0">
-            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">{{even.title | Translation: infor.lang}}
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">{{even.title | Translation}}
             </h2>
-            <p class="leading-relaxed">{{even.content | Translation: infor.lang}}</p>
+            <p class="leading-relaxed">{{even.content | Translation}}</p>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
 
   <!-- 相關單位 -->
   <section class="text-gray-600 body-font">
-    <h2 class="aboutText">{{"相關單位" | Translation: infor.lang}}</h2>
+    <h2 class="aboutText">{{"相關單位" | Translation}}</h2>
     <div class="container px-5 py-24 mx-auto">
 
       <div *ngFor="let even of data[2]; let evItem = even; let odItem = odd; let i = index;" [id]="'Scroll_Place_' + i"
@@ -95,8 +95,8 @@
         class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
 
         <div *ngIf="odItem" class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{even.name | Translation: infor.lang}}</h2>
-          <p class="leading-relaxed text-base">{{even.content | Translation: infor.lang}}</p>
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{even.name | Translation}}</h2>
+          <p class="leading-relaxed text-base">{{even.content | Translation}}</p>
         </div>
 
         <div [ngClass]="{'sm:order-none order-first sm:ml-10': odItem, 'sm:mr-10': evItem}"
@@ -105,8 +105,8 @@
         </div>
 
         <div *ngIf="evItem" class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{even.name | Translation: infor.lang}}</h2>
-          <p class="leading-relaxed text-base">{{even.content | Translation: infor.lang}}</p>
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{even.name | Translation}}</h2>
+          <p class="leading-relaxed text-base">{{even.content | Translation}}</p>
         </div>
 
       </div>

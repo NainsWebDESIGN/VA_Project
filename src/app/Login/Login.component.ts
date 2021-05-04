@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   signpass: string = "";
   signpass_2: string = "";
   email: string = "";
-  constructor(private api: ApiService, public infor: Information) { }
+  constructor(private api: ApiService, private infor: Information) { }
   Login(_Need: string) {
     localStorage.removeItem('login')
     switch (_Need) {

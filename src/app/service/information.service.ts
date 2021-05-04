@@ -14,6 +14,7 @@ export class Information {
     pageLink: Array<string> = ['AboutTop', 'MessTop', 'SerTop', 'ConTop'];
     bodyWidth: number = document.body.clientWidth;
     constructor(private router: Router) {
+        sessionStorage.setItem('language', this.Language);
         this.router.events.subscribe(el => {
             if (el instanceof NavigationEnd) {
                 this.Page = el['url'];

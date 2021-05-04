@@ -35,7 +35,7 @@ export class ContactComponent implements OnInit {
   Scroll_Media: any = [];
   /** 滾動至建議表單動畫 */
   Feeback: boolean = false;
-  constructor(private api: ApiService, public infor: Information) { }
+  constructor(private api: ApiService, private infor: Information) { }
   /** 發送建議 */
   Submit() {
     let name = this.Suggest["entry.2002706790"], email = this.Suggest["entry.1995154974"],

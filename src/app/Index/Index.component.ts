@@ -24,7 +24,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   Choice: Array<any> = [];
   IndexChoice: boolean = false;
   banner: any;
-  constructor(private api: ApiService, public infor: Information, private Acrouter: ActivatedRoute) { }
+  constructor(private api: ApiService, private infor: Information, private Acrouter: ActivatedRoute) { }
   openArrow() {
     this.arrow = true;
   }

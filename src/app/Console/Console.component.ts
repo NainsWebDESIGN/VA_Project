@@ -16,7 +16,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
   time: Date = new Date();
   /** 登入用戶 */
   User: string = '';
-  constructor(private router: Router, public infor: Information) { }
+  constructor(private router: Router, private infor: Information) { }
   /**
    * 展開菜單或語系
    * @param _Popup 菜單或語系(Menu, Language)

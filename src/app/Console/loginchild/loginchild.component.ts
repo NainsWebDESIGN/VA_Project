@@ -139,7 +139,7 @@ export class LoginService implements OnInit {
     month: [],
     year: []
   }
-  constructor(private api: ApiService, public infor: Information) { }
+  constructor(private api: ApiService, private infor: Information) { }
   /**
    * 寬度設置
    * @param _Position 第幾組小項目

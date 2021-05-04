@@ -44,7 +44,7 @@ export class ServicePageComponent implements OnInit {
     rightAgain: false,
     titleLine: [false, false, false]
   };
-  constructor(public infor: Information, private api: ApiService) { }
+  constructor(private infor: Information, private api: ApiService) { }
   Price(_Boolin: boolean) {
     this.Choice = _Boolin;
   }

@@ -15,28 +15,28 @@
     <ul class="consoleLeft">
         <li (click)='childRoute("loginAbout")'>
             <i [class.active]="Menu" class="far fa-address-card consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">{{"關於我們" | Translation: infor.lang}}</span>
+            <span [class.active]="Menu" class="consoleText">{{"關於我們" | Translation}}</span>
         </li>
         <li (click)='childRoute("loginMessage")'>
             <i [class.active]="Menu" class="far fa-file consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">{{"最新消息" | Translation: infor.lang}}</span>
+            <span [class.active]="Menu" class="consoleText">{{"最新消息" | Translation}}</span>
         </li>
         <li (click)='childRoute("loginService")'>
             <i [class.active]="Menu" class="fas fa-concierge-bell consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">{{"服務內容" | Translation: infor.lang}}</span>
+            <span [class.active]="Menu" class="consoleText">{{"服務內容" | Translation}}</span>
         </li>
         <li (click)='childRoute("loginContact")'>
             <i [class.active]="Menu" class="far fa-comments consoleBtn"></i>
-            <span [class.active]="Menu" class="consoleText">{{"聯絡我們" | Translation: infor.lang}}</span>
+            <span [class.active]="Menu" class="consoleText">{{"聯絡我們" | Translation}}</span>
         </li>
     </ul>
     <i class="far fa-language consoleMenu" (click)='Effect("Language")'></i>
     <i class="fad fa-sign-out-alt consoleMenu" (click)='logout()'></i>
 </div>
 <div class="logintitle" [class.active]="!Menu"><span class="logintitle-left">
-        {{"登陸時間" | Translation: infor.lang}}&nbsp;&nbsp;:&nbsp;&nbsp;
+        {{"登陸時間" | Translation}}&nbsp;&nbsp;:&nbsp;&nbsp;
         {{time | date:'medium'}}</span><span class="logintitle-right">
-        {{"用戶名" | Translation: infor.lang}}&nbsp;&nbsp;:&nbsp;&nbsp;{{User}}</span>
+        {{"用戶名" | Translation}}&nbsp;&nbsp;:&nbsp;&nbsp;{{User}}</span>
 </div>
 <div class="routerPage" [class.active]="!Menu">
     <router-outlet></router-outlet>
