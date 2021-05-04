@@ -15,12 +15,13 @@ export class HeaderComponent implements OnInit {
     let scrollbar = (_Event.srcElement.scrollingElement.scrollTop / height) * 100;
     document.getElementById("myBar").style.width = scrollbar + "%";
   }
-  data: any = [];
+  /** data存放原始資料 */
+  data: Array<any> = [];
   Menu: boolean = false;
   menuStyle: boolean = false;
   constructor(private api: ApiService, public infor: Information, private router: Router) { }
   ChangeLang(_Lang: string) {
-    this.infor.Language = _Lang;
+    this.infor.lang = _Lang;
   }
   openMenu(_Effect: string) {
     this.menuStyle = _Effect == 'open' ? !this.menuStyle : false;
@@ -57,7 +58,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.api.postApi('header').subscribe(el => { this.data = el; });
+    this.api.postApi('header').subscribe((el: any) => { this.data = el; });
   }
 
 }

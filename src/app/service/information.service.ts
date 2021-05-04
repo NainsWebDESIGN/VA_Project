@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class Information {
-    Language: string = 'zh-tw';
+    private Language: string = 'zh-tw';
     filter: boolean = false;
     Message: boolean = false;
     private messItem: any = {};
@@ -24,5 +24,20 @@ export class Information {
     changeItem(_Item: any) {
         this.messItem = _Item;
         this.SubMessItem.next(this.messItem);
+    }
+
+    get lang(): string {
+        this.Language = sessionStorage.getItem('language');
+        return this.Language;
+    }
+
+    set lang(lang: string) {
+        if (lang) {
+            sessionStorage.setItem('language', lang);
+        } else {
+            sessionStorage.removeItem('language');
+        }
+
+        this.Language = lang;
     }
 }

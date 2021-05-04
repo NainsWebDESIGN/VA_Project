@@ -6,9 +6,9 @@
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">{{"我們所做的" | Translation:
           infor.Language}}</h1>
         <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
-          {{"使用簡單的聲明性模板快速構建功能。 使用您自己的組件擴展模板語言，並使用各種各樣的現有組件。" | Translation: infor.Language}}
-          {{"幾乎所有的IDE和編輯器都可立即獲得特定於Angular的幫助和反饋。" | Translation: infor.Language}}
-          {{"所有這些結合在一起，因此您可以專注於構建出色的應用程序，而不是試圖使代碼正常工作。" | Translation: infor.Language}}</p>
+          {{"使用簡單的聲明性模板快速構建功能。 使用您自己的組件擴展模板語言，並使用各種各樣的現有組件。" | Translation: infor.lang}}
+          {{"幾乎所有的IDE和編輯器都可立即獲得特定於Angular的幫助和反饋。" | Translation: infor.lang}}
+          {{"所有這些結合在一起，因此您可以專注於構建出色的應用程序，而不是試圖使代碼正常工作。" | Translation: infor.lang}}</p>
       </div>
       <div class="flex flex-wrap -m-4">
 
@@ -19,9 +19,9 @@
               class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
               <i [class]="even.style"></i>
             </div>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">{{even.title | Translation: infor.Language}}
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">{{even.title | Translation: infor.lang}}
             </h2>
-            <p class="leading-relaxed text-base">{{even.content | Translation: infor.Language}}</p>
+            <p class="leading-relaxed text-base">{{even.content | Translation: infor.lang}}</p>
           </div>
         </div>
 
@@ -41,10 +41,10 @@
         </div>
         <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12" id="worksleft">
           <h1 class="sm:w-2/5 text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0">
-            {{"技能與分工" | Translation: infor.Language}}</h1>
+            {{"技能與分工" | Translation: infor.lang}}</h1>
           <p class="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
-            {{"我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。" | Translation: infor.Language}}
-            {{"每天，我們都會發布由來自世界各地的創意機構和網頁設計師。" | Translation: infor.Language}}</p>
+            {{"我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。" | Translation: infor.lang}}
+            {{"每天，我們都會發布由來自世界各地的創意機構和網頁設計師。" | Translation: infor.lang}}</p>
         </div>
       </div>
       <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 skill-chart">
@@ -55,8 +55,8 @@
             [class.active]="Scroll_skill?.left[i] !== 0">
             <div class="parcial">
               <div class="info">
-                <div class="nome">{{even.title | Translation: infor.Language}}</div>
-                <div class="percentage-num">{{even.percentage | Translation: infor.Language}}%</div>
+                <div class="nome">{{even.title | Translation: infor.lang}}</div>
+                <div class="percentage-num">{{even.percentage | Translation: infor.lang}}%</div>
               </div>
               <div class="progressBar">
                 <div class="percentagem" [style.width.%]="Scroll_skill.left[i]"></div>
@@ -74,7 +74,7 @@
               <div [id]="'circle_' + i" class="mh-progress mh-progress-circle">
                 <span class="circle-parent">{{even.percentage}}%</span>
               </div>
-              <div class="pr-skill-name">{{even.title | Translation: infor.Language}}</div>
+              <div class="pr-skill-name">{{even.title | Translation: infor.lang}}</div>
             </li>
 
           </ul>
@@ -95,11 +95,11 @@
       </div>
       <div class="flex w-full mb-20 flex-wrap" id="worksbet">
         <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">{{"近期作品" |
-          Translation: infor.Language}}</h1>
+          Translation: infor.lang}}</h1>
         <div class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base serviceWork">
           <nav style="text-align: center;">
             <a *ngFor="let even of filterWorks" class="workChild" [class.active]="filterStyle(even.filter)"
-              (click)='filterWork(even.filter)'>{{even.filtername | Translation: infor.Language}}</a>
+              (click)='filterWork(even.filter)'>{{even.filtername | Translation: infor.lang}}</a>
           </nav>
         </div>
       </div>
@@ -112,10 +112,10 @@
               <div
                 class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100 protoforlio">
                 <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">{{even.type |
-                  Translation: infor.Language}}</h2>
+                  Translation: infor.lang}}</h2>
                 <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{even.title | Translation:
                   infor.Language}}</h1>
-                <p class="leading-relaxed">{{even.content | Translation: infor.Language}}</p>
+                <p class="leading-relaxed">{{even.content | Translation: infor.lang}}</p>
               </div>
             </div>
           </div>
@@ -137,14 +137,14 @@
         <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">{{"方案" | Translation:
           infor.Language}}</h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">
-          {{"使用簡單的聲明性模板快速構建功能。" | Translation: infor.Language}}
-          {{"使用您自己的組件擴展模板語言，並使用各種各樣的現有組件。 幾乎所有的IDE和編輯器都可立即獲得特定於Angular的幫助和反饋。" | Translation: infor.Language}}
-          {{"所有這些結合在一起，因此您可以專注於構建出色的應用程序，而不是試圖使代碼正常工作。" | Translation: infor.Language}}</p>
+          {{"使用簡單的聲明性模板快速構建功能。" | Translation: infor.lang}}
+          {{"使用您自己的組件擴展模板語言，並使用各種各樣的現有組件。 幾乎所有的IDE和編輯器都可立即獲得特定於Angular的幫助和反饋。" | Translation: infor.lang}}
+          {{"所有這些結合在一起，因此您可以專注於構建出色的應用程序，而不是試圖使代碼正常工作。" | Translation: infor.lang}}</p>
         <div class="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden mt-6">
           <button [ngClass]="{'bg-indigo-500 text-white': !Choice}" class="py-1 px-4 focus:outline-none"
-            (click)='Price(false)'>{{"月繳" | Translation: infor.Language}}</button>
+            (click)='Price(false)'>{{"月繳" | Translation: infor.lang}}</button>
           <button [ngClass]="{'bg-indigo-500 text-white': Choice}" class="py-1 px-4 focus:outline-none"
-            (click)='Price(true)'>{{"年繳" | Translation: infor.Language}}</button>
+            (click)='Price(true)'>{{"年繳" | Translation: infor.lang}}</button>
         </div>
       </div>
 
@@ -167,17 +167,17 @@
                     stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                     <path d="M20 6L9 17l-5-5"></path>
                   </svg>
-                </span>{{arr | Translation: infor.Language}}
+                </span>{{arr | Translation: infor.lang}}
               </p>
               <button
                 class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">{{"買了啦"
-                | Translation: infor.Language}}
+                | Translation: infor.lang}}
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </button>
-              <p class="text-xs text-gray-500 mt-3">{{"可以花錢解決的事，千萬不要慢慢看" | Translation: infor.Language}}</p>
+              <p class="text-xs text-gray-500 mt-3">{{"可以花錢解決的事，千萬不要慢慢看" | Translation: infor.lang}}</p>
             </div>
           </div>
 
@@ -185,7 +185,7 @@
             <div class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
               <span
                 class="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{"最優惠"
-                | Translation: infor.Language}}</span>
+                | Translation: infor.lang}}</span>
               <h2 class="text-sm tracking-widest title-font mb-1 font-medium">{{even.title | Translation:
                 infor.Language}}</h2>
               <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
@@ -198,17 +198,17 @@
                     stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                     <path d="M20 6L9 17l-5-5"></path>
                   </svg>
-                </span>{{arr | Translation: infor.Language}}
+                </span>{{arr | Translation: infor.lang}}
               </p>
               <button
                 class="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">{{"買了啦"
-                | Translation: infor.Language}}
+                | Translation: infor.lang}}
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </button>
-              <p class="text-xs text-gray-500 mt-3">{{"不買會對不起國家" | Translation: infor.Language}}</p>
+              <p class="text-xs text-gray-500 mt-3">{{"不買會對不起國家" | Translation: infor.lang}}</p>
             </div>
           </div>
 
@@ -235,17 +235,17 @@
                     stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                     <path d="M20 6L9 17l-5-5"></path>
                   </svg>
-                </span>{{arr | Translation: infor.Language}}
+                </span>{{arr | Translation: infor.lang}}
               </p>
               <button
                 class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">{{"買了啦"
-                | Translation: infor.Language}}
+                | Translation: infor.lang}}
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </button>
-              <p class="text-xs text-gray-500 mt-3">{{"可以花錢解決的事，千萬不要慢慢看" | Translation: infor.Language}}</p>
+              <p class="text-xs text-gray-500 mt-3">{{"可以花錢解決的事，千萬不要慢慢看" | Translation: infor.lang}}</p>
             </div>
           </div>
 
@@ -253,7 +253,7 @@
             <div class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
               <span
                 class="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{"最優惠"
-                | Translation: infor.Language}}</span>
+                | Translation: infor.lang}}</span>
               <h2 class="text-sm tracking-widest title-font mb-1 font-medium">{{even.title | Translation:
                 infor.Language}}</h2>
               <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
@@ -266,17 +266,17 @@
                     stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                     <path d="M20 6L9 17l-5-5"></path>
                   </svg>
-                </span>{{arr | Translation: infor.Language}}
+                </span>{{arr | Translation: infor.lang}}
               </p>
               <button
                 class="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">{{"買了啦"
-                | Translation: infor.Language}}
+                | Translation: infor.lang}}
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </button>
-              <p class="text-xs text-gray-500 mt-3">{{"不買會對不起國家" | Translation: infor.Language}}</p>
+              <p class="text-xs text-gray-500 mt-3">{{"不買會對不起國家" | Translation: infor.lang}}</p>
             </div>
           </div>
 

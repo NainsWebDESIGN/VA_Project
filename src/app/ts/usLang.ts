@@ -107,5 +107,10 @@ export const usLang = {
     "系統": "System",
     "分工": "Division of labor",
     "月": "month",
-    "年": "year"
+    "年": "year",
+    "建議已送出，我們將盡快與您聯繫!": "The suggestion has been sent, we will contact you as soon as possible!",
+    "未能成功送出意見": "Unsuccessful submission of comments",
+    "請務必填寫完整": "Please fill in completely",
+    "信箱格式錯誤": "Mailbox format error",
+    "已成功複製到剪貼簿": "Successfully copied to clipboard"
 }

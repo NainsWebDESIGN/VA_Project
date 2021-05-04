@@ -11,15 +11,15 @@
                 <span class="main__element"><img [src]="even.small_p"></span>
                 <span class="front__element"><img [src]="even.main_p"></span>
                 <span class="title__element">
-                    <span class="title">{{even.text | Translation: infor.Language}}</span>
+                    <span class="title">{{even.text | Translation: infor.lang}}</span>
                 </span>
                 <span class="more__element">
                     <span class="content">
-                        <span class="headline">{{even.title | Translation: infor.Language}}</span>
-                        <span class="excerpt">{{even.content | Translation: infor.Language | slice: 0:31}} ...</span>
+                        <span class="headline">{{even.title | Translation: infor.lang}}</span>
+                        <span class="excerpt">{{even.content | Translation: infor.lang | slice: 0:31}} ...</span>
                         <span class="link">
                             <div [class]="even.readStyle"></div>
-                            <a (click)='openPopup(even)'>{{"更多" | Translation: infor.Language}}</a>
+                            <a (click)='openPopup(even)'>{{"更多" | Translation: infor.lang}}</a>
                         </span>
                     </span>
                 </span>
@@ -42,9 +42,9 @@
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-20">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-                {{"為何選擇我們" | Translation: infor.Language}}</h1>
+                {{"為何選擇我們" | Translation: infor.lang}}</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-                {{"我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。" | Translation: infor.Language}}
+                {{"我們的日常任務：查找並展示最佳網絡設計靈感和趨勢。 每天，我們都會發布由來自世界各地的創意機構和網頁設計師。" | Translation: infor.lang}}
             </p>
         </div>
         <div class="flex flex-wrap -m-4 text-center" id="ChoiecID">
@@ -56,7 +56,7 @@
                     <i [class]="choice.style + ' fa-3x indexChoice'"></i>
                     <h2 class="title-font font-medium text-3xl text-gray-900">{{choice.content | Translation:
                         infor.Language}}</h2>
-                    <p class="leading-relaxed">{{choice.name | Translation: infor.Language}}</p>
+                    <p class="leading-relaxed">{{choice.name | Translation: infor.lang}}</p>
                 </div>
             </div>
 

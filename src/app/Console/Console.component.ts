@@ -29,7 +29,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
    * @param _Lang 語系
    */
   ChangeLang(_Lang: string) {
-    this.infor.Language = _Lang;
+    this.infor.lang = _Lang;
   }
   /**
    * 跳轉路由

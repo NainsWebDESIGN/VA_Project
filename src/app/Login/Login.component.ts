@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     }
   }
   transLate(_Str: string) {
-    return Translate[this.infor.Language][_Str];
+    return Translate[this.infor.lang][_Str];
   }
   toggleForm() {
     this.changeSign = !this.changeSign;

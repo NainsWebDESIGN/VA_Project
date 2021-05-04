@@ -8,7 +8,7 @@
     </a>
     <nav
       class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-      <a class="mr-5" [routerLink]="['/Login']">{{"登入" | Translation: infor.Language}}</a>
+      <a class="mr-5" [routerLink]="['/Login']">{{"登入" | Translation: infor.lang}}</a>
       <a class="mr-5" (click)='ChangeLang("zh-tw")'>中文</a>
       <a class="mr-5" (click)='ChangeLang("en-us")'>English</a>
     </nav>
@@ -29,12 +29,12 @@
     <li *ngFor="let even of data; let i = index;" class="menuHref">
       <a [routerLink]="['/Valleys_Awesome/' + even.href]" class="menuTitle" (click)='openMenu("close")'
         (click)='toTop(0)'>
-        <span class="menuBefore">{{even.title | Translation: infor.Language}}</span>
+        <span class="menuBefore">{{even.title | Translation: infor.lang}}</span>
       </a>
 
       <div class="menubx">
         <p class="hrefchild" *ngFor="let arr of even.content"><a (click)='ScrollToElement(i, arr.route)'>{{arr.name |
-            Translation: infor.Language}}</a></p>
+            Translation: infor.lang}}</a></p>
       </div>
     </li>
   </ul>
@@ -56,7 +56,7 @@
             Awesome</span></p>
       </a>
       <p class="mt-2 text-sm text-gray-500">
-        {{"關於Nains的前端寫作能力非常出色，他是一個充滿智慧，技術和熱情的網頁設計師。" | Translation: infor.Language}}</p>
+        {{"關於Nains的前端寫作能力非常出色，他是一個充滿智慧，技術和熱情的網頁設計師。" | Translation: infor.lang}}</p>
     </div>
 
     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -64,7 +64,7 @@
       <div *ngFor="let even of data;let i = index;" class="lg:w-1/4 md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">
           <a [routerLink]="['/Valleys_Awesome/' + even.href]" (click)='toTop(0)'>
-            {{even.title | Translation: infor.Language}}
+            {{even.title | Translation: infor.lang}}
           </a>
         </h2>
 

@@ -8,14 +8,14 @@
       <div class="imgBx"><img src="assets/image/lock.jpg" alt=""></div>
       <div class="formBx">
         <div>
-          <h2>{{"登入" | Translation: infor.Language}}</h2>
+          <h2>{{"登入" | Translation: infor.lang}}</h2>
           <input type="text" [(ngModel)]="member.username" [placeholder]="transLate('帳號')" name="username"
             (keyup.enter)='Login("login")'>
           <input type="password" [(ngModel)]="member.password" [placeholder]="transLate('密碼')" name="password"
             (keyup.enter)='Login("login")'>
           <input type="submit" [value]="transLate('登入')" (click)='Login("login")'>
-          <p class="signup">{{"還沒有帳號" | Translation: infor.Language}}? <a class="loginSign"
-              (click)='toggleForm()'>{{"註冊" | Translation: infor.Language}}</a></p>
+          <p class="signup">{{"還沒有帳號" | Translation: infor.lang}}? <a class="loginSign" (click)='toggleForm()'>{{"註冊" |
+              Translation: infor.lang}}</a></p>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="user signupBx">
       <div class="formBx">
         <div>
-          <h2>{{"註冊" | Translation: infor.Language}}</h2>
+          <h2>{{"註冊" | Translation: infor.lang}}</h2>
           <input type="text" [placeholder]="transLate('帳號')" [(ngModel)]="signname" name="signname"
             (keyup.enter)='Login("signup")'>
           <input type="text" [placeholder]="transLate('信箱')" [(ngModel)]="email" name="email"
@@ -33,8 +33,8 @@
           <input type="password" [placeholder]="transLate('再次確認')" [(ngModel)]="signpass_2" name="signpass_2"
             (keyup.enter)='Login("signup")'>
           <input type="submit" [value]="transLate('註冊')" (click)='Login("signup")'>
-          <p class="signup">{{"已經有帳號了" | Translation: infor.Language}}? <a class="loginSign"
-              (click)='toggleForm()'>{{"登入" | Translation: infor.Language}}</a></p>
+          <p class="signup">{{"已經有帳號了" | Translation: infor.lang}}? <a class="loginSign" (click)='toggleForm()'>{{"登入" |
+              Translation: infor.lang}}</a></p>
         </div>
       </div>
       <div class="imgBx"><img src="assets/image/unlock.jpg" alt=""></div>

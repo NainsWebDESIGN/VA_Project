@@ -25,3 +25,8 @@ export interface ServiceForm {
     month: Array<boolean>,
     year: Array<boolean>
 }
+export interface Suggest {
+    "entry.2002706790": string,
+    "entry.1995154974": string,
+    "entry.2137997242": string
+}
