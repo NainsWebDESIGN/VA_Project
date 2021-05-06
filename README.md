@@ -14,5 +14,6 @@
 6. 新增 interface.ts 完成變數定義
 7. 註釋、簡化及改善至 Console Component (由上至下)
 8. 將語系 Language 改為私密由 get、set 來完成
+9. 各版面微調
 
 ---
