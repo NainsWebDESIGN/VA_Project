@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Information } from '@service/information.service';
 import { ApiService } from '@service/api.service';
+import { MessItem } from '@ts/interface';
 
 @Component({
   selector: 'message_popup',
@@ -8,7 +9,7 @@ import { ApiService } from '@service/api.service';
   styleUrls: ['./popup.component.css']
 })
 export class PopupComponent implements OnInit {
-  data: any = {};
+  data: MessItem;
   Total: Array<any> = [];
   constructor(public infor: Information, private api: ApiService) { }
   closePopup() {
@@ -19,12 +20,10 @@ export class PopupComponent implements OnInit {
     this.data = this.Total[(index >= (this.Total.length - 1)) ? 0 : (index + 1)];
   }
   ngOnInit() {
-    this.api.postApi('message').subscribe((el: any) => {
-      this.Total = el.reverse();
-    })
-    this.infor.messItem$.subscribe((el: any) => {
-      this.data = el;
-    })
+    this.api.postApi('message')
+      .subscribe((el: any) => { this.Total = el.reverse(); })
+    this.infor.messItem$
+      .subscribe((el: MessItem) => { this.data = el; })
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
+import { MessItem } from '@ts/interface';
 
 @Component({
   selector: 'app-Index',
@@ -18,7 +19,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.IndexChoice = (finalTop(item) + placeHeight) < 0 ? true : false;
     }
   }
-  data: any = [];
+  data: Array<MessItem> = [];
   sliderPage: Array<boolean>;
   arrow: boolean = false;
   Choice: Array<any> = [];
@@ -112,9 +113,8 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.infor.changeItem(_Item);
   }
   ngOnInit() {
-    this.api.postApi('index').subscribe((el: Array<any>) => {
-      this.Choice = el;
-    })
+    this.api.postApi('index')
+      .subscribe((el: Array<any>) => { this.Choice = el; })
     this.Acrouter.data.subscribe((el: any) => {
       let news = -4;
       for (let i = -1; i > news; i--) { this.data.push(el.data[el.data.length + i]); }

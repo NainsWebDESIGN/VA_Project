@@ -1,5 +1,6 @@
 @media (max-width: 500px) {
   .menuHref {
-    padding: 8% 0 0 0;
+    padding: 2% 0 0 0;
+    font-size: small;
   }
 }

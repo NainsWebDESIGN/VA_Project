@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
+import { MessItem } from '@ts/interface';
 
 @Component({
   selector: 'app-message',
@@ -15,15 +16,14 @@ export class MessageComponent implements OnInit {
       for (let i = 0; i < this.Total.length; i++) {
         let itemPlace = document.getElementById('Scroll_Total_' + i);
         let placeHeight = itemPlace.clientHeight * 0.2;
-        // this.Scroll_Total[i] = finalTop(itemPlace) < 0 ? true : false;
         this.Scroll_Total[i] = (finalTop(itemPlace) + placeHeight) < 0 ? true : false;
       }
     }
   }
-  data: any = [];
-  Total: any = [];
+  data: Array<MessItem> = [];
+  Total: Array<MessItem> = [];
   News: boolean = false;
-  Scroll_Total: any = [];
+  Scroll_Total: Array<boolean> = [];
   constructor(private api: ApiService, public infor: Information) { }
   news(_Position: number) {
     return "url(./" + this.data[_Position].small_p + ")";
@@ -39,7 +39,7 @@ export class MessageComponent implements OnInit {
     this.api.postApi('message').subscribe((el: any) => {
       let news = 3;
       this.Total = el.reverse();
-      this.Total.forEach(el => { this.Scroll_Total.push(false); });
+      this.Scroll_Total = this.Total.map(() => false);
       for (let i = 0; i < news; i++) { this.data.push(this.Total[i]); };
 
       setTimeout(() => {

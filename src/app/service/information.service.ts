@@ -9,14 +9,14 @@ export class Information {
     Message: boolean = false;
     private messItem: any = {};
     private SubMessItem = new BehaviorSubject(this.messItem);
-    messItem$ = this.SubMessItem.asObservable();
+    messItem$: Observable<any> = this.SubMessItem.asObservable();
     Page: string;
     pageLink: Array<string> = ['AboutTop', 'MessTop', 'SerTop', 'ConTop'];
     bodyWidth: number = document.body.clientWidth;
     constructor(private router: Router) {
-        // sessionStorage.setItem('language', this.Language);
         this.router.events.subscribe(el => {
             if (el instanceof NavigationEnd) {
+                console.clear();
                 this.Page = el['url'];
                 console.log(this.Page);
             }
@@ -27,15 +27,9 @@ export class Information {
         this.SubMessItem.next(this.messItem);
     }
     get lang(): string {
-        // this.Language = sessionStorage.getItem('language');
         return this.Language;
     }
     set lang(lang: string) {
-        // if (lang) {
-        //     sessionStorage.setItem('language', lang);
-        // } else {
-        //     sessionStorage.removeItem('language');
-        // }
         this.Language = lang;
     }
 }

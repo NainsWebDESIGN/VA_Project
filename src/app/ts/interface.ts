@@ -30,3 +30,14 @@ export interface Suggest {
     "entry.1995154974": string,
     "entry.2137997242": string
 }
+export interface MessItem {
+    type: string,
+    date: string,
+    big_p: string,
+    small_p: string,
+    main_p: string,
+    text: string,
+    readStyle: string,
+    title: string,
+    content: string
+}
