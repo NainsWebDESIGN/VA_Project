@@ -7,7 +7,7 @@
     {
       "root": "src",
       "outDir": "undoneVA",
-      "assets": ["assets", "favicon.ico", "scss"],
+      "assets": ["favicon.ico", "scss", "image", "js", "json", "php"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -16,7 +16,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": ["styles.css"],
-      "scripts": [{ "input": "assets/js/config.js" }],
+      "scripts": [{ "input": "js/config.js" }],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

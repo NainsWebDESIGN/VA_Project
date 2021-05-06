@@ -24,7 +24,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   Choice: Array<any> = [];
   IndexChoice: boolean = false;
   banner: any;
-  constructor(private api: ApiService, private infor: Information, private Acrouter: ActivatedRoute) { }
+  constructor(private api: ApiService, public infor: Information, private Acrouter: ActivatedRoute) { }
   openArrow() {
     this.arrow = true;
   }
@@ -32,6 +32,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.arrow = false;
   }
   changePage(_Move: number, dir: number) {
+    clearInterval(this.banner);
     let position = (el: number) => {
       switch (el) {
         case 0:
@@ -41,9 +42,9 @@ export class IndexComponent implements OnInit, OnDestroy {
       }
     }
     let main = { rotation: 45, duration: 750, easing: "easeInOutCirc" };
-    let back = { rotation: 45, duration: 1850, elasticity: function (el, i, l) { return 200 + i * 200; } };
-    let front = { rotation: 45, duration: 2250, elasticity: function (el, i, l) { return 200 + i * 200; } };
-    let title = { rotation: 45, duration: 1750, elasticity: function (el, i, l) { return 200 + i * 200; } };
+    let back = { rotation: 45, duration: 1850, elasticity: (el, i, l) => { return 200 + i * 200; } };
+    let front = { rotation: 45, duration: 2250, elasticity: (el, i, l) => { return 200 + i * 200; } };
+    let title = { rotation: 45, duration: 1750, elasticity: (el, i, l) => { return 200 + i * 200; } };
     let index = this.sliderPage.indexOf(true);
     let data = Array.from(document.querySelectorAll('.slider-list__item'));
     anime(
@@ -80,9 +81,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         targets: data[index],
         rotate: [0, -90 * dir + "deg"],
         translateX: [0, -100 * dir + "%"],
-        complete: anim => {
-          this.sliderPage[index] = false;
-        }
+        complete: anim => { this.sliderPage[index] = false; }
       })
     );
     anime(
@@ -106,6 +105,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         translateX: [0, -100 * dir + "%"]
       })
     );
+    this.banner = setInterval(() => { this.changePage(1, 1); }, 5000);
   }
   openPopup(_Item: any) {
     this.infor.filter = true;

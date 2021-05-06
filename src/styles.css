@@ -355,19 +355,19 @@ ul {
 }
 .menuHref:nth-child(1) {
   left: 0%;
-  background-image: url(./assets/image/t_bg1.jpg);
+  background-image: url(./image/t_bg1.jpg);
 }
 .menuHref:nth-child(2) {
   left: 25%;
-  background-image: url(./assets/image/t_bg2.jpg);
+  background-image: url(./image/t_bg2.jpg);
 }
 .menuHref:nth-child(3) {
   left: 50%;
-  background-image: url(./assets/image/t_bg3.jpg);
+  background-image: url(./image/t_bg3.jpg);
 }
 .menuHref:nth-child(4) {
   left: 75%;
-  background-image: url(./assets/image/t_bg4.jpg);
+  background-image: url(./image/t_bg4.jpg);
 }
 p.text {
   position: absolute;
@@ -497,7 +497,7 @@ p.text {
   left: -72px;
   width: 64px;
   height: 64px;
-  background-image: url(./assets/image/arrowleft.png);
+  background-image: url(./image/arrowleft.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 64px;
@@ -509,7 +509,7 @@ p.text {
   right: -72px;
   width: 64px;
   height: 64px;
-  background-image: url(./assets/image/arrowright.png);
+  background-image: url(./image/arrowright.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 64px;
@@ -526,7 +526,7 @@ p.text {
   height: 32px;
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
-  background-image: url(./assets/image/nainsdot.png);
+  background-image: url(./image/nainsdot.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 26px 26px;

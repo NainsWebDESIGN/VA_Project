@@ -15,8 +15,8 @@ export class ApiService {
     }
     postApi(_Gatewey: string, ..._Obj: Array<any>) {
         let data = new FormData();
-        let Jurl = 'assets/json/' + _Gatewey + '.json';
-        let Purl = 'assets/php/' + _Gatewey + '.php';
+        let Jurl = 'json/' + _Gatewey + '.json';
+        let Purl = 'php/' + _Gatewey + '.php';
 
         switch (_Gatewey) {
             case 'formdata':
