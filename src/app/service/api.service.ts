@@ -26,27 +26,22 @@ export class ApiService {
                 let options = new ResponseOptions({ headers: headers });
                 return this.post.post(url, $submit, options).map(el => { return el; });
             case 'member':
-                // let $login = this.formData(_Obj[0]);
-                // this.http.post(Purl, $login).subscribe((el: any) => {
-                //     if (el.login) { localStorage.setItem('login', _Obj[0].username); }
-                //     else { localStorage.removeItem('login'); }
-                //     return this.router.navigate(['/Member']);
-                // })
-                this.http.get(Jurl).subscribe((el: any) => {
-                    let Status = need => { return (el.map(res => { return res[need] }).indexOf(_Obj[0][need]) !== -1); };
-                    if (Status("username") && Status("password")) { localStorage.setItem('login', _Obj[0].username); }
+                let $login = this.formData(_Obj[0]);
+                this.http.post(Purl, $login).subscribe((el: any) => {
+                    if (el.login) { localStorage.setItem('login', _Obj[0].username); }
                     else { localStorage.removeItem('login'); }
                     return this.router.navigate(['/Member']);
                 })
-            // case 'header':
-            // case 'index':
-            // case 'contact':
-            // case 'about':
-            // case 'message':
-            // case 'service':
-            //     return this.http.post(Purl, data).map(el => { return el; });
+                // this.http.get(Jurl).subscribe((el: any) => {
+                //     let Status = need => { return (el.map(res => { return res[need] }).indexOf(_Obj[0][need]) !== -1); };
+                //     if (Status("username") && Status("password")) { localStorage.setItem('login', _Obj[0].username); }
+                //     else { localStorage.removeItem('login'); }
+                //     return this.router.navigate(['/Member']);
+                // })
+                break;
             default:
-                return this.http.get(Jurl).map(el => { return el; });
+                // return this.http.get(Jurl).map(el => { return el; });
+                return this.http.post(Purl, data).map(el => { return el; });
         }
     }
 }
