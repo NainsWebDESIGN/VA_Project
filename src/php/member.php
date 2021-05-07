@@ -4,10 +4,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     @$username = $_POST['username']; //取得 username POST 值
     @$password = $_POST['password']; //取得 password POST 值
     $data = array();
-    $DB_server = "localhost"; # 你的網域IP
-    $DB_user = "username"; # 你的帳號
-    $DB_pass = "password"; # 你的密碼
-    $DB_name = "database"; # 你的資料庫
+    $DB_server = "sql209.byethost6.com"; # 你的網域IP
+    $DB_user = "b6_28438621"; # 你的帳號
+    $DB_pass = "valleysawesome"; # 你的密碼
+    $DB_name = "b6_28438621_VA_DB"; # 你的資料庫
         
     $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
 

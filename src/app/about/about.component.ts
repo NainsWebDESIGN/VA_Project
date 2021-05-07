@@ -32,7 +32,7 @@ export class AboutComponent implements OnInit {
   scrollLineL: Array<boolean> = [];
   /** 相關單位樣式 */
   scrollPlace: Array<boolean> = [];
-  constructor(private infor: Information, private api: ApiService) { }
+  constructor(public infor: Information, private api: ApiService) { }
   /**
    * 滾動樣式由監聽完成陣列布林，HTML則透過這個函式完成對應樣式
    * @param _Need HTML DOM位置

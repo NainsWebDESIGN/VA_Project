@@ -113,7 +113,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.infor.changeItem(_Item);
   }
   ngOnInit() {
-    this.api.postApi('index')
+    this.api.postApi('init')
       .subscribe((el: Array<any>) => { this.Choice = el; })
     this.Acrouter.data.subscribe((el: any) => {
       let news = -4;

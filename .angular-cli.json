@@ -7,7 +7,7 @@
     {
       "root": "src",
       "outDir": "undoneVA",
-      "assets": ["favicon.ico", "scss", "image", "js", "json", "php"],
+      "assets": ["favicon.ico", "scss", "image", "js", "php"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
