@@ -29,5 +29,6 @@ FTP 主機名： ftp.byethost6.com
 8. 將語系 Language 改為私密由 get、set 來完成
 9. 各版面微調
 10. MariaDB 中文以 utf8_general_ci 為主，不然會出現???
+11. 已完成網域基礎資料庫資料
 
 ---
