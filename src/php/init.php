@@ -12,16 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     $init = "init"; #資料表名稱
     $sqlIndex = "SELECT * FROM $init;"; #查詢資料表
 
-    if($connection -> connect_error){
-        $data = array( 'failed' => $connection -> connect_error );
-    }else{
+    if ($connection->connect_error) {
+        $data = array('failed' => $connection->connect_error);
+    } else {
         // $data = array( 'succes' => "成功連線到資料庫" );
-        if($result = $connection->query($sqlIndex)){
-            while($row = $result->fetch_row()){
+        if ($result = $connection->query($sqlIndex)) {
+            while ($row = $result->fetch_row()) {
                 array_push($data, array('style' => $row[0], 'content' => $row[1], 'name' => $row[2]));
             }
-        }else{
-            $data = array( 'selectFailed' => $connection->error );
+        } else {
+            $data = array('selectFailed' => $connection->error);
         }
         $result->close();
     }
@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     echo json_encode($data);
 } else {
     //回傳 errorMsg json 資料
-        $data = array( 'errorMsg' => '請求無效，只允許 POST 方式訪問！' );
+    $data = array('errorMsg' => '請求無效，只允許 POST 方式訪問！');
     echo json_encode($data);
 }
-?>
