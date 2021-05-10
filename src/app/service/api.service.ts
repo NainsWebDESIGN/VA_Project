@@ -43,7 +43,7 @@ export class ApiService {
             //     let add = this.formData(_Obj[0]);
             //     return this.http.post(Purl, add).map(el => el);
             default:
-                return this.http.get(Jurl).map(el => { return el; });
+                return this.http.get(Jurl).map(el => el);
             // return this.http.post(Purl, data).map(el => el);
         }
     }

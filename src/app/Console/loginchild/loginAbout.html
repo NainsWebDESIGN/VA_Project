@@ -76,7 +76,7 @@
             <div class="btn-group dropup">
               <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
-                更改
+                {{"更改" | Translation: infor.lang}}
               </button>
               <div class="dropdown-menu" [class.active]="change">
                 <a class="dropdown-item" *ngFor="let update of data[0]; let i = index;"
@@ -185,9 +185,16 @@
             <button (click)='Submit("Add", "Place")'
               class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               {{"新增" | Translation: infor.lang}}</button>
-            <button (click)='Submit("Update", "Place")'
-              class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-              {{"更改" | Translation: infor.lang}}</button>
+            <div class="btn-group dropup">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
+                {{"更改" | Translation: infor.lang}}
+              </button>
+              <div class="dropdown-menu" [class.active]="change">
+                <a class="dropdown-item" *ngFor="let update of data[2]; let i = index;"
+                  (click)='upDate("Place", 2, i)'>{{update.name}}</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ export interface Team {
     type: string,
     pic: string,
     content: string,
-    original: any
+    original: string
 }
 export interface Place {
     page: string,
@@ -17,7 +17,7 @@ export interface Place {
     name: string,
     style: string,
     content: string,
-    original: any
+    original: string
 }
 export interface AboutForm {
     Team: Team,

@@ -13,8 +13,8 @@ export class LoginAbout implements OnInit {
   data: Array<any> = [];
   /** HTML 的 ngModel */
   formData: AboutForm = {
-    Team: { page: 'aboutTeam', getway: '', name: '', type: '', pic: '', content: '', original: {} },
-    Place: { page: 'aboutPlace', getway: '', name: '', style: '', content: '', original: {} }
+    Team: { page: 'aboutTeam', getway: '', name: '', type: '', pic: '', content: '', original: '' },
+    Place: { page: 'aboutPlace', getway: '', name: '', style: '', content: '', original: '' }
   };
   /** 點擊狀態 */
   check: any = {
@@ -55,11 +55,10 @@ export class LoginAbout implements OnInit {
     data.getway = _Need;
     switch (_Need) {
       case 'Add':
-        // this.api.postApi("INSERT", data).subscribe(Oberserver);
+        this.api.postApi("INSERT", data).subscribe(Oberserver);
         break;
       case 'Update':
-        console.log(data);
-        // this.api.postApi("UPDATE", data).subscribe(Oberserver);
+        this.api.postApi("UPDATE", data).subscribe(Oberserver);
         break;
     }
   }
@@ -71,7 +70,7 @@ export class LoginAbout implements OnInit {
   Delete(_Item: string, _Data: number) {
     let data = [];
     for (let i = 0; i < this.check[_Item].length; i++) {
-      if (!this.check[_Item][i]) { data.push(this.data[_Data][i]); }
+      if (!this.check[_Item][i]) { data.push(this.data[_Data][i].name); }
     }
     console.log(data);
   }

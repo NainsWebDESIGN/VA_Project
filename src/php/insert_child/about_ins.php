@@ -25,7 +25,7 @@ if ($connection->connect_error) {
             break;
         case 'aboutPlace':
             // $data = array( 'succes' => "成功連線到資料庫" );
-            if ($result = $connection->query(INS('about', $name, $style, $content))) {
+            if ($result = $connection->query(INS('about_three', $name, $style, $content))) {
                 $data = array('ret' => 'OK');
             } else {
                 $data = array('ret' => $connection->error);
