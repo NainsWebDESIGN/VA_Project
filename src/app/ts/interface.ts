@@ -3,15 +3,21 @@ export interface Member {
     password: string
 }
 export interface Team {
+    page: string,
+    getway: string,
     name: string,
     type: string,
     pic: string,
-    content: string
+    content: string,
+    original: Array<any>
 }
 export interface Place {
+    page: string,
+    getway: string,
     name: string,
     style: string,
-    content: string
+    content: string,
+    original: Array<any>
 }
 export interface AboutForm {
     Team: Team,

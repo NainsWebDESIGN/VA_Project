@@ -13,18 +13,23 @@ export class LoginAbout implements OnInit {
   data: Array<any> = [];
   /** HTML 的 ngModel */
   formData: AboutForm = {
-    Team: { name: '', type: '', pic: '', content: '' },
-    Place: { name: '', style: '', content: '' }
+    Team: { page: 'aboutTeam', getway: '', name: '', type: '', pic: '', content: '', original: [] },
+    Place: { page: 'aboutPlace', getway: '', name: '', style: '', content: '', original: [] }
   };
   /** 點擊狀態 */
   check: any = {
     Team: [],
     Place: []
   };
+  change: boolean = false;
   constructor(private api: ApiService, public infor: Information) { }
   /** 點擊後更改check內布林值 */
   Check(_Position: number, _Item: string) {
     this.check[_Item][_Position] = !this.check[_Item][_Position];
+  }
+  /** 展開update選項 */
+  dropMenu() {
+    this.change = !this.change;
   }
   /**
    * 發送資料給後端做新增或更改
@@ -32,11 +37,19 @@ export class LoginAbout implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    console.log(this.formData[_Item]);
-    // switch(_Need){
-    //   case 'Add':
-    //   case 'Update':
-    // }
+    let data = this.formData[_Item],
+      Oberserver = {
+        next: el => console.log(el),
+        error: err => console.log(err)
+      }
+    data.getway = _Need;
+    switch (_Need) {
+      case 'Add':
+        this.api.postApi("INSERT", data).subscribe(Oberserver);
+      case 'Update':
+        data.name = "`name` = '" + data.name + "'";
+        this.api.postApi("UPDATE", data).subscribe(Oberserver);
+    }
   }
   /**
    * 勾選刪除的狀態

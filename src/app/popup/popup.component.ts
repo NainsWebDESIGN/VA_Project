@@ -8,7 +8,7 @@ import { MessItem } from '@ts/interface';
   templateUrl: './messagePopup.html',
   styleUrls: ['./popup.component.css']
 })
-export class PopupComponent implements OnInit {
+export class messagePopup implements OnInit {
   data: MessItem;
   Total: Array<any> = [];
   constructor(public infor: Information, private api: ApiService) { }

@@ -21,7 +21,7 @@ import { LoginAbout, LoginMessage, LoginService, LoginContact } from './Console/
 // Service
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
-import { PopupComponent } from './popup/popup.component';
+import { messagePopup } from './popup/popup.component';
 import { AuthGuard } from '@service/AuthGuard.service';
 
 // PIPE
@@ -37,7 +37,7 @@ import { KeyPipe } from '@pipe/key.pipe';
     AboutComponent,
     ServicePageComponent,
     HeaderComponent,
-    PopupComponent,
+    messagePopup,
     LoginComponent,
     ConsoleComponent,
     TranslationPipe,
