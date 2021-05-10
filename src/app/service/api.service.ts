@@ -26,25 +26,25 @@ export class ApiService {
                 let options = new ResponseOptions({ headers: headers });
                 return this.post.post(url, $submit, options).map(el => el);
             case 'member':
-                let $login = this.formData(_Obj[0]);
-                this.http.post(Purl, $login).subscribe((el: any) => {
-                    el.login ? localStorage.setItem('login', _Obj[0].username) : localStorage.removeItem('login');
-                    return this.router.navigate(['/Member']);
-                })
-                // this.http.get(Jurl).subscribe((el: any) => {
-                //     let Status = need => { return (el.map(res => { return res[need] }).indexOf(_Obj[0][need]) !== -1); };
-                //     if (Status("username") && Status("password")) { localStorage.setItem('login', _Obj[0].username); }
-                //     else { localStorage.removeItem('login'); }
+                // let $login = this.formData(_Obj[0]);
+                // this.http.post(Purl, $login).subscribe((el: any) => {
+                //     el.login ? localStorage.setItem('login', _Obj[0].username) : localStorage.removeItem('login');
                 //     return this.router.navigate(['/Member']);
                 // })
+                this.http.get(Jurl).subscribe((el: any) => {
+                    let Status = need => { return (el.map(res => { return res[need] }).indexOf(_Obj[0][need]) !== -1); };
+                    if (Status("username") && Status("password")) { localStorage.setItem('login', _Obj[0].username); }
+                    else { localStorage.removeItem('login'); }
+                    return this.router.navigate(['/Member']);
+                })
                 break;
-            case 'INSERT':
-            case 'UPDATE':
-                let add = this.formData(_Obj[0]);
-                return this.http.post(Purl, add).map(el => el);
+            // case 'INSERT':
+            // case 'UPDATE':
+            //     let add = this.formData(_Obj[0]);
+            //     return this.http.post(Purl, add).map(el => el);
             default:
-                // return this.http.get(Jurl).map(el => { return el; });
-                return this.http.post(Purl, data).map(el => el);
+                return this.http.get(Jurl).map(el => { return el; });
+            // return this.http.post(Purl, data).map(el => el);
         }
     }
 }

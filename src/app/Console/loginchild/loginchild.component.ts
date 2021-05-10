@@ -13,8 +13,8 @@ export class LoginAbout implements OnInit {
   data: Array<any> = [];
   /** HTML 的 ngModel */
   formData: AboutForm = {
-    Team: { page: 'aboutTeam', getway: '', name: '', type: '', pic: '', content: '', original: [] },
-    Place: { page: 'aboutPlace', getway: '', name: '', style: '', content: '', original: [] }
+    Team: { page: 'aboutTeam', getway: '', name: '', type: '', pic: '', content: '', original: {} },
+    Place: { page: 'aboutPlace', getway: '', name: '', style: '', content: '', original: {} }
   };
   /** 點擊狀態 */
   check: any = {
@@ -31,25 +31,28 @@ export class LoginAbout implements OnInit {
   dropMenu() {
     this.change = !this.change;
   }
+  upDate(_Ori: number, _Item: number) {
+    console.log(this.data[_Ori][_Item]);
+  }
   /**
    * 發送資料給後端做新增或更改
    * @param _Need 要做的事件名稱
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    let data = this.formData[_Item],
-      Oberserver = {
-        next: el => console.log(el),
-        error: err => console.log(err)
-      }
-    data.getway = _Need;
-    switch (_Need) {
-      case 'Add':
-        this.api.postApi("INSERT", data).subscribe(Oberserver);
-      case 'Update':
-        data.name = "`name` = '" + data.name + "'";
-        this.api.postApi("UPDATE", data).subscribe(Oberserver);
-    }
+    // let data = this.formData[_Item],
+    //   Oberserver = {
+    //     next: el => console.log(el),
+    //     error: err => console.log(err)
+    //   }
+    // data.getway = _Need;
+    // switch (_Need) {
+    //   case 'Add':
+    //     this.api.postApi("INSERT", data).subscribe(Oberserver);
+    //   case 'Update':
+    //     data.name = "`name` = '" + data.name + "'";
+    //     this.api.postApi("UPDATE", data).subscribe(Oberserver);
+    // }
   }
   /**
    * 勾選刪除的狀態
