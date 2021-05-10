@@ -80,7 +80,7 @@
               </button>
               <div class="dropdown-menu" [class.active]="change">
                 <a class="dropdown-item" *ngFor="let update of data[0]; let i = index;"
-                  (click)='upDate(0, i)'>{{update.name}}</a>
+                  (click)='upDate("Team", 0, i)'>{{update.name}}</a>
               </div>
             </div>
           </div>

@@ -31,8 +31,15 @@ export class LoginAbout implements OnInit {
   dropMenu() {
     this.change = !this.change;
   }
-  upDate(_Ori: number, _Item: number) {
-    console.log(this.data[_Ori][_Item]);
+  /**
+   * 傳送要更改哪組項目(避免單一判斷會影響更改)
+   * @param _Obj 哪一組需求
+   * @param _Ori 原始資料的位置
+   * @param _Item 原始資料位置裡的哪一組
+   */
+  upDate(_Obj: string, _Ori: number, _Item: number) {
+    this.formData[_Obj].original = "`name` = '" + this.data[_Ori][_Item]["name"] + "'";
+    this.Submit("Update", _Obj);
   }
   /**
    * 發送資料給後端做新增或更改
@@ -40,19 +47,21 @@ export class LoginAbout implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    // let data = this.formData[_Item],
-    //   Oberserver = {
-    //     next: el => console.log(el),
-    //     error: err => console.log(err)
-    //   }
-    // data.getway = _Need;
-    // switch (_Need) {
-    //   case 'Add':
-    //     this.api.postApi("INSERT", data).subscribe(Oberserver);
-    //   case 'Update':
-    //     data.name = "`name` = '" + data.name + "'";
-    //     this.api.postApi("UPDATE", data).subscribe(Oberserver);
-    // }
+    let data = this.formData[_Item],
+      Oberserver = {
+        next: el => console.log(el),
+        error: err => console.log(err)
+      }
+    data.getway = _Need;
+    switch (_Need) {
+      case 'Add':
+        // this.api.postApi("INSERT", data).subscribe(Oberserver);
+        break;
+      case 'Update':
+        console.log(data);
+        // this.api.postApi("UPDATE", data).subscribe(Oberserver);
+        break;
+    }
   }
   /**
    * 勾選刪除的狀態
