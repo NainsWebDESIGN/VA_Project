@@ -30,5 +30,6 @@ FTP 主機名： ftp.byethost6.com
 9. 各版面微調
 10. MariaDB 中文以 utf8_general_ci 為主，不然會出現???
 11. 已完成網域基礎資料庫資料
+12. 獨立一隻 function.php 寫入各式 Mysql 語法讓其他 php 帶入參數
 
 ---

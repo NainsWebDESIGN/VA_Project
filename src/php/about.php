@@ -8,38 +8,32 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     $DB_name = "b6_28438621_VA_DB"; # 你的資料庫
 
     $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
-
-    $about = "about"; #資料表名稱
-    $aboutTwo = "about_two"; #資料表名稱
-    $aboutThree = "about_three"; #資料表名稱
-    $sqlAbout = "SELECT * FROM $about;"; #查詢資料表
-    $sqlTwo = "SELECT * FROM $aboutTwo;"; #查詢資料表
-    $sqlThree = "SELECT * FROM $aboutThree;"; #查詢資料表
+    require 'function.php';
 
     if ($connection->connect_error) {
-        $data = array('failed' => $connection->connect_error);
+        $data = array('ret' => $connection->connect_error);
     } else {
         // $data = array( 'succes' => "成功連線到資料庫" );
-        if ($result = $connection->query($sqlAbout)) {
+        if ($result = $connection->query(SEL('about'))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[0], array('name' => $row[0], 'type' => $row[1], 'content' => $row[2], 'pic' => $row[3]));
             }
         } else {
-            $data = array('selectFailed' => $connection->error);
+            $data = array('ret' => $connection->error);
         }
-        if ($result = $connection->query($sqlTwo)) {
+        if ($result = $connection->query(SEL('about_two'))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[1], array('title' => $row[0], 'content' => $row[1]));
             }
         } else {
-            $data = array('selectFailed' => $connection->error);
+            $data = array('ret' => $connection->error);
         }
-        if ($result = $connection->query($sqlThree)) {
+        if ($result = $connection->query(SEL('about_three'))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[2], array('name' => $row[0], 'content' => $row[1], 'style' => $row[2]));
             }
         } else {
-            $data = array('selectFailed' => $connection->error);
+            $data = array('ret' => $connection->error);
         }
         $result->close();
     }
@@ -47,6 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     echo json_encode($data);
 } else {
     //回傳 errorMsg json 資料
-    $data = array('errorMsg' => '請求無效，只允許 POST 方式訪問！');
+    $data = array('ret' => '請求無效，只允許 POST 方式訪問！');
     echo json_encode($data);
 }

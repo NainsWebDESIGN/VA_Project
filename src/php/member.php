@@ -11,12 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
 
     $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
 
-    $Table = "member"; #資料表名稱
-    $sqlTable = "SELECT * FROM $Table WHERE username = '" . $username . "' AND password = '" . $password . "';"; #查詢資料表
-    $sqlInner = "INSERT INTO $Table (username, password) VALUES ('" . $username . "', '" . $password . "')"; # 新增Table裡的資料
+    $sqlTable = "SELECT * FROM `member` WHERE username = '" . $username . "' AND password = '" . $password . "';"; #查詢資料表
 
     if ($connection->connect_error) {
-        $data = array('failed' => $connection->connect_error);
+        $data = array('ret' => $connection->connect_error);
     } else {
         if ($result = $connection->query($sqlTable)) {
             while ($row = $result->fetch_row()) {
@@ -31,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
             }
             $result->close();
         } else {
-            $data = array('selectFailed' => $connection->error);
+            $data = array('ret' => $connection->error);
         }
     }
     $connection->close();
     echo json_encode($data);
 } else {
     //回傳 errorMsg json 資料
-    $data = array('errorMsg' => '請求無效，只允許 POST 方式訪問！');
+    $data = array('ret' => '請求無效，只允許 POST 方式訪問！');
     echo json_encode($data);
 }
