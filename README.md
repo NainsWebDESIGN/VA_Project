@@ -22,6 +22,6 @@ FTP 主機名： ftp.byethost6.com
 1. 清理緩存 `npm cache clean --force`
 2. 重新 `npm i`
 3. MariaDB 中文以 utf8_general_ci 為主，不然會出現???
-4. INSERT DELETE UPDATE function php 大幅度修改(目前只改了 INSERT)
+4. INSERT DELETE UPDATE function php 大幅度修改
 
 ---
