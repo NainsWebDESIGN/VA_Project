@@ -38,7 +38,7 @@ export class LoginAbout implements OnInit {
    * @param _Item 原始資料位置裡的哪一組
    */
   upDate(_Obj: string, _Ori: number, _Item: number) {
-    this.formData[_Obj].original = "`name` = '" + this.data[_Ori][_Item]["name"] + "'";
+    this.formData[_Obj].original = this.data[_Ori][_Item]["name"];
     this.Submit("Update", _Obj);
   }
   /**

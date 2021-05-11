@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
         }
         $result->close();
     }
+    $connection->close();
 
     echo json_encode($data);
 } else {

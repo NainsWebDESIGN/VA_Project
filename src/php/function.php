@@ -3,15 +3,15 @@ function SEL($Table)
 {
     return "SELECT * FROM `$Table`;";
 }
-function pageName($page)
+function pageName()
 {
-    switch ($page) {
+    switch ($_POST['page']) {
         case 'aboutTeam':
         case 'aboutPlace':
             return '`name`';
     }
 }
-function DEL($Table, $keys, $page)
+function DEL($Table, $keys)
 {
     $delete = "DELETE FROM `$Table` WHERE ";
     if (count($keys) > 1) {
@@ -20,9 +20,9 @@ function DEL($Table, $keys, $page)
             array_push($item, "'$value'");
         }
         $final = join(",", $item);
-        return $delete . pageName($page) . " IN(" . $final . ");";
+        return $delete . pageName() . " IN(" . $final . ");";
     } else {
-        return $delete . pageName($page) . " = '$keys[0]';";
+        return $delete . pageName() . " = '$keys[0]';";
     }
 }
 function INS($Table, $value)
@@ -37,7 +37,7 @@ function UPD($Table, $keys, $value)
 {
     $item = array();
     foreach ($value as $el) {
-        array_push($item, "'$el'");
+        array_push($item, "$el");
     }
     $update = "UPDATE `$Table` SET ";
     $where = " WHERE $keys;";
@@ -53,7 +53,7 @@ function insPage($page)
             return $item;
         case "aboutPlace":
             $item[0] = 'about_three';
-            $item[1] = array($_POST['name'], $_POST['style'], $_POST['content']);
+            $item[1] = array($_POST['name'], $_POST['content'], $_POST['style']);
             return $item;
     }
 }
@@ -63,13 +63,13 @@ function updPage($page)
     switch ($page) {
         case "aboutTeam":
             $item[0] = 'about';
-            $item[1] = $_POST['original'];
-            $item[2] = array($_POST['name'], $_POST['type'], $_POST['content'], $_POST['pic']);
+            $item[1] = '`name` = ' . $_POST['original'];
+            $item[2] = array("`name` = '" . $_POST['name'] . "'", "`type` = '" . $_POST['type'] . "'", "`content` = '" . $_POST['content'] . "'", "`pic` = '" . $_POST['pic'] . "'");
             return $item;
         case "aboutPlace":
             $item[0] = 'about_three';
-            $item[1] = $_POST['original'];
-            $item[2] = array($_POST['name'], $_POST['style'], $_POST['content']);
+            $item[1] = '`name` = ' . $_POST['original'];
+            $item[2] = array("`name` = '" . $_POST['name'] . "'", "`content` = '" . $_POST['content'] . "'", "`style` = '" . $_POST['style'] . "'");
             return $item;
     }
 }

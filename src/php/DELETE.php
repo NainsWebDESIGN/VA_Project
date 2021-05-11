@@ -17,13 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     if ($connection->connect_error) {
         $data = array('ret' => $connection->connect_error);
     } else {
-        if ($result = $connection->query(DEL($item[0], $item[1], $page))) {
+        if ($result = $connection->query(DEL($item[0], $item[1]))) {
             $data = array('ret' => 'OK');
         } else {
             $data = array('ret' => $connection->error);
         }
         $result->close();
     }
+    $connection->close();
 
     echo json_encode($data);
 } else {
