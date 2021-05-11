@@ -72,7 +72,12 @@ export class LoginAbout implements OnInit {
     for (let i = 0; i < this.check[_Item].length; i++) {
       if (!this.check[_Item][i]) { data.push(this.data[_Data][i].name); }
     }
-    console.log(data);
+    let req = { page: 'about' + _Item, delete: data };
+    console.log(req);
+    this.api.postApi("UPDATE", req).subscribe({
+      next: el => console.log(el),
+      error: err => console.log(err)
+    });
   }
   ngOnInit() {
     this.api.postApi('about').subscribe((el: Array<any>) => {

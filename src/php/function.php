@@ -9,33 +9,25 @@ function DEL($Table, $keys)
 }
 function INS(
     $Table,
-    $value1,
-    $value2 = null,
-    $value3 = null,
-    $value4 = null,
-    $value5 = null,
-    $value6 = null,
-    $value7 = null,
-    $value8 = null,
-    $value9 = null
+    $value
 ) {
-    $insert = "INSERT INTO `$Table` VALUES ('$value1'";
-    if ($value9) {
-        return $insert . ", '$value2', '$value3', '$value4', '$value5', '$value6', '$value7', '$value8', '$value9');";
-    } else if ($value8) {
-        return $insert . ", '$value2', '$value3', '$value4', '$value5', '$value6', '$value7', '$value8');";
-    } else if ($value7) {
-        return $insert . ", '$value2', '$value3', '$value4', '$value5', '$value6', '$value7');";
-    } else if ($value6) {
-        return $insert . ", '$value2', '$value3', '$value4', '$value5', '$value6');";
-    } else if ($value5) {
-        return $insert . ", '$value2', '$value3', '$value4', '$value5');";
-    } else if ($value4) {
-        return $insert . ", '$value2', '$value3', '$value4');";
-    } else if ($value3) {
-        return $insert . ", '$value2', '$value3');";
-    } else if ($value2) {
-        return $insert . ", '$value2');";
+    $insert = "INSERT INTO `$Table` VALUES ('$value[0]'";
+    if ($value[8]) {
+        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]', '$value[8]');";
+    } else if ($value[7]) {
+        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]');";
+    } else if ($value[6]) {
+        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]');";
+    } else if ($value[5]) {
+        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]');";
+    } else if ($value[4]) {
+        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]');";
+    } else if ($value[3]) {
+        return $insert . ", '$value[1]', '$value[2]', '$value[3]');";
+    } else if ($value[2]) {
+        return $insert . ", '$value[1]', '$value[2]');";
+    } else if ($value[1]) {
+        return $insert . ", '$value[1]');";
     } else {
         return $insert . ");";
     }
@@ -43,35 +35,41 @@ function INS(
 function UPD(
     $Table,
     $keys,
-    $value1,
-    $value2 = null,
-    $value3 = null,
-    $value4 = null,
-    $value5 = null,
-    $value6 = null,
-    $value7 = null,
-    $value8 = null,
-    $value9 = null
+    $value
 ) {
-    $update = "UPDATE `$Table` SET $value1";
+    $update = "UPDATE `$Table` SET '$value[0]'";
     $where = " WHERE $keys;";
-    if ($value9) {
-        return $update . ", '$value2', '$value3', '$value4', '$value5', '$value6', '$value7', '$value8', '$value9'" . $where;
-    } else if ($value8) {
-        return $update . ", '$value2', '$value3', '$value4', '$value5', '$value6', '$value7', '$value8'" . $where;
-    } else if ($value7) {
-        return $update . ", '$value2', '$value3', '$value4', '$value5', '$value6', '$value7'" . $where;
-    } else if ($value6) {
-        return $update . ", '$value2', '$value3', '$value4', '$value5', '$value6'" . $where;
-    } else if ($value5) {
-        return $update . ", '$value2', '$value3', '$value4', '$value5'" . $where;
-    } else if ($value4) {
-        return $update . ", '$value2', '$value3', '$value4'" . $where;
-    } else if ($value3) {
-        return $update . ", '$value2', '$value3'" . $where;
-    } else if ($value2) {
-        return $update . ", '$value2'" . $where;
+    if ($value[8]) {
+        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]', '$value[8]'" . $where;
+    } else if ($value[7]) {
+        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]'" . $where;
+    } else if ($value[6]) {
+        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]'" . $where;
+    } else if ($value[5]) {
+        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]'" . $where;
+    } else if ($value[4]) {
+        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]'" . $where;
+    } else if ($value[3]) {
+        return $update . ", '$value[1]', '$value[2]', '$value[3]'" . $where;
+    } else if ($value[2]) {
+        return $update . ", '$value[1]', '$value[2]'" . $where;
+    } else if ($value[1]) {
+        return $update . ", '$value[1]'" . $where;
     } else {
         return $update . $where;
+    }
+}
+function insPage($page)
+{
+    $item = array('', array());
+    switch ($page) {
+        case "aboutTeam":
+            $item[0] = 'about';
+            $item[1] = array($_POST['name'], $_POST['type'], $_POST['pic'], $_POST['content']);
+            return $item;
+        case "aboutPlace":
+            $item[0] = 'about_three';
+            $item[1] = array($_POST['name'], $_POST['style'], $_POST['content']);
+            return $item;
     }
 }

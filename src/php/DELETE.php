@@ -6,19 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
 
     switch ($page) {
         case "aboutTeam":
-            @$name = $_POST['name'];
-            @$type = $_POST['type'];
-            @$pic = $_POST['pic'];
-            @$content = $_POST['content'];
-            @$original = $_POST['original'];
-            require 'update_child/about_upd.php';
+            @$delete = $_POST['delete'];
+            require 'delete_child/about_det.php';
             break;
         case "aboutPlace":
-            @$name = $_POST['name'];
-            @$style = $_POST['style'];
-            @$content = $_POST['content'];
-            @$original = $_POST['original'];
-            require 'update_child/about_upd.php';
+            @$delete = $_POST['delete'];
+            require 'delete_child/about_det.php';
             break;
     }
 
