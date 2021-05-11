@@ -4,7 +4,6 @@ export interface Member {
 }
 export interface Team {
     page: string,
-    getway: string,
     name: string,
     type: string,
     pic: string,
@@ -13,7 +12,6 @@ export interface Team {
 }
 export interface Place {
     page: string,
-    getway: string,
     name: string,
     style: string,
     content: string,

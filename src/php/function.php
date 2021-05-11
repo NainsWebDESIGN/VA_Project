@@ -45,48 +45,37 @@ function UPD($Table, $keys, $value)
 }
 function insPage($page)
 {
-    $item = array('', array());
     switch ($page) {
         case "aboutTeam":
-            $item[0] = 'about';
-            $item[1] = array($_POST['name'], $_POST['type'], $_POST['content'], $_POST['pic']);
-            return $item;
+            $item = array($_POST['name'], $_POST['type'], $_POST['content'], $_POST['pic']);
+            return INS('about', $item);
         case "aboutPlace":
-            $item[0] = 'about_three';
-            $item[1] = array($_POST['name'], $_POST['content'], $_POST['style']);
-            return $item;
+            $item = array($_POST['name'], $_POST['content'], $_POST['style']);
+            return INS('about_three', $item);
     }
 }
 function updPage($page)
 {
-    $item = array('', '', array());
     switch ($page) {
         case "aboutTeam":
-            $item[0] = 'about';
-            $item[1] = '`name` = ' . $_POST['original'];
-            $item[2] = array("`name` = '" . $_POST['name'] . "'", "`type` = '" . $_POST['type'] . "'", "`content` = '" . $_POST['content'] . "'", "`pic` = '" . $_POST['pic'] . "'");
-            return $item;
+            $item = array("`name` = '" . $_POST['name'] . "'", "`type` = '" . $_POST['type'] . "'", "`content` = '" . $_POST['content'] . "'", "`pic` = '" . $_POST['pic'] . "'");
+            return UPD('about', '`name` = ' . $_POST['original'], $item);
         case "aboutPlace":
-            $item[0] = 'about_three';
-            $item[1] = '`name` = ' . $_POST['original'];
-            $item[2] = array("`name` = '" . $_POST['name'] . "'", "`content` = '" . $_POST['content'] . "'", "`style` = '" . $_POST['style'] . "'");
-            return $item;
+            $item = array("`name` = '" . $_POST['name'] . "'", "`content` = '" . $_POST['content'] . "'", "`style` = '" . $_POST['style'] . "'");
+            return UPD('about_three', '`name` = ' . $_POST['original'], $item);
     }
 }
 function delPage($page, $delete)
 {
-    $basic = array('', array());
+    $basic = array();
     $key = explode(',', $delete);
+    foreach ($key as $el) {
+        array_push($basic, $el);
+    }
     switch ($page) {
         case "aboutTeam":
-            $basic[0] = 'about';
-            break;
+            return DEL('about', $basic);
         case "aboutPlace":
-            $basic[0] = 'about_three';
-            break;
+            return DEL('about_three', $basic);
     }
-    foreach ($key as $el) {
-        array_push($basic[1], $el);
-    }
-    return $basic;
 }

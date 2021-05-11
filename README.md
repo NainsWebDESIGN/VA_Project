@@ -23,5 +23,6 @@ FTP 主機名： ftp.byethost6.com
 2. 重新 `npm i`
 3. MariaDB 中文以 utf8_general_ci 為主，不然會出現???
 4. INSERT DELETE UPDATE function php 大幅度修改
+5. 現階段沒有問題，但卡在 500 (Internal Server Error)
 
 ---

@@ -13,8 +13,8 @@ export class LoginAbout implements OnInit {
   data: Array<any> = [];
   /** HTML 的 ngModel */
   formData: AboutForm = {
-    Team: { page: 'aboutTeam', getway: '', name: '', type: '', pic: '', content: '', original: '' },
-    Place: { page: 'aboutPlace', getway: '', name: '', style: '', content: '', original: '' }
+    Team: { page: 'aboutTeam', name: '', type: '', pic: '', content: '', original: '' },
+    Place: { page: 'aboutPlace', name: '', style: '', content: '', original: '' }
   };
   /** 點擊狀態 */
   check: any = {
@@ -50,7 +50,8 @@ export class LoginAbout implements OnInit {
     let data = this.formData[_Item],
       Oberserver = {
         next: el => console.log(el),
-        error: err => console.log(err)
+        error: err => console.log(err),
+        complete: () => console.log("OK")
       }
     data.getway = _Need;
     switch (_Need) {
