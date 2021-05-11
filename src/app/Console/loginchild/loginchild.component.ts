@@ -74,7 +74,7 @@ export class LoginAbout implements OnInit {
     }
     let req = { page: 'about' + _Item, delete: data };
     console.log(req);
-    this.api.postApi("UPDATE", req).subscribe({
+    this.api.postApi("DELETE", req).subscribe({
       next: el => console.log(el),
       error: err => console.log(err)
     });

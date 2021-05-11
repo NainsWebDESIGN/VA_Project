@@ -3,61 +3,45 @@ function SEL($Table)
 {
     return "SELECT * FROM `$Table`;";
 }
-function DEL($Table, $keys)
+function pageName($page)
 {
-    return "DELETE FROM `$Table` WHERE $keys;";
-}
-function INS(
-    $Table,
-    $value
-) {
-    $insert = "INSERT INTO `$Table` VALUES ('$value[0]'";
-    if ($value[8]) {
-        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]', '$value[8]');";
-    } else if ($value[7]) {
-        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]');";
-    } else if ($value[6]) {
-        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]');";
-    } else if ($value[5]) {
-        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]');";
-    } else if ($value[4]) {
-        return $insert . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]');";
-    } else if ($value[3]) {
-        return $insert . ", '$value[1]', '$value[2]', '$value[3]');";
-    } else if ($value[2]) {
-        return $insert . ", '$value[1]', '$value[2]');";
-    } else if ($value[1]) {
-        return $insert . ", '$value[1]');";
-    } else {
-        return $insert . ");";
+    switch ($page) {
+        case 'aboutTeam':
+        case 'aboutPlace':
+            return '`name`';
     }
 }
-function UPD(
-    $Table,
-    $keys,
-    $value
-) {
-    $update = "UPDATE `$Table` SET '$value[0]'";
+function DEL($Table, $keys, $page)
+{
+    $delete = "DELETE FROM `$Table` WHERE ";
+    if (count($keys) > 1) {
+        $item = array();
+        foreach ($keys as $value) {
+            array_push($item, "'$value'");
+        }
+        $final = join(",", $item);
+        return $delete . pageName($page) . " IN(" . $final . ");";
+    } else {
+        return $delete . pageName($page) . " = '$keys[0]';";
+    }
+}
+function INS($Table, $value)
+{
+    $item = array();
+    foreach ($value as $el) {
+        array_push($item, "'$el'");
+    }
+    return "INSERT INTO `$Table` VALUES (" . join(",", $item) . ");";
+}
+function UPD($Table, $keys, $value)
+{
+    $item = array();
+    foreach ($value as $el) {
+        array_push($item, "'$el'");
+    }
+    $update = "UPDATE `$Table` SET ";
     $where = " WHERE $keys;";
-    if ($value[8]) {
-        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]', '$value[8]'" . $where;
-    } else if ($value[7]) {
-        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]', '$value[7]'" . $where;
-    } else if ($value[6]) {
-        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]', '$value[6]'" . $where;
-    } else if ($value[5]) {
-        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]', '$value[5]'" . $where;
-    } else if ($value[4]) {
-        return $update . ", '$value[1]', '$value[2]', '$value[3]', '$value[4]'" . $where;
-    } else if ($value[3]) {
-        return $update . ", '$value[1]', '$value[2]', '$value[3]'" . $where;
-    } else if ($value[2]) {
-        return $update . ", '$value[1]', '$value[2]'" . $where;
-    } else if ($value[1]) {
-        return $update . ", '$value[1]'" . $where;
-    } else {
-        return $update . $where;
-    }
+    return $update . join(",", $item) . $where;
 }
 function insPage($page)
 {
@@ -65,11 +49,44 @@ function insPage($page)
     switch ($page) {
         case "aboutTeam":
             $item[0] = 'about';
-            $item[1] = array($_POST['name'], $_POST['type'], $_POST['pic'], $_POST['content']);
+            $item[1] = array($_POST['name'], $_POST['type'], $_POST['content'], $_POST['pic']);
             return $item;
         case "aboutPlace":
             $item[0] = 'about_three';
             $item[1] = array($_POST['name'], $_POST['style'], $_POST['content']);
             return $item;
     }
+}
+function updPage($page)
+{
+    $item = array('', '', array());
+    switch ($page) {
+        case "aboutTeam":
+            $item[0] = 'about';
+            $item[1] = $_POST['original'];
+            $item[2] = array($_POST['name'], $_POST['type'], $_POST['content'], $_POST['pic']);
+            return $item;
+        case "aboutPlace":
+            $item[0] = 'about_three';
+            $item[1] = $_POST['original'];
+            $item[2] = array($_POST['name'], $_POST['style'], $_POST['content']);
+            return $item;
+    }
+}
+function delPage($page, $delete)
+{
+    $basic = array('', array());
+    $key = explode(',', $delete);
+    switch ($page) {
+        case "aboutTeam":
+            $basic[0] = 'about';
+            break;
+        case "aboutPlace":
+            $basic[0] = 'about_three';
+            break;
+    }
+    foreach ($key as $el) {
+        array_push($basic[1], $el);
+    }
+    return $basic;
 }

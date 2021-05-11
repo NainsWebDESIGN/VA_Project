@@ -6,7 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     @$page = $_POST['page'];
     $item = insPage($page);
 
-    // $data = array();
     $DB_server = "sql209.byethost6.com"; # 你的網域IP
     $DB_user = "b6_28438621"; # 你的帳號
     $DB_pass = "valleysawesome"; # 你的密碼
@@ -17,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     if ($connection->connect_error) {
         $data = array('ret' => $connection->connect_error);
     } else {
+        $data = array(INS($item[0], $item[1]));
         if ($result = $connection->query(INS($item[0], $item[1]))) {
             $data = array('ret' => 'OK');
         } else {
