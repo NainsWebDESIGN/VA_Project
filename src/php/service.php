@@ -1,68 +1,63 @@
 <?php
 header('Content-Type: application/json; charset=UTF-8'); //設定資料類型為 json，編碼 utf-8
 if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
-    $data = array();
-    $DB_server = "sql209.byethost6.com"; # 你的網域IP
-    $DB_user = "b6_28438621"; # 你的帳號
-    $DB_pass = "valleysawesome"; # 你的密碼
-    $DB_name = "b6_28438621_VA_DB"; # 你的資料庫
-
-    $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
     require 'function.php';
 
+    $data = array();
 
-    if ($connection->connect_error) {
-        $data = array('ret' => $connection->connect_error);
+
+    if ($conn->connect_error) {
+        $data = array('ret' => $conn->connect_error);
     } else {
         // $data = array( 'succes' => "成功連線到資料庫" );
         $data[0] = array();
-        if ($result = $connection->query(SEL("service"))) {
+        if ($result = $conn->query(SEL("service"))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[0], array('title' => $row[0], 'style' => $row[1], 'content' => $row[2]));
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
         $data[1] = array('left' => array(), 'right' => array());
 
-        if ($result = $connection->query(SEL("service_left"))) {
+        if ($result = $conn->query(SEL("service_left"))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[1]["left"], array('title' => $row[0], 'percentage' => $row[1]));
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
-        if ($result = $connection->query(SEL("service_right"))) {
+        if ($result = $conn->query(SEL("service_right"))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[1]["right"], array('title' => $row[0], 'percentage' => $row[1]));
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
         $data[2] = array();
-        if ($result = $connection->query(SEL("project"))) {
+        if ($result = $conn->query(SEL("project"))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[2], array('title' => $row[0], 'type' => $row[1], 'image' => $row[2], 'content' => $row[3]));
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
         $data[3] = array('month' => array(), 'year' => array());
-        if ($result = $connection->query(SEL("service_month"))) {
+        if ($result = $conn->query(SEL("service_month"))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[3]["month"], array('type' => $row[0], 'title' => $row[1], 'price' => $row[2], 'content' => array()));
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
-        if ($result = $connection->query(SEL("service_year"))) {
+        if ($result = $conn->query(SEL("service_year"))) {
             while ($row = $result->fetch_row()) {
                 array_push($data[3]["year"], array('type' => $row[0], 'title' => $row[1], 'price' => $row[2], 'content' => array()));
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
-        if ($result = $connection->query(SEL("month_content"))) {
+        if ($result = $conn->query(SEL("month_content"))) {
             while ($row = $result->fetch_row()) {
                 for ($i = 0; $i < count($data[3]["month"]); $i++) {
                     if ($data[3]["month"][$i]["title"] == $row[4]) {
@@ -71,9 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
                 }
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
-        if ($result = $connection->query(SEL("year_content"))) {
+        if ($result = $conn->query(SEL("year_content"))) {
             while ($row = $result->fetch_row()) {
                 for ($i = 0; $i < count($data[3]["year"]); $i++) {
                     if ($data[3]["year"][$i]["title"] == $row[4]) {
@@ -82,11 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
                 }
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
         $result->close();
     }
-    $connection->close();
+    $conn->close();
     echo json_encode($data);
 } else {
     //回傳 errorMsg json 資料

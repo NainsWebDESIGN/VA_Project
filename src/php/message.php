@@ -1,20 +1,15 @@
 <?php
 header('Content-Type: application/json; charset=UTF-8'); //設定資料類型為 json，編碼 utf-8
 if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
-    $data = array();
-    $DB_server = "sql209.byethost6.com"; # 你的網域IP
-    $DB_user = "b6_28438621"; # 你的帳號
-    $DB_pass = "valleysawesome"; # 你的密碼
-    $DB_name = "b6_28438621_VA_DB"; # 你的資料庫
-
-    $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
     require 'function.php';
 
-    if ($connection->connect_error) {
-        $data = array('ret' => $connection->connect_error);
+    $data = array();
+
+    if ($conn->connect_error) {
+        $data = array('ret' => $conn->connect_error);
     } else {
         // $data = array( 'succes' => "成功連線到資料庫" );
-        if ($result = $connection->query(SEL("message"))) {
+        if ($result = $conn->query(SEL("message"))) {
             while ($row = $result->fetch_row()) {
                 array_push($data, array(
                     'type' => $row[0], 'date' => $row[1], 'big_p' => $row[2],
@@ -23,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
                 ));
             }
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
         $result->close();
     }
-    $connection->close();
+    $conn->close();
     echo json_encode($data);
 } else {
     //回傳 errorMsg json 資料

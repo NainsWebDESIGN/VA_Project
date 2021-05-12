@@ -1,4 +1,6 @@
 <?php
+ini_set("display_errors", "on");
+error_reporting(E_ALL);
 header('Content-Type: application/json; charset=UTF-8'); //設定資料類型為 json，編碼 utf-8
 if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     require 'function.php';
@@ -7,24 +9,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     @$delete = $_POST['delete'];
     $Item = delPage($page, $delete);
 
-    $DB_server = "sql209.byethost6.com"; # 你的網域IP
-    $DB_user = "b6_28438621"; # 你的帳號
-    $DB_pass = "valleysawesome"; # 你的密碼
-    $DB_name = "b6_28438621_VA_DB"; # 你的資料庫
 
-    $connection = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
-
-    if ($connection->connect_error) {
-        $data = array('ret' => $connection->connect_error);
+    if ($conn->connect_error) {
+        $data = array('ret' => $conn->connect_error);
     } else {
-        if ($result = $connection->query($Item)) {
+        if ($result = $conn->query($Item)) {
             $data = array('ret' => 'OK');
         } else {
-            $data = array('ret' => $connection->error);
+            $data = array('ret' => $conn->error);
         }
         $result->close();
     }
-    $connection->close();
+    $conn->close();
 
     echo json_encode($data);
 } else {

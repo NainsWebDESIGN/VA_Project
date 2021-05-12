@@ -21,7 +21,16 @@ export class LoginAbout implements OnInit {
     Team: [],
     Place: []
   };
+  /** 修正選項的選擇欄 */
   change: boolean = false;
+  private Observer = {
+    next: el => console.log(el),
+    error: err => {
+      console.log(err);
+      this.getData();
+    },
+    complete: () => console.log("OK")
+  }
   constructor(private api: ApiService, public infor: Information) { }
   /** 點擊後更改check內布林值 */
   Check(_Position: number, _Item: string) {
@@ -47,20 +56,13 @@ export class LoginAbout implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    let data = this.formData[_Item],
-      Oberserver = {
-        next: el => console.log(el),
-        error: err => console.log(err),
-        complete: () => console.log("OK")
-      }
+    let data = this.formData[_Item];
     data.getway = _Need;
     switch (_Need) {
       case 'Add':
-        this.api.postApi("INSERT", data).subscribe(Oberserver);
-        break;
+        return this.api.postApi("INSERT", data).subscribe(this.Observer);
       case 'Update':
-        this.api.postApi("UPDATE", data).subscribe(Oberserver);
-        break;
+        return this.api.postApi("UPDATE", data).subscribe(this.Observer);
     }
   }
   /**
@@ -75,17 +77,17 @@ export class LoginAbout implements OnInit {
     }
     let req = { page: 'about' + _Item, delete: data };
     console.log(req);
-    this.api.postApi("DELETE", req).subscribe({
-      next: el => console.log(el),
-      error: err => console.log(err)
-    });
+    this.api.postApi("DELETE", req).subscribe(this.Observer);
   }
-  ngOnInit() {
+  getData() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
       this.data = el;
       this.data[0].forEach(el => { this.check['Team'].push(true); });
       this.data[2].forEach(el => { this.check['Place'].push(true); });
     })
+  }
+  ngOnInit() {
+    this.getData();
   }
 
 }

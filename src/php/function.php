@@ -1,4 +1,13 @@
 <?php
+ini_set("display_errors", "on");
+error_reporting(E_ALL);
+$DB_server = "sql209.byethost6.com"; # 你的網域IP
+$DB_user = "b6_28438621"; # 你的帳號
+$DB_pass = "valleysawesome"; # 你的密碼
+$DB_name = "b6_28438621_VA_DB"; # 你的資料庫
+
+$conn = new mysqli($DB_server, $DB_user, $DB_pass, $DB_name);
+
 function SEL($Table)
 {
     return "SELECT * FROM `$Table`;";
@@ -17,10 +26,9 @@ function DEL($Table, $keys)
     if (count($keys) > 1) {
         $item = array();
         foreach ($keys as $value) {
-            array_push($item, "'$value'");
+            array_push($item, "$value");
         }
-        $final = join(",", $item);
-        return $delete . pageName() . " IN(" . $final . ");";
+        return $delete . pageName() . " IN(" . join(",", $item) . ");";
     } else {
         return $delete . pageName() . " = '$keys[0]';";
     }
@@ -35,13 +43,18 @@ function INS($Table, $value)
 }
 function UPD($Table, $keys, $value)
 {
-    $item = array();
-    foreach ($value as $el) {
-        array_push($item, "$el");
-    }
     $update = "UPDATE `$Table` SET ";
     $where = " WHERE $keys;";
-    return $update . join(",", $item) . $where;
+    return $update . join(",", $value) . $where;
+}
+function post($name)
+{
+    switch ($name) {
+        case 'original':
+            return "= '" . $_POST[$name] . "'";
+        default:
+            return "`$name` = '" . $_POST[$name] . "'";
+    }
 }
 function insPage($page)
 {
@@ -58,24 +71,20 @@ function updPage($page)
 {
     switch ($page) {
         case "aboutTeam":
-            $item = array("`name` = '" . $_POST['name'] . "'", "`type` = '" . $_POST['type'] . "'", "`content` = '" . $_POST['content'] . "'", "`pic` = '" . $_POST['pic'] . "'");
-            return UPD('about', '`name` = ' . $_POST['original'], $item);
+            $item = array(post("name"), post("type"), post("content"), post("pic"));
+            return UPD('about', '`name`' . post("original"), $item);
         case "aboutPlace":
-            $item = array("`name` = '" . $_POST['name'] . "'", "`content` = '" . $_POST['content'] . "'", "`style` = '" . $_POST['style'] . "'");
-            return UPD('about_three', '`name` = ' . $_POST['original'], $item);
+            $item = array(post("name"), post("content"), post("style"));
+            return UPD('about_three', '`name`' . post("original"), $item);
     }
 }
 function delPage($page, $delete)
 {
-    $basic = array();
     $key = explode(',', $delete);
-    foreach ($key as $el) {
-        array_push($basic, $el);
-    }
     switch ($page) {
         case "aboutTeam":
-            return DEL('about', $basic);
+            return DEL('about', $key);
         case "aboutPlace":
-            return DEL('about_three', $basic);
+            return DEL('about_three', $key);
     }
 }
