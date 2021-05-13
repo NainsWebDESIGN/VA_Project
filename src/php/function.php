@@ -1,6 +1,6 @@
 <?php
 ini_set("display_errors", "on");
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_ERROR);
 $DB_server = "sql209.byethost6.com"; # 你的網域IP
 $DB_user = "b6_28438621"; # 你的帳號
 $DB_pass = "valleysawesome"; # 你的密碼

@@ -1,12 +1,13 @@
 <?php
 ini_set("display_errors", "on");
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_ERROR);
 header('Content-Type: application/json; charset=UTF-8'); //設定資料類型為 json，編碼 utf-8
 if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     require 'function.php';
 
     @$page = $_POST['page'];
     $Item = insPage($page);
+    $data = array();
 
     if ($conn->connect_error) {
         $data = array('ret' => $conn->connect_error);

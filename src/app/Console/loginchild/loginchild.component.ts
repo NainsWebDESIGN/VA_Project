@@ -23,13 +23,9 @@ export class LoginAbout implements OnInit {
   };
   /** 修正選項的選擇欄 */
   change: boolean = false;
-  private Observer = {
-    next: el => console.log(el),
-    error: err => {
-      console.log(err);
-      this.getData();
-    },
-    complete: () => console.log("OK")
+  private req = {
+    next: el => this.getData(),
+    error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
   /** 點擊後更改check內布林值 */
@@ -60,9 +56,9 @@ export class LoginAbout implements OnInit {
     data.getway = _Need;
     switch (_Need) {
       case 'Add':
-        return this.api.postApi("INSERT", data).subscribe(this.Observer);
+        return this.api.postApi("INSERT", data).subscribe(this.req);
       case 'Update':
-        return this.api.postApi("UPDATE", data).subscribe(this.Observer);
+        return this.api.postApi("UPDATE", data).subscribe(this.req);
     }
   }
   /**
@@ -77,7 +73,7 @@ export class LoginAbout implements OnInit {
     }
     let req = { page: 'about' + _Item, delete: data };
     console.log(req);
-    this.api.postApi("DELETE", req).subscribe(this.Observer);
+    this.api.postApi("DELETE", req).subscribe(this.req);
   }
   getData() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
