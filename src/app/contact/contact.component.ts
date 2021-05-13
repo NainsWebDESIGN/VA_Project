@@ -40,14 +40,14 @@ export class ContactComponent implements OnInit {
   Submit() {
     let name = this.Suggest["entry.2002706790"], email = this.Suggest["entry.1995154974"],
       message = this.Suggest["entry.2137997242"], lang = Translate[this.infor.lang],
+      myreg = /^[^\[\]\(\)\\<>:;,@.]+[^\[\]\(\)\\<>:;,@]*@[a-z0-9A-Z]+(([.]?[a-z0-9A-Z]+)*[-]*)*[.]([a-z0-9A-Z]+[-]*)+$/g, // 信箱驗證格式
       Observer = {
         next: el => {
           if (el.ok) { alert(el.ok == true ? lang["建議已送出，我們將盡快與您聯繫!"] : lang["未能成功送出意見"]); }
           name = ""; email = ""; message = "";
         },
         error: err => { alert(err); }, complete: () => { console.log('OK'); }
-      },
-      myreg = /^[^\[\]\(\)\\<>:;,@.]+[^\[\]\(\)\\<>:;,@]*@[a-z0-9A-Z]+(([.]?[a-z0-9A-Z]+)*[-]*)*[.]([a-z0-9A-Z]+[-]*)+$/g; // 信箱驗證格式
+      };
 
     if (name.trim() == '' || email.trim() == '' || message.trim() == '') { alert(lang['請務必填寫完整']); }
     else if (!myreg.test(email)) { alert(lang['信箱格式錯誤']); }

@@ -2,6 +2,12 @@ export interface Member {
     username: string,
     password: string
 }
+export interface SignUp {
+    signname: string;
+    signpass: string;
+    signpass_2: string;
+    email: string;
+}
 export interface Team {
     page: string,
     name: string,

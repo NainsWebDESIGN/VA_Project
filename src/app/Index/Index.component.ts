@@ -19,19 +19,31 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.IndexChoice = (finalTop(item) + placeHeight) < 0 ? true : false;
     }
   }
+  /** 裝 banner 資料 */
   data: Array<MessItem> = [];
+  /** 控制 banner 第幾個顯示即消失 */
   sliderPage: Array<boolean>;
+  /** 左右箭頭 hover 樣式 */
   arrow: boolean = false;
+  /** 裝為何選擇我們資料 */
   Choice: Array<any> = [];
+  /** 為何選擇我們滾動樣式 */
   IndexChoice: boolean = false;
-  banner: any;
+  /** banner 每五秒下一則 */
+  banner: NodeJS.Timer;
   constructor(private api: ApiService, public infor: Information, private Acrouter: ActivatedRoute) { }
-  openArrow() {
-    this.arrow = true;
+  /**
+   * 控制箭頭的 hover
+   * @param _Boolin 關閉或開啟的布林
+   */
+  hoverArrow(_Boolin: boolean) {
+    this.arrow = _Boolin;
   }
-  closeArrow() {
-    this.arrow = false;
-  }
+  /**
+   * 處理下一則或上一則的 banner 並重新計算5秒的 setInterval
+   * @param _Move 第幾筆資料(要判斷下一筆是哪一個必須知道現在哪一筆)
+   * @param dir 下一筆或上一筆(1, -1)
+   */
   changePage(_Move: number, dir: number) {
     clearInterval(this.banner);
     let position = (el: number) => {

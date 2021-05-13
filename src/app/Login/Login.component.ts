@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
 import { Translate } from '@ts/translation';
-import { Member } from '@ts/interface';
+import { Member, SignUp } from '@ts/interface';
 
 @Component({
   selector: 'app-Login',
@@ -10,16 +10,25 @@ import { Member } from '@ts/interface';
   styleUrls: ['./Login.component.css']
 })
 export class LoginComponent implements OnInit {
+  /** 登入或註冊頁面切換 */
   changeSign: boolean = false;
+  /** 會員帳號及密碼 */
   member: Member = {
     username: '',
     password: ''
   }
-  signname: string = "";
-  signpass: string = "";
-  signpass_2: string = "";
-  email: string = "";
+  /** 註冊帳號信箱密碼 */
+  SignUp: SignUp = {
+    signname: "",
+    signpass: "",
+    signpass_2: "",
+    email: ""
+  }
   constructor(private api: ApiService, public infor: Information) { }
+  /**
+   * 處理登入或註冊
+   * @param _Need 判斷登入或註冊
+   */
   Login(_Need: string) {
     localStorage.removeItem('login')
     switch (_Need) {
@@ -33,9 +42,14 @@ export class LoginComponent implements OnInit {
         break;
     }
   }
+  /**
+   * 處理 input 語系
+   * @param _Str input 內的字串
+   */
   transLate(_Str: string) {
     return Translate[this.infor.lang][_Str];
   }
+  /** 處理登入或註冊轉換樣式 */
   toggleForm() {
     this.changeSign = !this.changeSign;
   }

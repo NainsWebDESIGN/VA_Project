@@ -25,5 +25,6 @@ FTP 主機名： ftp.byethost6.com
 4. INSERT DELETE UPDATE function php 大幅度修改
 5. 解決 500 (Internal Server Error) 的問題
 6. 新增網頁描述縮圖及修改標題
+7. 頁面註釋到 Login (由上至下)
 
 ---

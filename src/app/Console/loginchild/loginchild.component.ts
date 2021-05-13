@@ -23,6 +23,7 @@ export class LoginAbout implements OnInit {
   };
   /** 修正選項的選擇欄 */
   change: boolean = false;
+  /** Observable 要處理的事情 */
   private req = {
     next: el => this.getData(),
     error: err => console.log(err)
@@ -72,7 +73,6 @@ export class LoginAbout implements OnInit {
       if (!this.check[_Item][i]) { data.push(this.data[_Data][i].name); }
     }
     let req = { page: 'about' + _Item, delete: data };
-    console.log(req);
     this.api.postApi("DELETE", req).subscribe(this.req);
   }
   getData() {

@@ -17,16 +17,31 @@ export class HeaderComponent implements OnInit {
   }
   /** data存放原始資料 */
   data: Array<any> = [];
+  /** 展開或關閉菜單 */
   Menu: boolean = false;
+  /** 展開或關閉菜單的圖標變化 */
   menuStyle: boolean = false;
   constructor(private api: ApiService, public infor: Information, private router: Router) { }
+  /**
+   * 更換語系
+   * @param _Lang 語系(zh-tw, en-us)
+   */
   ChangeLang(_Lang: string) {
     this.infor.lang = _Lang;
   }
+  /**
+   * 展開或關閉菜單
+   * @param _Effect 判斷展開或關閉
+   */
   openMenu(_Effect: string) {
     this.menuStyle = _Effect == 'open' ? !this.menuStyle : false;
     this.Menu = this.menuStyle;
   }
+  /**
+   * 頁面跳轉及滾動
+   * @param _Where 判斷主標題還是小標題
+   * @param _ID HTML DOM 的 ID
+   */
   toTop(_Where: number, ..._ID: Array<any>) {
     switch (_Where) {
       case 0:
@@ -38,6 +53,11 @@ export class HeaderComponent implements OnInit {
         break;
     }
   }
+  /**
+   * 判斷是否同頁面，是的話滾動至哪邊，不是則跳轉
+   * @param _Item 判斷每個路由的標題位置
+   * @param $element 路由名稱
+   */
   ScrollToElement(_Item: number, $element: string) {
     let route = (el: string) => { return '/Valleys_Awesome/' + el; };
     this.openMenu('close');
