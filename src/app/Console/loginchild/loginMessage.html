@@ -45,33 +45,41 @@
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="name" class="leading-7 text-sm text-gray-600">type</label>
-                            <select type="text" name="name"
+                            <select type="text" name="name" [(ngModel)]="formData.type"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                <option value="Web">{{"網頁" | Translation: infor.lang}}</option>
-                                <option value="Discount">{{"優惠" | Translation: infor.lang}}</option>
-                                <option value="News">{{"系統" | Translation: infor.lang}}</option>
+                                <option value="網頁">{{"網頁" | Translation: infor.lang}}</option>
+                                <option value="優惠">{{"優惠" | Translation: infor.lang}}</option>
+                                <option value="系統">{{"系統" | Translation: infor.lang}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">main_p</label>
-                            <input type="email" name="email"
+                            <input type="email" name="email" [(ngModel)]="formData.main_p"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">big_p</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData.big_p"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
 
-                    <div class="p-2 w-full">
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="small_p" class="leading-7 text-sm text-gray-600">small_p</label>
+                            <input type="text" name="small_p" [(ngModel)]="formData.small_p"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+
+                    <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData.title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
@@ -79,7 +87,7 @@
                     <div class="p-2 w-full">
                         <div class="relative">
                             <label for="message" class="leading-7 text-sm text-gray-600">content</label>
-                            <textarea name="message"
+                            <textarea name="message" [(ngModel)]="formData.content"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                     </div>

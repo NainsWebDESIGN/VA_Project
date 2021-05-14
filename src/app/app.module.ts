@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 import { HttpModule } from '@angular/http';
 export const Lang: Lang = _Lang;
 
@@ -54,7 +55,7 @@ import { KeyPipe } from '@pipe/key.pipe';
     HttpClientModule,
     HttpModule
   ],
-  providers: [ApiService, Information, AuthGuard],
+  providers: [ApiService, Information, AuthGuard, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

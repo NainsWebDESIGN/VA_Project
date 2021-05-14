@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
 import { AboutForm, ServiceForm, MessForm } from '@ts/interface';
@@ -64,7 +65,7 @@ export class LoginAbout implements OnInit {
   Delete(_Item: string, _Data: number) {
     let data = [];
     this.check[_Item].forEach((value, arr) => {
-      if (value) { data.push(this.data[_Data][arr].name); }
+      if (!value) { data.push(this.data[_Data][arr].name); }
     });
     let req = { page: 'about' + _Item, delete: data };
     this.api.postApi("DELETE", req).subscribe(this.req);
@@ -96,12 +97,12 @@ export class LoginMessage implements OnInit {
   formData: MessForm = {
     page: "Message",
     original: "",
-    type: "",
+    type: "網頁",
     date: "",
     big_p: "",
     small_p: "",
     main_p: "",
-    text: "",
+    text: "Web Design",
     readStyle: "",
     title: "",
     content: ""
@@ -113,7 +114,18 @@ export class LoginMessage implements OnInit {
     next: el => this.getData(),
     error: err => console.log(err)
   }
-  constructor(private api: ApiService, public infor: Information) { }
+  constructor(private api: ApiService, public infor: Information, private datePipe: DatePipe) { }
+  // changeType(_Type: string) {
+  //   this.formData.type = _Type;
+  //   switch (_Type) {
+  //     case '網頁':
+  //       this.formData.text = "Web Design"; break;
+  //     case '優惠':
+  //       this.formData.text = "Discount"; break;
+  //     case '系統':
+  //       this.formData.text = "Announcement"; break;
+  //   }
+  // }
   /**
    * 寬度設置
    * @param _Position 第幾組項目
@@ -131,13 +143,23 @@ export class LoginMessage implements OnInit {
     this.Submit("Update");
   }
   Submit(_Getway: string) {
+    switch (this.formData.type) {
+      case '網頁':
+        this.formData.text = "Web Design"; break;
+      case '優惠':
+        this.formData.text = "Discount"; break;
+      case '系統':
+        this.formData.text = "Announcement"; break;
+    }
+    this.formData.date = this.datePipe.transform(new Date(), "d MMM y");
+    this.formData.readStyle = this.data[this.data.length - 1].readStyle == "fill" ? "fill fill-dark" : "fill";
     this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
       .subscribe(this.req);
   }
   Delete() {
     let data = [];
     this.check.forEach((value, item) => {
-      if (value) { data.push(this.data[item].title) }
+      if (!value) { data.push(this.data[item].title) }
     })
     this.api.postApi("DELETE", data).subscribe(this.req);
   }
