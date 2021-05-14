@@ -26,5 +26,6 @@ FTP 主機名： ftp.byethost6.com
 5. 解決 500 (Internal Server Error) 的問題
 6. 新增網頁描述縮圖及修改標題
 7. 頁面註釋到 Login (由上至下)
+8. 剛完成初次 新增、修改、刪除至 Message
 
 ---

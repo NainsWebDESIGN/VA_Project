@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
-import { AboutForm, ServiceForm } from '@ts/interface';
+import { AboutForm, ServiceForm, MessForm } from '@ts/interface';
 
 @Component({
   selector: 'loginabout',
@@ -53,14 +53,8 @@ export class LoginAbout implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    let data = this.formData[_Item];
-    data.getway = _Need;
-    switch (_Need) {
-      case 'Add':
-        return this.api.postApi("INSERT", data).subscribe(this.req);
-      case 'Update':
-        return this.api.postApi("UPDATE", data).subscribe(this.req);
-    }
+    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
+      .subscribe(this.req);
   }
   /**
    * 勾選刪除的狀態
@@ -69,9 +63,9 @@ export class LoginAbout implements OnInit {
    */
   Delete(_Item: string, _Data: number) {
     let data = [];
-    for (let i = 0; i < this.check[_Item].length; i++) {
-      if (!this.check[_Item][i]) { data.push(this.data[_Data][i].name); }
-    }
+    this.check[_Item].forEach((value, arr) => {
+      if (value) { data.push(this.data[_Data][arr].name); }
+    });
     let req = { page: 'about' + _Item, delete: data };
     this.api.postApi("DELETE", req).subscribe(this.req);
   }
@@ -98,6 +92,27 @@ export class LoginMessage implements OnInit {
   data: Array<any> = [];
   /** check存放勾選樣式 */
   check: Array<boolean> = [];
+  /** HTML 的 ngModel */
+  formData: MessForm = {
+    page: "Message",
+    original: "",
+    type: "",
+    date: "",
+    big_p: "",
+    small_p: "",
+    main_p: "",
+    text: "",
+    readStyle: "",
+    title: "",
+    content: ""
+  };
+  /** 修正選項的選擇欄 */
+  change: boolean = false;
+  /** Observable 要處理的事情 */
+  private req = {
+    next: el => this.getData(),
+    error: err => console.log(err)
+  }
   constructor(private api: ApiService, public infor: Information) { }
   /**
    * 寬度設置
@@ -107,6 +122,25 @@ export class LoginMessage implements OnInit {
     if (_Position == 8) { return '100%'; }
     else { return; }
   }
+  /** 展開update選項 */
+  dropMenu() {
+    this.change = !this.change;
+  }
+  upDate(_Item: number) {
+    this.formData.original = this.data[_Item].title;
+    this.Submit("Update");
+  }
+  Submit(_Getway: string) {
+    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
+      .subscribe(this.req);
+  }
+  Delete() {
+    let data = [];
+    this.check.forEach((value, item) => {
+      if (value) { data.push(this.data[item].title) }
+    })
+    this.api.postApi("DELETE", data).subscribe(this.req);
+  }
   /**
    * 更改勾選樣式
    * @param _Position 第幾個位置
@@ -114,11 +148,14 @@ export class LoginMessage implements OnInit {
   Check(_Position: number) {
     this.check[_Position] = !this.check[_Position];
   }
-  ngOnInit() {
+  getData() {
     this.api.postApi('message').subscribe((el: Array<any>) => {
       this.data = el;
       this.data.forEach(el => { this.check.push(true); });
     })
+  }
+  ngOnInit() {
+    this.getData();
   }
 
 }

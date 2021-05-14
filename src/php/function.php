@@ -18,6 +18,8 @@ function pageName()
         case 'aboutTeam':
         case 'aboutPlace':
             return '`name`';
+        case 'Message':
+            return '`title`';
     }
 }
 function DEL($Table, $keys)
@@ -65,6 +67,12 @@ function insPage($page)
         case "aboutPlace":
             $item = array($_POST['name'], $_POST['content'], $_POST['style']);
             return INS('about_three', $item);
+        case "Message":
+            $item = array(
+                $_POST['type'], $_POST['date'], $_POST['big_p'], $_POST['small_p'],
+                $_POST['main_p'], $_POST['text'], $_POST['readStyle'], $_POST['title'], $_POST['content']
+            );
+            return INS('message', $item);
     }
 }
 function updPage($page)
@@ -76,6 +84,12 @@ function updPage($page)
         case "aboutPlace":
             $item = array(post("name"), post("content"), post("style"));
             return UPD('about_three', '`name`' . post("original"), $item);
+        case "Message":
+            $item = array(
+                post("type"), post("date"), post("big_p"), post("small_p"),
+                post("main_p"), post("text"), post("readStyle"), post("title"), post("content")
+            );
+            return UPD('message', '`title`' . post("original"), $item);
     }
 }
 function delPage($page, $delete)
@@ -86,5 +100,7 @@ function delPage($page, $delete)
             return DEL('about', $key);
         case "aboutPlace":
             return DEL('about_three', $key);
+        case "Message":
+            return DEL('message', $key);
     }
 }

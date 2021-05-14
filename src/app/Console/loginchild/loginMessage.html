@@ -84,12 +84,19 @@
                         </div>
                     </div>
                     <div class="flex justify-center w-full p-2 aboutChangebtn">
-                        <button
+                        <button (click)='Submit("Add")'
                             class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                             {{"新增" | Translation: infor.lang}}</button>
-                        <button
-                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                            {{"更改" | Translation: infor.lang}}</button>
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
+                                {{"更改" | Translation: infor.lang}}
+                            </button>
+                            <div class="dropdown-menu" [class.active]="change">
+                                <a class="dropdown-item" *ngFor="let update of data; let i = index;"
+                                    (click)='upDate(i)'>{{update.title}}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +123,7 @@
                 </div>
 
             </div>
-            <button
+            <button (click)='Delete()'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>

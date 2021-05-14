@@ -30,7 +30,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   /** 為何選擇我們滾動樣式 */
   IndexChoice: boolean = false;
   /** banner 每五秒下一則 */
-  banner: NodeJS.Timer;
+  banner: any;
   constructor(private api: ApiService, public infor: Information, private Acrouter: ActivatedRoute) { }
   /**
    * 控制箭頭的 hover

@@ -27,6 +27,19 @@ export interface AboutForm {
     Team: Team,
     Place: Place
 }
+export interface MessForm {
+    page: string,
+    original: string,
+    type: string,
+    date: string,
+    big_p: string,
+    small_p: string,
+    main_p: string,
+    text: string,
+    readStyle: string,
+    title: string,
+    content: string
+}
 export interface ServiceForm {
     Do: Array<boolean>,
     Skill: Array<boolean>,
