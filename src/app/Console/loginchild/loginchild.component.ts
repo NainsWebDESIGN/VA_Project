@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
-import { AboutForm, ServiceForm, MessForm, ContactForm } from '@ts/interface';
+import { AboutForm, ServiceData, MessForm, ContactForm, ServiceForm } from '@ts/interface';
 
 @Component({
   selector: 'loginabout',
@@ -246,13 +246,28 @@ export class LoginService implements OnInit {
   /** data存放原始資料 */
   data: Array<any> = [];
   /** check存放各大項目樣式 */
-  check: ServiceForm = {
+  check: ServiceData = {
     Do: [],
     Skill: [],
     Labor: [],
     Portofio: [],
     month: [],
     year: []
+  }
+  formData: ServiceForm = {
+    Do: { page: "ServiceDo", original: "", title: "", style: "", content: "" },
+    Left: { page: "ServiceLeft", original: "", title: "", percentage: 0 },
+    Right: { page: "ServiceRight", original: "", title: "", percentage: 0 },
+    Portofio: { page: "ServicePortofio", original: "", title: "", type: "", image: "", content: "" },
+    month: { page: "ServiceMonth", original: "", type: "", title: "", price: "", content: [] },
+    year: { page: "ServiceYear", original: "", type: "", title: "", price: "", content: [] }
+  }
+  /** 修正選項的選擇欄 */
+  change: boolean = false;
+  /** Observable 要處理的事情 */
+  private req = {
+    next: el => this.getData(),
+    error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
   /**
@@ -275,7 +290,7 @@ export class LoginService implements OnInit {
   Check(_Position: number, _Item: string) {
     this.check[_Item][_Position] = !this.check[_Item][_Position];
   }
-  ngOnInit() {
+  getData() {
     this.api.postApi('service').subscribe((el: Array<any>) => {
       this.data = el;
       this.data[0].forEach(el => { this.check.Do.push(true); });
@@ -285,6 +300,9 @@ export class LoginService implements OnInit {
       this.data[3].month.forEach(el => { this.check.month.push(true); });
       this.data[3].year.forEach(el => { this.check.year.push(true); });
     })
+  }
+  ngOnInit() {
+    this.getData();
   }
 
 }

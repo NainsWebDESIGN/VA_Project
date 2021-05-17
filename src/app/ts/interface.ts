@@ -47,7 +47,44 @@ export interface MessForm {
     title: string,
     content: string
 }
+export interface ServiceDo {
+    page: string,
+    original: string,
+    title: string,
+    style: string,
+    content: string
+}
+export interface ServiceSkill {
+    page: string,
+    original: string,
+    title: string,
+    percentage: number
+}
+export interface ServicePortofio {
+    page: string,
+    original: string,
+    title: string,
+    type: string,
+    image: string,
+    content: string
+}
+export interface ServiceDiscount {
+    page: string,
+    original: string,
+    type: string,
+    title: string,
+    price: string,
+    content: Array<string>
+}
 export interface ServiceForm {
+    Do: ServiceDo,
+    Left: ServiceSkill,
+    Right: ServiceSkill,
+    Portofio: ServicePortofio,
+    month: ServiceDiscount,
+    year: ServiceDiscount
+}
+export interface ServiceData {
     Do: Array<boolean>,
     Skill: Array<boolean>,
     Labor: Array<boolean>,
