@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center w-full p-2 aboutChangebtn">
-                        <button
+                        <button (click)='Submit("Add", "Do")'
                             class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                             {{"新增" | Translation: infor.lang}}</button>
                         <div class="btn-group dropup">
@@ -75,7 +75,7 @@
                             </button>
                             <div class="dropdown-menu" [class.active]="change">
                                 <a class="dropdown-item" *ngFor="let update of data[0]; let i = index;"
-                                    (click)='upDate(i)'>{{update.title}}</a>
+                                    (click)='upDate("Do", 0, i)'>{{update.title}}</a>
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                             </button>
                             <div class="dropdown-menu" [class.active]="change">
                                 <a class="dropdown-item" *ngFor="let update of data[1].left; let i = index;"
-                                    (click)='upDate(i)'>{{update.title}}</a>
+                                    (click)='upDate("Left", 1, i)'>{{update.title}}</a>
                             </div>
                         </div>
                     </div>
@@ -284,7 +284,7 @@
                             </button>
                             <div class="dropdown-menu" [class.active]="change">
                                 <a class="dropdown-item" *ngFor="let update of data[1].right; let i = index;"
-                                    (click)='upDate(i)'>{{update.title}}</a>
+                                    (click)='upDate("Right", 1, i)'>{{update.title}}</a>
                             </div>
                         </div>
                     </div>
@@ -408,7 +408,7 @@
                             </button>
                             <div class="dropdown-menu" [class.active]="change">
                                 <a class="dropdown-item" *ngFor="let update of data[2]; let i = index;"
-                                    (click)='upDate(i)'>{{update.title}}</a>
+                                    (click)='upDate("Portofio", 2, i)'>{{update.title}}</a>
                             </div>
                         </div>
                     </div>
@@ -524,7 +524,7 @@
                             </button>
                             <div class="dropdown-menu" [class.active]="change">
                                 <a class="dropdown-item" *ngFor="let update of data[3].month; let i = index;"
-                                    (click)='upDate(i)'>{{update.title}}</a>
+                                    (click)='upDate("Month", 3, i)'>{{update.title}}</a>
                             </div>
                         </div>
                     </div>
@@ -642,7 +642,7 @@
                             </button>
                             <div class="dropdown-menu" [class.active]="change">
                                 <a class="dropdown-item" *ngFor="let update of data[3].year; let i = index;"
-                                    (click)='upDate(i)'>{{update.title}}</a>
+                                    (click)='upDate("Year", 3, i)'>{{update.title}}</a>
                             </div>
                         </div>
                     </div>

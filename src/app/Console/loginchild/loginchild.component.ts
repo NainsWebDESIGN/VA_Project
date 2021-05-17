@@ -259,8 +259,8 @@ export class LoginService implements OnInit {
     Left: { page: "ServiceLeft", original: "", title: "", percentage: 0 },
     Right: { page: "ServiceRight", original: "", title: "", percentage: 0 },
     Portofio: { page: "ServicePortofio", original: "", title: "", type: "", image: "", content: "" },
-    month: { page: "ServiceMonth", original: "", type: "", title: "", price: "", content: [] },
-    year: { page: "ServiceYear", original: "", type: "", title: "", price: "", content: [] }
+    Month: { page: "ServiceMonth", original: "", type: "", title: "", price: "", content: [] },
+    Year: { page: "ServiceYear", original: "", type: "", title: "", price: "", content: [] }
   }
   /** 修正選項的選擇欄 */
   change: boolean = false;

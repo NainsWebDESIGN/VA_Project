@@ -81,8 +81,8 @@ export interface ServiceForm {
     Left: ServiceSkill,
     Right: ServiceSkill,
     Portofio: ServicePortofio,
-    month: ServiceDiscount,
-    year: ServiceDiscount
+    Month: ServiceDiscount,
+    Year: ServiceDiscount
 }
 export interface ServiceData {
     Do: Array<boolean>,
