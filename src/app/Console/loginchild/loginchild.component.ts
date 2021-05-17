@@ -283,6 +283,47 @@ export class LoginService implements OnInit {
         return _Position == 3 ? '100%' : '';
     }
   }
+  /** 展開update選項 */
+  dropMenu() {
+    this.change = !this.change;
+  }
+  /**
+   * 傳送要更改哪組項目(避免單一判斷會影響更改)
+   * @param _Obj 哪一組需求
+   * @param _Ori 原始資料的位置
+   * @param _Item 原始資料位置裡的哪一組
+   */
+  upDate(_Obj: string, _Ori: number, _Item: number) {
+    let ori = this.formData[_Obj].original, po = el => { return _Obj == el; };
+    ori = po("Left") ? this.data[1].left[_Item]["title"]
+      : po("Right") ? this.data[1].right[_Item]["title"]
+        : po("Month") ? this.data[3].month[_Item]["title"]
+          : po("Year") ? this.data[3].year[_Item]["title"]
+            : this.data[_Ori][_Item]["title"];
+    this.Submit("Update", _Obj);
+  }
+  /**
+   * 發送資料給後端做新增或更改
+   * @param _Need 要做的事件名稱
+   * @param _Item 變數內對應的位置
+   */
+  Submit(_Need: string, _Item: string) {
+    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
+      .subscribe(this.req);
+  }
+  /**
+   * 勾選刪除的狀態
+   * @param _Item 刪除的大項目名稱
+   * @param _Data 勾選的小項目位置
+   */
+  Delete(_Item: string, _Data: number) {
+    // let data = [];
+    // this.check[_Item].forEach((value, arr) => {
+    //   if (!value) { data.push(this.data[_Data][arr].name); }
+    // });
+    // let req = { page: 'about' + _Item, delete: data };
+    // this.api.postApi("DELETE", req).subscribe(this.req);
+  }
   /**
    * 更改勾選樣式
    * @param _Position 第幾個位置

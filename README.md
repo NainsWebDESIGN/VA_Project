@@ -27,5 +27,6 @@ FTP 主機名： ftp.byethost6.com
 6. 新增網頁描述縮圖及修改標題
 7. 頁面註釋到 Login (由上至下)
 8. 完成 新增、修改、刪除至 Contact
+9. ConsoleService.ts 改到一半
 
 ---

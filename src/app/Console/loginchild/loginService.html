@@ -46,21 +46,21 @@
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email"
+                            <input type="email" name="email" [(ngModel)]="formData['DO'].title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">style</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData['DO'].style"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-full">
                         <div class="relative">
                             <label for="message" class="leading-7 text-sm text-gray-600">content</label>
-                            <textarea name="message"
+                            <textarea name="message" [(ngModel)]="formData['DO'].content"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                     </div>
@@ -157,14 +157,14 @@
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email"
+                            <input type="email" name="email" [(ngModel)]="formData.Left.title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData.Left.percentage"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
@@ -262,14 +262,14 @@
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email"
+                            <input type="email" name="email" [(ngModel)]="formData.Right.title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData.Right.percentage"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
@@ -368,14 +368,14 @@
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email"
+                            <input type="email" name="email" [(ngModel)]="formData.Portofio.title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">type</label>
-                            <select type="text" name="pic"
+                            <select type="text" name="pic" [(ngModel)]="formData.Portofio.type"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 <option value="one">One</option>
                                 <option value="two">Two</option>
@@ -386,14 +386,14 @@
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">image</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData.Portofio.image"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-full">
                         <div class="relative">
                             <label for="message" class="leading-7 text-sm text-gray-600">content</label>
-                            <textarea name="message"
+                            <textarea name="message" [(ngModel)]="formData.Portofio.content"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                     </div>
@@ -489,27 +489,27 @@
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email"
+                            <input type="email" name="email" [(ngModel)]="formData.Month.title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData.Month.price"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
-                            <input type="text" name="pic" placeholder="條件1"
+                            <input type="text" name="pic" placeholder="條件1" [(ngModel)]="formData.Month.content[0]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件2"
+                            <input type="text" placeholder="條件2" [(ngModel)]="formData.Month.content[1]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件3"
+                            <input type="text" placeholder="條件3" [(ngModel)]="formData.Month.content[2]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件4"
+                            <input type="text" placeholder="條件4" [(ngModel)]="formData.Month.content[3]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
@@ -607,27 +607,27 @@
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email"
+                            <input type="email" name="email" [(ngModel)]="formData.Year.title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
-                            <input type="text" name="pic"
+                            <input type="text" name="pic" [(ngModel)]="formData.Year.price"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/3">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
-                            <input type="text" name="pic" placeholder="條件1"
+                            <input type="text" name="pic" placeholder="條件1" [(ngModel)]="formData.Year.content[0]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件2"
+                            <input type="text" placeholder="條件2" [(ngModel)]="formData.Year.content[1]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件3"
+                            <input type="text" placeholder="條件3" [(ngModel)]="formData.Year.content[2]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件4"
+                            <input type="text" placeholder="條件4" [(ngModel)]="formData.Year.content[3]"
                                 class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
