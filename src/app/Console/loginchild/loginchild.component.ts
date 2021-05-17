@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ApiService } from '@service/api.service';
 import { Information } from '@service/information.service';
-import { AboutForm, ServiceForm, MessForm } from '@ts/interface';
+import { AboutForm, ServiceForm, MessForm, ContactForm } from '@ts/interface';
 
 @Component({
   selector: 'loginabout',
@@ -115,17 +115,6 @@ export class LoginMessage implements OnInit {
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information, private datePipe: DatePipe) { }
-  // changeType(_Type: string) {
-  //   this.formData.type = _Type;
-  //   switch (_Type) {
-  //     case '網頁':
-  //       this.formData.text = "Web Design"; break;
-  //     case '優惠':
-  //       this.formData.text = "Discount"; break;
-  //     case '系統':
-  //       this.formData.text = "Announcement"; break;
-  //   }
-  // }
   /**
    * 寬度設置
    * @param _Position 第幾組項目
@@ -161,7 +150,8 @@ export class LoginMessage implements OnInit {
     this.check.forEach((value, item) => {
       if (!value) { data.push(this.data[item].title) }
     })
-    this.api.postApi("DELETE", data).subscribe(this.req);
+    let req = { page: this.formData.page, delete: data };
+    this.api.postApi("DELETE", req).subscribe(this.req);
   }
   /**
    * 更改勾選樣式
@@ -192,6 +182,21 @@ export class LoginContact implements OnInit {
   data: Array<any> = [];
   /** check存放勾選樣式 */
   check: Array<boolean> = [];
+  /** HTML 的 ngModel */
+  formData: ContactForm = {
+    page: "Contact",
+    original: "",
+    media: "",
+    href: "",
+    style: ""
+  };
+  /** 修正選項的選擇欄 */
+  change: boolean = false;
+  /** Observable 要處理的事情 */
+  private req = {
+    next: el => this.getData(),
+    error: err => console.log(err)
+  }
   constructor(private api: ApiService, public infor: Information) { }
   /**
    * 更改勾選樣式
@@ -200,11 +205,34 @@ export class LoginContact implements OnInit {
   Check(_Position: number) {
     this.check[_Position] = !this.check[_Position];
   }
-  ngOnInit() {
+  /** 展開update選項 */
+  dropMenu() {
+    this.change = !this.change;
+  }
+  upDate(_Item: number) {
+    this.formData.original = this.data[_Item].media;
+    this.Submit("Update");
+  }
+  Submit(_Getway: string) {
+    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
+      .subscribe(this.req);
+  }
+  Delete() {
+    let data = [];
+    this.check.forEach((value, item) => {
+      if (!value) { data.push(this.data[item].media) }
+    })
+    let req = { page: this.formData.page, delete: data };
+    this.api.postApi("DELETE", req).subscribe(this.req);
+  }
+  getData() {
     this.api.postApi('contact').subscribe((el: Array<any>) => {
       this.data = el;
       this.data.forEach(el => { this.check.push(true); });
     })
+  }
+  ngOnInit() {
+    this.getData();
   }
 
 }

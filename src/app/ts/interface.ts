@@ -27,6 +27,13 @@ export interface AboutForm {
     Team: Team,
     Place: Place
 }
+export interface ContactForm {
+    page: string,
+    original: string,
+    media: string,
+    href: string,
+    style: string
+}
 export interface MessForm {
     page: string,
     original: string,

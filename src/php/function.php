@@ -20,6 +20,8 @@ function pageName()
             return '`name`';
         case 'Message':
             return '`title`';
+        case 'Contact':
+            return '`media`';
     }
 }
 function DEL($Table, $keys)
@@ -73,6 +75,9 @@ function insPage($page)
                 $_POST['main_p'], $_POST['text'], $_POST['readStyle'], $_POST['title'], $_POST['content']
             );
             return INS('message', $item);
+        case "Contact":
+            $item = array($_POST['media'], $_POST['href'], $_POST['style']);
+            return INS('contact', $item);
     }
 }
 function updPage($page)
@@ -90,6 +95,9 @@ function updPage($page)
                 post("main_p"), post("text"), post("readStyle"), post("title"), post("content")
             );
             return UPD('message', '`title`' . post("original"), $item);
+        case "Contact":
+            $item = array(post("media"), post("href"), post("style"));
+            return UPD('contact', '`media`' . post("original"), $item);
     }
 }
 function delPage($page, $delete)
@@ -102,5 +110,7 @@ function delPage($page, $delete)
             return DEL('about_three', $key);
         case "Message":
             return DEL('message', $key);
+        case "Contact":
+            return DEL('contact', $key);
     }
 }
