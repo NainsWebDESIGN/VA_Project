@@ -86,11 +86,11 @@ export interface ServiceForm {
 }
 export interface ServiceData {
     Do: Array<boolean>,
-    Skill: Array<boolean>,
-    Labor: Array<boolean>,
+    Left: Array<boolean>,
+    Right: Array<boolean>,
     Portofio: Array<boolean>,
-    month: Array<boolean>,
-    year: Array<boolean>
+    Month: Array<boolean>,
+    Year: Array<boolean>
 }
 export interface Suggest {
     "entry.2002706790": string,

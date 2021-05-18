@@ -46,21 +46,21 @@
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email" [(ngModel)]="formData['DO'].title"
+                            <input type="email" name="email" [(ngModel)]="formData['Do'].title"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-1/2">
                         <div class="relative">
                             <label for="pic" class="leading-7 text-sm text-gray-600">style</label>
-                            <input type="text" name="pic" [(ngModel)]="formData['DO'].style"
+                            <input type="text" name="pic" [(ngModel)]="formData['Do'].style"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-full">
                         <div class="relative">
                             <label for="message" class="leading-7 text-sm text-gray-600">content</label>
-                            <textarea name="message" [(ngModel)]="formData['DO'].content"
+                            <textarea name="message" [(ngModel)]="formData['Do'].content"
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                 </div>
 
             </div>
-            <button
+            <button (click)='Delete("Do", 0)'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>
@@ -154,35 +154,37 @@
             </div>
             <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
                 <div class="flex flex-wrap -m-2">
-                    <div class="p-2 w-1/2">
-                        <div class="relative">
-                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email" [(ngModel)]="formData.Left.title"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-1/2">
-                        <div class="relative">
-                            <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
-                            <input type="text" name="pic" [(ngModel)]="formData.Left.percentage"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="flex justify-center w-full p-2 aboutChangebtn">
-                        <button
-                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                            {{"新增" | Translation: infor.lang}}</button>
-                        <div class="btn-group dropup">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
-                                {{"更改" | Translation: infor.lang}}
-                            </button>
-                            <div class="dropdown-menu" [class.active]="change">
-                                <a class="dropdown-item" *ngFor="let update of data[1].left; let i = index;"
-                                    (click)='upDate("Left", 1, i)'>{{update.title}}</a>
+                    <ng-container *ngIf="data[1]">
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                                <input type="email" name="email" [(ngModel)]="formData.Left.title"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                         </div>
-                    </div>
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
+                                <input type="text" name="pic" [(ngModel)]="formData.Left.percentage"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="flex justify-center w-full p-2 aboutChangebtn">
+                            <button (click)='Submit("Add", "Left")'
+                                class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                                {{"新增" | Translation: infor.lang}}</button>
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
+                                    {{"更改" | Translation: infor.lang}}
+                                </button>
+                                <div class="dropdown-menu" [class.active]="change">
+                                    <a class="dropdown-item" *ngFor="let update of data[1].left; let i = index;"
+                                        (click)='upDate("Left", 1, i)'>{{update.title}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -201,16 +203,16 @@
 
                 <ng-container *ngIf="data[1]">
                     <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let skill of data[1].left; let i = index;">
-                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Skill")'>
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Left")'>
                             <i class="fad checkbox"
-                                [ngClass]="{'fa-circle-notch': check.Skill[i], 'fa-check-circle': !check.Skill[i]}"></i>
+                                [ngClass]="{'fa-circle-notch': check.Left[i], 'fa-check-circle': !check.Left[i]}"></i>
                             <span class="title-font font-medium">{{skill.title}}</span>
                         </div>
                     </div>
                 </ng-container>
 
             </div>
-            <button
+            <button (click)='Delete("Left", 11)'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>
@@ -259,35 +261,37 @@
             </div>
             <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
                 <div class="flex flex-wrap -m-2">
-                    <div class="p-2 w-1/2">
-                        <div class="relative">
-                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email" [(ngModel)]="formData.Right.title"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-1/2">
-                        <div class="relative">
-                            <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
-                            <input type="text" name="pic" [(ngModel)]="formData.Right.percentage"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="flex justify-center w-full p-2 aboutChangebtn">
-                        <button
-                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                            {{"新增" | Translation: infor.lang}}</button>
-                        <div class="btn-group dropup">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
-                                {{"更改" | Translation: infor.lang}}
-                            </button>
-                            <div class="dropdown-menu" [class.active]="change">
-                                <a class="dropdown-item" *ngFor="let update of data[1].right; let i = index;"
-                                    (click)='upDate("Right", 1, i)'>{{update.title}}</a>
+                    <ng-container *ngIf="data[1]">
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                                <input type="email" name="email" [(ngModel)]="formData.Right.title"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                         </div>
-                    </div>
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="pic" class="leading-7 text-sm text-gray-600">percentage(%)</label>
+                                <input type="text" name="pic" [(ngModel)]="formData.Right.percentage"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="flex justify-center w-full p-2 aboutChangebtn">
+                            <button (click)='Submit("Add", "Right")'
+                                class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                                {{"新增" | Translation: infor.lang}}</button>
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
+                                    {{"更改" | Translation: infor.lang}}
+                                </button>
+                                <div class="dropdown-menu" [class.active]="change">
+                                    <a class="dropdown-item" *ngFor="let update of data[1].right; let i = index;"
+                                        (click)='upDate("Right", 1, i)'>{{update.title}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -306,16 +310,16 @@
 
                 <ng-container *ngIf="data[1]">
                     <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let labor of data[1].right; let i = index;">
-                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Labor")'>
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Right")'>
                             <i class="fad checkbox"
-                                [ngClass]="{'fa-circle-notch': check.Labor[i], 'fa-check-circle': !check.Labor[i]}"></i>
+                                [ngClass]="{'fa-circle-notch': check.Right[i], 'fa-check-circle': !check.Right[i]}"></i>
                             <span class="title-font font-medium">{{labor.title | Translation: infor.lang}}</span>
                         </div>
                     </div>
                 </ng-container>
 
             </div>
-            <button
+            <button (click)='Delete("Right", 12)'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>
@@ -398,7 +402,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center w-full p-2 aboutChangebtn">
-                        <button
+                        <button (click)='Submit("Add", "Portofio")'
                             class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                             {{"新增" | Translation: infor.lang}}</button>
                         <div class="btn-group dropup">
@@ -437,7 +441,7 @@
                 </div>
 
             </div>
-            <button
+            <button (click)='Delete("Portofio", 2)'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>
@@ -486,48 +490,50 @@
             </div>
             <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
                 <div class="flex flex-wrap -m-2">
-                    <div class="p-2 w-1/3">
-                        <div class="relative">
-                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email" [(ngModel)]="formData.Month.title"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-1/3">
-                        <div class="relative">
-                            <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
-                            <input type="text" name="pic" [(ngModel)]="formData.Month.price"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-1/3">
-                        <div class="relative">
-                            <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
-                            <input type="text" name="pic" placeholder="條件1" [(ngModel)]="formData.Month.content[0]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件2" [(ngModel)]="formData.Month.content[1]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件3" [(ngModel)]="formData.Month.content[2]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件4" [(ngModel)]="formData.Month.content[3]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="flex justify-center w-full p-2 aboutChangebtn">
-                        <button
-                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                            {{"新增" | Translation: infor.lang}}</button>
-                        <div class="btn-group dropup">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
-                                {{"更改" | Translation: infor.lang}}
-                            </button>
-                            <div class="dropdown-menu" [class.active]="change">
-                                <a class="dropdown-item" *ngFor="let update of data[3].month; let i = index;"
-                                    (click)='upDate("Month", 3, i)'>{{update.title}}</a>
+                    <ng-container *ngIf="data[3]">
+                        <div class="p-2 w-1/3">
+                            <div class="relative">
+                                <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                                <input type="email" name="email" [(ngModel)]="formData.Month.title"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                         </div>
-                    </div>
+                        <div class="p-2 w-1/3">
+                            <div class="relative">
+                                <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
+                                <input type="text" name="pic" [(ngModel)]="formData.Month.price"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-2 w-1/3">
+                            <div class="relative">
+                                <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
+                                <input type="text" name="pic" placeholder="條件1" [(ngModel)]="formData.Month.content[0]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" placeholder="條件2" [(ngModel)]="formData.Month.content[1]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" placeholder="條件3" [(ngModel)]="formData.Month.content[2]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" placeholder="條件4" [(ngModel)]="formData.Month.content[3]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="flex justify-center w-full p-2 aboutChangebtn">
+                            <button (click)='Submit("Add", "Month")'
+                                class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                                {{"新增" | Translation: infor.lang}}</button>
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
+                                    {{"更改" | Translation: infor.lang}}
+                                </button>
+                                <div class="dropdown-menu" [class.active]="change">
+                                    <a class="dropdown-item" *ngFor="let update of data[3].month; let i = index;"
+                                        (click)='upDate("Month", 3, i)'>{{update.title}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -546,16 +552,16 @@
 
                 <ng-container *ngIf="data[3]">
                     <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let month of data[3].month; let i = index;">
-                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "month")'>
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Month")'>
                             <i class="fad checkbox"
-                                [ngClass]="{'fa-circle-notch': check.month[i], 'fa-check-circle': !check.month[i]}"></i>
+                                [ngClass]="{'fa-circle-notch': check.Month[i], 'fa-check-circle': !check.Month[i]}"></i>
                             <span class="title-font font-medium">{{month.title | Translation: infor.lang}}</span>
                         </div>
                     </div>
                 </ng-container>
 
             </div>
-            <button
+            <button (click)='Delete("Month", 31)'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>
@@ -604,48 +610,50 @@
             </div>
             <div class="lg:w-1/2 md:w-2/3 mx-auto" style="width: 70%;">
                 <div class="flex flex-wrap -m-2">
-                    <div class="p-2 w-1/3">
-                        <div class="relative">
-                            <label for="email" class="leading-7 text-sm text-gray-600">title</label>
-                            <input type="email" name="email" [(ngModel)]="formData.Year.title"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-1/3">
-                        <div class="relative">
-                            <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
-                            <input type="text" name="pic" [(ngModel)]="formData.Year.price"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-1/3">
-                        <div class="relative">
-                            <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
-                            <input type="text" name="pic" placeholder="條件1" [(ngModel)]="formData.Year.content[0]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件2" [(ngModel)]="formData.Year.content[1]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件3" [(ngModel)]="formData.Year.content[2]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <input type="text" placeholder="條件4" [(ngModel)]="formData.Year.content[3]"
-                                class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="flex justify-center w-full p-2 aboutChangebtn">
-                        <button
-                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                            {{"新增" | Translation: infor.lang}}</button>
-                        <div class="btn-group dropup">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
-                                {{"更改" | Translation: infor.lang}}
-                            </button>
-                            <div class="dropdown-menu" [class.active]="change">
-                                <a class="dropdown-item" *ngFor="let update of data[3].year; let i = index;"
-                                    (click)='upDate("Year", 3, i)'>{{update.title}}</a>
+                    <ng-container *ngIf="data[3]">
+                        <div class="p-2 w-1/3">
+                            <div class="relative">
+                                <label for="email" class="leading-7 text-sm text-gray-600">title</label>
+                                <input type="email" name="email" [(ngModel)]="formData.Year.title"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                         </div>
-                    </div>
+                        <div class="p-2 w-1/3">
+                            <div class="relative">
+                                <label for="pic" class="leading-7 text-sm text-gray-600">price</label>
+                                <input type="text" name="pic" [(ngModel)]="formData.Year.price"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-2 w-1/3">
+                            <div class="relative">
+                                <label for="pic" class="leading-7 text-sm text-gray-600">content</label>
+                                <input type="text" name="pic" placeholder="條件1" [(ngModel)]="formData.Year.content[0]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" placeholder="條件2" [(ngModel)]="formData.Year.content[1]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" placeholder="條件3" [(ngModel)]="formData.Year.content[2]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" placeholder="條件4" [(ngModel)]="formData.Year.content[3]"
+                                    class="ServiceContent w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="flex justify-center w-full p-2 aboutChangebtn">
+                            <button (click)='Submit("Add", "Year")'
+                                class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                                {{"新增" | Translation: infor.lang}}</button>
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" (click)='dropMenu()'>
+                                    {{"更改" | Translation: infor.lang}}
+                                </button>
+                                <div class="dropdown-menu" [class.active]="change">
+                                    <a class="dropdown-item" *ngFor="let update of data[3].year; let i = index;"
+                                        (click)='upDate("Year", 3, i)'>{{update.title}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -664,16 +672,16 @@
 
                 <ng-container *ngIf="data[3]">
                     <div class="p-2 sm:w-1/2 w-full checkBx" *ngFor="let year of data[3].year; let i = index;">
-                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "year")'>
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center" (click)='Check(i, "Year")'>
                             <i class="fad checkbox"
-                                [ngClass]="{'fa-circle-notch': check.year[i], 'fa-check-circle': !check.year[i]}"></i>
+                                [ngClass]="{'fa-circle-notch': check.Year[i], 'fa-check-circle': !check.Year[i]}"></i>
                             <span class="title-font font-medium">{{year.title | Translation: infor.lang}}</span>
                         </div>
                     </div>
                 </ng-container>
 
             </div>
-            <button
+            <button (click)='Delete("Year", 32)'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>

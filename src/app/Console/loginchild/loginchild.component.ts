@@ -248,11 +248,11 @@ export class LoginService implements OnInit {
   /** check存放各大項目樣式 */
   check: ServiceData = {
     Do: [],
-    Skill: [],
-    Labor: [],
+    Left: [],
+    Right: [],
     Portofio: [],
-    month: [],
-    year: []
+    Month: [],
+    Year: []
   }
   formData: ServiceForm = {
     Do: { page: "ServiceDo", original: "", title: "", style: "", content: "" },
@@ -294,8 +294,8 @@ export class LoginService implements OnInit {
    * @param _Item 原始資料位置裡的哪一組
    */
   upDate(_Obj: string, _Ori: number, _Item: number) {
-    let ori = this.formData[_Obj].original, po = el => { return _Obj == el; };
-    ori = po("Left") ? this.data[1].left[_Item]["title"]
+    let po = el => { return _Obj == el; };
+    this.formData[_Obj].original = po("Left") ? this.data[1].left[_Item]["title"]
       : po("Right") ? this.data[1].right[_Item]["title"]
         : po("Month") ? this.data[3].month[_Item]["title"]
           : po("Year") ? this.data[3].year[_Item]["title"]
@@ -317,12 +317,20 @@ export class LoginService implements OnInit {
    * @param _Data 勾選的小項目位置
    */
   Delete(_Item: string, _Data: number) {
-    // let data = [];
-    // this.check[_Item].forEach((value, arr) => {
-    //   if (!value) { data.push(this.data[_Data][arr].name); }
-    // });
-    // let req = { page: 'about' + _Item, delete: data };
-    // this.api.postApi("DELETE", req).subscribe(this.req);
+    let data = [];
+    this.check[_Item].forEach((value, arr) => {
+      if (!value) {
+        data.push(
+          _Data == 11 ? this.data[1]["left"][arr].title
+            : _Data == 12 ? this.data[1]["right"][arr].title
+              : _Data == 31 ? this.data[3]["month"][arr].title
+                : _Data == 32 ? this.data[3]["year"][arr].title
+                  : this.data[_Data][arr].title
+        )
+      }
+    });
+    let req = { page: 'Service' + _Item, delete: data };
+    this.api.postApi("DELETE", req).subscribe(this.req);
   }
   /**
    * 更改勾選樣式
@@ -335,11 +343,11 @@ export class LoginService implements OnInit {
     this.api.postApi('service').subscribe((el: Array<any>) => {
       this.data = el;
       this.data[0].forEach(el => { this.check.Do.push(true); });
-      this.data[1].left.forEach(el => { this.check.Skill.push(true); });
-      this.data[1].right.forEach(el => { this.check.Labor.push(true); });
+      this.data[1].left.forEach(el => { this.check.Left.push(true); });
+      this.data[1].right.forEach(el => { this.check.Right.push(true); });
       this.data[2].forEach(el => { this.check.Portofio.push(true); });
-      this.data[3].month.forEach(el => { this.check.month.push(true); });
-      this.data[3].year.forEach(el => { this.check.year.push(true); });
+      this.data[3].month.forEach(el => { this.check.Month.push(true); });
+      this.data[3].year.forEach(el => { this.check.Year.push(true); });
     })
   }
   ngOnInit() {

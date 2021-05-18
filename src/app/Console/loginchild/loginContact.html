@@ -10,8 +10,7 @@
 
             <div class="flex flex-wrap -m-4" style="justify-content: center;letter-spacing: 2px;">
                 <ng-container *ngIf="data[0]">
-                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data | key; let i = index;"
-                        [ngStyle]="{'width': Content}">
+                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full" *ngFor="let team of data | key; let i = index;">
                         <h2
                             class="font-medium title-font tracking-widest text-gray-900 mb-4 text-sm text-center sm:text-left">
                             {{team.key}}</h2>
@@ -105,7 +104,7 @@
                 </div>
 
             </div>
-            <button
+            <button (click)='Delete()'
                 class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 {{"刪除" | Translation: infor.lang}}</button>
         </div>

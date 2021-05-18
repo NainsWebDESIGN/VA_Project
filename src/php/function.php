@@ -18,10 +18,10 @@ function pageName()
         case 'aboutTeam':
         case 'aboutPlace':
             return '`name`';
-        case 'Message':
-            return '`title`';
         case 'Contact':
             return '`media`';
+        default:
+            return '`title`';
     }
 }
 function DEL($Table, $keys)
@@ -51,11 +51,21 @@ function UPD($Table, $keys, $value)
     $where = " WHERE $keys;";
     return $update . join(",", $value) . $where;
 }
-function post($name)
+function post($name, $data = null)
 {
     switch ($name) {
         case 'original':
             return "= '" . $_POST[$name] . "'";
+        case 'content':
+            $box = array();
+            foreach ($data as $arr => $value) {
+                if ($arr == 4) {
+                    array_push($box, "`type` = '" . $value . "'");
+                } else {
+                    array_push($box, "`text_" . ($arr + 1) . "` = '" . $value . "'");
+                }
+            }
+            return $box;
         default:
             return "`$name` = '" . $_POST[$name] . "'";
     }
@@ -78,6 +88,32 @@ function insPage($page)
         case "Contact":
             $item = array($_POST['media'], $_POST['href'], $_POST['style']);
             return INS('contact', $item);
+        case "ServiceDo":
+            $item = array($_POST['title'], $_POST['style'], $_POST['content']);
+            return INS('service', $item);
+        case "ServiceLeft":
+            $item = array($_POST['title'], $_POST['percentage']);
+            return INS('service_left', $item);
+        case "ServiceRight":
+            $item = array($_POST['title'], $_POST['percentage']);
+            return INS('service_right', $item);
+        case "ServicePortofio":
+            $item = array($_POST['title'], $_POST['type'], $_POST['image'], $_POST['content']);
+            return INS('project', $item);
+        case "ServiceMonth":
+            $item = array("month", $_POST['title'], $_POST['price']);
+            return INS('service_month', $item);
+        case "ServiceYear":
+            $item = array("year", $_POST['title'], $_POST['price']);
+            return INS('service_year', $item);
+        case "monthContent":
+            $item = explode(',', $_POST['content']);
+            array_push($item, $_POST['title']);
+            return INS('month_content', $item);
+        case "yearContent":
+            $item = explode(',', $_POST['content']);
+            array_push($item, $_POST['title']);
+            return INS('year_content', $item);
     }
 }
 function updPage($page)
@@ -98,6 +134,34 @@ function updPage($page)
         case "Contact":
             $item = array(post("media"), post("href"), post("style"));
             return UPD('contact', '`media`' . post("original"), $item);
+        case "ServiceDo":
+            $item = array(post("title"), post("style"), post("content"));
+            return UPD('service', '`title`' . post("original"), $item);
+        case "ServiceLeft":
+            $item = array(post("title"), post("percentage"));
+            return UPD('service_left', '`title`' . post("original"), $item);
+        case "ServiceRight":
+            $item = array(post("title"), post("percentage"));
+            return UPD('service_right', '`title`' . post("original"), $item);
+        case "ServicePortofio":
+            $item = array(post("title"), post("type"), post("image"), post("content"));
+            return UPD('project', '`title`' . post("original"), $item);
+        case "ServiceMonth":
+            $item = array(post("month"), post("title"), post("price"));
+            return UPD('service_month', '`title`' . post("original"), $item);
+        case "ServiceYear":
+            $item = array(post("year"), post("title"), post("price"));
+            return UPD('service_year', '`title`' . post("original"), $item);
+        case "monthContent":
+            $key = explode(',', $_POST['content']);
+            array_push($key, $_POST['title']);
+            $item = post('content', $key);
+            return UPD('month_content', '`title`' . post("original"), $item);
+        case "yearContent":
+            $key = explode(',', $_POST['content']);
+            array_push($key, $_POST['title']);
+            $item = post('content', $key);
+            return UPD('year_content', '`title`' . post("original"), $item);
     }
 }
 function delPage($page, $delete)
@@ -112,5 +176,21 @@ function delPage($page, $delete)
             return DEL('message', $key);
         case "Contact":
             return DEL('contact', $key);
+        case "ServiceDo":
+            return DEL('service', $key);
+        case "ServiceLeft":
+            return DEL('service_left', $key);
+        case "ServiceRight":
+            return DEL('service_right', $key);
+        case "ServicePortofio":
+            return DEL('project', $key);
+        case "ServiceMonth":
+            return DEL('service_month', $key);
+        case "ServiceYear":
+            return DEL('service_year', $key);
+        case "monthContent":
+            return DEL('month_content', $key);
+        case "yearContent":
+            return DEL('year_content', $key);
     }
 }
