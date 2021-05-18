@@ -57,14 +57,28 @@ function post($name, $data = null)
         case 'original':
             return "= '" . $_POST[$name] . "'";
         case 'content':
-            $box = array();
-            foreach ($data as $arr => $value) {
-                if ($arr == 4) {
-                    array_push($box, "`type` = '" . $value . "'");
-                } else {
-                    array_push($box, "`text_" . ($arr + 1) . "` = '" . $value . "'");
-                }
-            }
+            // $box = array();
+            $box = array(
+                "`text_1` = '" . $data[0] . "'",
+                "`text_2` = '" . $data[1] . "'",
+                "`text_3` = '" . $data[2] . "'",
+                "`text_4` = '" . $data[3] . "'",
+                "`type` = '" . $data[4] . "'"
+            );
+            // for ($i = 0; $i < count($data); $i++) {
+            //     if ($i == 4) {
+            //         array_push($box, "`type` = '" . $data[$i] . "'");
+            //     } else {
+            //         array_push($box, "`text_" . ($i + 1) . "` = '" . $data[$i] . "'");
+            //     }
+            // }
+            // foreach ($data as $arr => $value) {
+            //     if ($arr == 4) {
+            //         array_push($box, "`type` = '" . $value . "'");
+            //     } else {
+            //         array_push($box, "`text_" . ($arr + 1) . "` = '" . $value . "'");
+            //     }
+            // }
             return $box;
         default:
             return "`$name` = '" . $_POST[$name] . "'";
