@@ -9,35 +9,35 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     $Item = updPage($page);
     $data = array();
 
-    if ($conn->connect_error) {
-        $data = array('ret' => $conn->connect_error);
-    } else {
+    // if ($conn->connect_error) {
+    //     $data = array('ret' => $conn->connect_error);
+    // } else {
 
-        if ($result = $conn->query($Item)) {
-            $data = array('ret' => 'OK');
-        } else {
-            $data = array('ret' => $conn->error);
-        }
-        $result->close();
+    //     if ($result = $conn->query($Item)) {
+    //         $data = array('ret' => 'OK');
+    //     } else {
+    //         $data = array('ret' => $conn->error);
+    //     }
+    //     $result->close();
 
-        if ($page == 'ServiceMonth' || $page == 'ServiceYear') {
-            switch ($page) {
-                case 'ServiceMonth':
-                    $inside = updPage("monthContent");
-                case 'ServiceYear':
-                    $inside = updPage("yearContent");
-            }
-            if ($result = $conn->query($inside)) {
-                $data = array('ret' => $inside);
-            } else {
-                $data = array('ret' => $conn->error);
-            }
-            $result->close();
-        }
-    }
-    $conn->close();
+    //     if ($page == 'ServiceMonth' || $page == 'ServiceYear') {
+    //         switch ($page) {
+    //             case 'ServiceMonth':
+    //                 $inside = updPage("monthContent");
+    //             case 'ServiceYear':
+    //                 $inside = updPage("yearContent");
+    //         }
+    //         if ($result = $conn->query($inside)) {
+    //             $data = array('ret' => $inside);
+    //         } else {
+    //             $data = array('ret' => $conn->error);
+    //         }
+    //         $result->close();
+    //     }
+    // }
+    // $conn->close();
 
-    echo json_encode($data);
+    echo json_encode($Item);
 } else {
     //回傳 errorMsg json 資料
     $data = array('ret' => '請求無效，只允許 POST 方式訪問！');

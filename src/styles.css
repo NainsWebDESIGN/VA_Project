@@ -720,7 +720,7 @@ p.text {
   position: relative;
   display: block;
   max-width: 240px;
-  font-family: "my_font", sans-serif;
+  font-family: "my_font", "Noto Sans TC", sans-serif;
   font-size: 16px;
   line-height: 24px;
   padding: 8px 0 16px;

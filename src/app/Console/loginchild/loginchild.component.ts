@@ -54,8 +54,9 @@ export class LoginAbout implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
-      .subscribe(this.req);
+    console.log(this.formData[_Item]);
+    // this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
+    //   .subscribe(this.req);
   }
   /**
    * 勾選刪除的狀態
@@ -68,7 +69,8 @@ export class LoginAbout implements OnInit {
       if (!value) { data.push(this.data[_Data][arr].name); }
     });
     let req = { page: 'about' + _Item, delete: data };
-    this.api.postApi("DELETE", req).subscribe(this.req);
+    console.log(req);
+    // this.api.postApi("DELETE", req).subscribe(this.req);
   }
   getData() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
@@ -142,8 +144,9 @@ export class LoginMessage implements OnInit {
     }
     this.formData.date = this.datePipe.transform(new Date(), "d MMM y");
     this.formData.readStyle = this.data[this.data.length - 1].readStyle == "fill" ? "fill fill-dark" : "fill";
-    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
-      .subscribe(this.req);
+    console.log(this.formData);
+    // this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
+    //   .subscribe(this.req);
   }
   Delete() {
     let data = [];
@@ -151,7 +154,8 @@ export class LoginMessage implements OnInit {
       if (!value) { data.push(this.data[item].title) }
     })
     let req = { page: this.formData.page, delete: data };
-    this.api.postApi("DELETE", req).subscribe(this.req);
+    console.log(req);
+    // this.api.postApi("DELETE", req).subscribe(this.req);
   }
   /**
    * 更改勾選樣式
@@ -214,8 +218,9 @@ export class LoginContact implements OnInit {
     this.Submit("Update");
   }
   Submit(_Getway: string) {
-    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
-      .subscribe(this.req);
+    console.log(this.formData);
+    // this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
+    //   .subscribe(this.req);
   }
   Delete() {
     let data = [];
@@ -223,7 +228,8 @@ export class LoginContact implements OnInit {
       if (!value) { data.push(this.data[item].media) }
     })
     let req = { page: this.formData.page, delete: data };
-    this.api.postApi("DELETE", req).subscribe(this.req);
+    console.log(req);
+    // this.api.postApi("DELETE", req).subscribe(this.req);
   }
   getData() {
     this.api.postApi('contact').subscribe((el: Array<any>) => {
@@ -308,8 +314,9 @@ export class LoginService implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
-      .subscribe(this.req);
+    console.log(this.formData[_Item]);
+    // this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
+    //   .subscribe(this.req);
   }
   /**
    * 勾選刪除的狀態
@@ -330,7 +337,8 @@ export class LoginService implements OnInit {
       }
     });
     let req = { page: 'Service' + _Item, delete: data };
-    this.api.postApi("DELETE", req).subscribe(this.req);
+    console.log(req);
+    // this.api.postApi("DELETE", req).subscribe(this.req);
   }
   /**
    * 更改勾選樣式
