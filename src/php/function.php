@@ -56,8 +56,7 @@ function post($name, $data = null)
     switch ($name) {
         case 'original':
             return "= '" . $_POST[$name] . "'";
-        case 'content':
-            // $box = array();
+        case 'serviceContent':
             $box = array(
                 "`text_1` = '" . $data[0] . "'",
                 "`text_2` = '" . $data[1] . "'",
@@ -65,20 +64,6 @@ function post($name, $data = null)
                 "`text_4` = '" . $data[3] . "'",
                 "`type` = '" . $data[4] . "'"
             );
-            // for ($i = 0; $i < count($data); $i++) {
-            //     if ($i == 4) {
-            //         array_push($box, "`type` = '" . $data[$i] . "'");
-            //     } else {
-            //         array_push($box, "`text_" . ($i + 1) . "` = '" . $data[$i] . "'");
-            //     }
-            // }
-            // foreach ($data as $arr => $value) {
-            //     if ($arr == 4) {
-            //         array_push($box, "`type` = '" . $value . "'");
-            //     } else {
-            //         array_push($box, "`text_" . ($arr + 1) . "` = '" . $value . "'");
-            //     }
-            // }
             return $box;
         default:
             return "`$name` = '" . $_POST[$name] . "'";
@@ -169,12 +154,12 @@ function updPage($page)
         case "monthContent":
             $key = explode(',', $_POST['content']);
             array_push($key, $_POST['title']);
-            $item = post('content', $key);
+            $item = post('serviceContent', $key);
             return UPD('month_content', '`title`' . post("original"), $item);
         case "yearContent":
             $key = explode(',', $_POST['content']);
             array_push($key, $_POST['title']);
-            $item = post('content', $key);
+            $item = post('serviceContent', $key);
             return UPD('year_content', '`title`' . post("original"), $item);
     }
 }

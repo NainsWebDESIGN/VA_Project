@@ -26,7 +26,7 @@ export class LoginAbout implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => this.getData(),
+    next: el => { console.log(el); this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
@@ -55,8 +55,8 @@ export class LoginAbout implements OnInit {
    */
   Submit(_Need: string, _Item: string) {
     console.log(this.formData[_Item]);
-    // this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
-    //   .subscribe(this.req);
+    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
+      .subscribe(this.req);
   }
   /**
    * 勾選刪除的狀態
@@ -70,7 +70,7 @@ export class LoginAbout implements OnInit {
     });
     let req = { page: 'about' + _Item, delete: data };
     console.log(req);
-    // this.api.postApi("DELETE", req).subscribe(this.req);
+    this.api.postApi("DELETE", req).subscribe(this.req);
   }
   getData() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
@@ -113,7 +113,7 @@ export class LoginMessage implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => this.getData(),
+    next: el => { console.log(el); this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information, private datePipe: DatePipe) { }
@@ -145,8 +145,8 @@ export class LoginMessage implements OnInit {
     this.formData.date = this.datePipe.transform(new Date(), "d MMM y");
     this.formData.readStyle = this.data[this.data.length - 1].readStyle == "fill" ? "fill fill-dark" : "fill";
     console.log(this.formData);
-    // this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
-    //   .subscribe(this.req);
+    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
+      .subscribe(this.req);
   }
   Delete() {
     let data = [];
@@ -155,7 +155,7 @@ export class LoginMessage implements OnInit {
     })
     let req = { page: this.formData.page, delete: data };
     console.log(req);
-    // this.api.postApi("DELETE", req).subscribe(this.req);
+    this.api.postApi("DELETE", req).subscribe(this.req);
   }
   /**
    * 更改勾選樣式
@@ -198,7 +198,7 @@ export class LoginContact implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => this.getData(),
+    next: el => { console.log(el); this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
@@ -219,8 +219,8 @@ export class LoginContact implements OnInit {
   }
   Submit(_Getway: string) {
     console.log(this.formData);
-    // this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
-    //   .subscribe(this.req);
+    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
+      .subscribe(this.req);
   }
   Delete() {
     let data = [];
@@ -229,7 +229,7 @@ export class LoginContact implements OnInit {
     })
     let req = { page: this.formData.page, delete: data };
     console.log(req);
-    // this.api.postApi("DELETE", req).subscribe(this.req);
+    this.api.postApi("DELETE", req).subscribe(this.req);
   }
   getData() {
     this.api.postApi('contact').subscribe((el: Array<any>) => {
@@ -272,7 +272,7 @@ export class LoginService implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => this.getData(),
+    next: el => { console.log(el); this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
@@ -315,8 +315,8 @@ export class LoginService implements OnInit {
    */
   Submit(_Need: string, _Item: string) {
     console.log(this.formData[_Item]);
-    // this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
-    //   .subscribe(this.req);
+    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
+      .subscribe(this.req);
   }
   /**
    * 勾選刪除的狀態
@@ -338,7 +338,7 @@ export class LoginService implements OnInit {
     });
     let req = { page: 'Service' + _Item, delete: data };
     console.log(req);
-    // this.api.postApi("DELETE", req).subscribe(this.req);
+    this.api.postApi("DELETE", req).subscribe(this.req);
   }
   /**
    * 更改勾選樣式
