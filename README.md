@@ -30,5 +30,6 @@ FTP 主機名： ftp.byethost6.com
 9. ConsoleService.ts 改到一半
 10. 改善 content 修正失效問題
 11. php 完成
+12. 正在改善前端點擊處理(console about 由上而下)
 
 ---

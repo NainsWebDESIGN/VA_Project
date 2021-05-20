@@ -47,6 +47,7 @@ export class LoginAbout implements OnInit {
   upDate(_Obj: string, _Ori: number, _Item: number) {
     this.formData[_Obj].original = this.data[_Ori][_Item]["name"];
     this.Submit("Update", _Obj);
+    this.change = false;
   }
   /**
    * 發送資料給後端做新增或更改
@@ -54,9 +55,10 @@ export class LoginAbout implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    console.log(this.formData[_Item]);
     this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
       .subscribe(this.req);
+    Object.keys(this.formData[_Item]).forEach(el => { this.formData[_Item][el] = "" });
+    this.formData[_Item].page = 'about' + _Item;
   }
   /**
    * 勾選刪除的狀態
@@ -64,13 +66,13 @@ export class LoginAbout implements OnInit {
    * @param _Data 勾選的小項目位置
    */
   Delete(_Item: string, _Data: number) {
-    let data = [];
-    this.check[_Item].forEach((value, arr) => {
+    let data = [], check = this.check[_Item];
+    check.forEach((value, arr) => {
       if (!value) { data.push(this.data[_Data][arr].name); }
     });
     let req = { page: 'about' + _Item, delete: data };
-    console.log(req);
     this.api.postApi("DELETE", req).subscribe(this.req);
+    check = check.map(el => { return el = true; })
   }
   getData() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
