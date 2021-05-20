@@ -29,5 +29,6 @@ FTP 主機名： ftp.byethost6.com
 8. 完成 新增、修改、刪除至 Contact
 9. ConsoleService.ts 改到一半
 10. 改善 content 修正失效問題
+11. php 完成
 
 ---

@@ -14,23 +14,34 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     if ($conn->connect_error) {
         $data = array('ret' => $conn->connect_error);
     } else {
-
-        if ($result = $conn->query($Item)) {
-            $data = array('ret' => 'OK');
-        } else {
-            $data = array('ret' => $conn->error);
-        }
-        $result->close();
-
         if ($page == 'ServiceMonth' || $page == 'ServiceYear') {
+
             switch ($page) {
                 case 'ServiceMonth':
                     $inside = delPage("monthContent", $delete);
+                    break;
                 case 'ServiceYear':
                     $inside = delPage("yearContent", $delete);
+                    break;
             }
+
+            if ($result = $conn->query($Item)) {
+                $data = array('ret' => 'OK');
+            } else {
+                $data = array('ret' => $conn->error);
+            }
+
             if ($result = $conn->query($inside)) {
                 $data = array('ret' => $inside);
+            } else {
+                $data = array('ret' => $conn->error);
+            }
+
+            $result->close();
+        } else {
+
+            if ($result = $conn->query($Item)) {
+                $data = array('ret' => 'OK');
             } else {
                 $data = array('ret' => $conn->error);
             }

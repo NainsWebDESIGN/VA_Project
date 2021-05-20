@@ -12,13 +12,16 @@ function SEL($Table)
 {
     return "SELECT * FROM `$Table`;";
 }
-function pageName()
+function pageName($Table)
 {
-    switch ($_POST['page']) {
-        case 'aboutTeam':
-        case 'aboutPlace':
+    switch ($Table) {
+        case 'about':
+        case 'about_three':
             return '`name`';
-        case 'Contact':
+        case 'month_content':
+        case 'year_content':
+            return '`type`';
+        case 'contact':
             return '`media`';
         default:
             return '`title`';
@@ -30,11 +33,11 @@ function DEL($Table, $keys)
     if (count($keys) > 1) {
         $item = array();
         foreach ($keys as $value) {
-            array_push($item, "$value");
+            array_push($item, "'$value'");
         }
-        return $delete . pageName() . " IN(" . join(",", $item) . ");";
+        return $delete . pageName($Table) . " IN(" . join(",", $item) . ");";
     } else {
-        return $delete . pageName() . " = '$keys[0]';";
+        return $delete . pageName($Table) . " = '$keys[0]';";
     }
 }
 function INS($Table, $value)
@@ -146,10 +149,10 @@ function updPage($page)
             $item = array(post("title"), post("type"), post("image"), post("content"));
             return UPD('project', '`title`' . post("original"), $item);
         case "ServiceMonth":
-            $item = array(post("month"), post("title"), post("price"));
+            $item = array(post("title"), post("price"));
             return UPD('service_month', '`title`' . post("original"), $item);
         case "ServiceYear":
-            $item = array(post("year"), post("title"), post("price"));
+            $item = array(post("title"), post("price"));
             return UPD('service_year', '`title`' . post("original"), $item);
         case "monthContent":
             $key = explode(',', $_POST['content']);

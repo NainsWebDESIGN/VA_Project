@@ -77,6 +77,7 @@ export class LoginAbout implements OnInit {
       this.data = el;
       this.data[0].forEach(el => { this.check['Team'].push(true); });
       this.data[2].forEach(el => { this.check['Place'].push(true); });
+      console.log(this.data);
     })
   }
   ngOnInit() {
@@ -168,6 +169,7 @@ export class LoginMessage implements OnInit {
     this.api.postApi('message').subscribe((el: Array<any>) => {
       this.data = el;
       this.data.forEach(el => { this.check.push(true); });
+      console.log(this.data);
     })
   }
   ngOnInit() {
@@ -235,6 +237,7 @@ export class LoginContact implements OnInit {
     this.api.postApi('contact').subscribe((el: Array<any>) => {
       this.data = el;
       this.data.forEach(el => { this.check.push(true); });
+      console.log(this.data);
     })
   }
   ngOnInit() {
@@ -356,6 +359,7 @@ export class LoginService implements OnInit {
       this.data[2].forEach(el => { this.check.Portofio.push(true); });
       this.data[3].month.forEach(el => { this.check.Month.push(true); });
       this.data[3].year.forEach(el => { this.check.Year.push(true); });
+      console.log(this.data);
     })
   }
   ngOnInit() {
