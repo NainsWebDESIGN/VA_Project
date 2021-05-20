@@ -57,8 +57,7 @@ export class LoginAbout implements OnInit {
   Submit(_Need: string, _Item: string) {
     this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
       .subscribe(this.req);
-    Object.keys(this.formData[_Item]).forEach(el => { this.formData[_Item][el] = "" });
-    this.formData[_Item].page = 'about' + _Item;
+    Object.keys(this.formData[_Item]).forEach(el => { this.formData[_Item][el] = el == 'page' ? 'about' + _Item : "" });
   }
   /**
    * 勾選刪除的狀態
@@ -79,7 +78,6 @@ export class LoginAbout implements OnInit {
       this.data = el;
       this.data[0].forEach(el => { this.check['Team'].push(true); });
       this.data[2].forEach(el => { this.check['Place'].push(true); });
-      console.log(this.data);
     })
   }
   ngOnInit() {
@@ -135,6 +133,7 @@ export class LoginMessage implements OnInit {
   upDate(_Item: number) {
     this.formData.original = this.data[_Item].title;
     this.Submit("Update");
+    this.change = false;
   }
   Submit(_Getway: string) {
     switch (this.formData.type) {
@@ -147,9 +146,15 @@ export class LoginMessage implements OnInit {
     }
     this.formData.date = this.datePipe.transform(new Date(), "d MMM y");
     this.formData.readStyle = this.data[this.data.length - 1].readStyle == "fill" ? "fill fill-dark" : "fill";
-    console.log(this.formData);
     this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
       .subscribe(this.req);
+    Object.keys(this.formData).forEach(el => {
+      this.formData[el]
+        = el == 'page' ? 'Message'
+          : el == 'type' ? '網頁'
+            : el == 'text' ? 'Web Design'
+              : ""
+    })
   }
   Delete() {
     let data = [];
@@ -157,8 +162,8 @@ export class LoginMessage implements OnInit {
       if (!value) { data.push(this.data[item].title) }
     })
     let req = { page: this.formData.page, delete: data };
-    console.log(req);
     this.api.postApi("DELETE", req).subscribe(this.req);
+    this.check = this.check.map(el => { return el = true; });
   }
   /**
    * 更改勾選樣式
@@ -171,7 +176,6 @@ export class LoginMessage implements OnInit {
     this.api.postApi('message').subscribe((el: Array<any>) => {
       this.data = el;
       this.data.forEach(el => { this.check.push(true); });
-      console.log(this.data);
     })
   }
   ngOnInit() {
@@ -220,11 +224,12 @@ export class LoginContact implements OnInit {
   upDate(_Item: number) {
     this.formData.original = this.data[_Item].media;
     this.Submit("Update");
+    this.change = false;
   }
   Submit(_Getway: string) {
-    console.log(this.formData);
     this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
       .subscribe(this.req);
+    Object.keys(this.formData).forEach(el => { this.formData[el] = el == 'page' ? "Contact" : "" });
   }
   Delete() {
     let data = [];
@@ -232,14 +237,13 @@ export class LoginContact implements OnInit {
       if (!value) { data.push(this.data[item].media) }
     })
     let req = { page: this.formData.page, delete: data };
-    console.log(req);
     this.api.postApi("DELETE", req).subscribe(this.req);
+    this.check = this.check.map(el => { return el = true; });
   }
   getData() {
     this.api.postApi('contact').subscribe((el: Array<any>) => {
       this.data = el;
       this.data.forEach(el => { this.check.push(true); });
-      console.log(this.data);
     })
   }
   ngOnInit() {
