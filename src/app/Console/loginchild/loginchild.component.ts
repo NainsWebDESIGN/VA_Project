@@ -26,7 +26,7 @@ export class LoginAbout implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => { console.log(el); this.getData() },
+    next: () => { this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
@@ -65,19 +65,19 @@ export class LoginAbout implements OnInit {
    * @param _Data 勾選的小項目位置
    */
   Delete(_Item: string, _Data: number) {
-    let data = [], check = this.check[_Item];
+    let Delete = [], check = this.check[_Item];
     check.forEach((value, arr) => {
-      if (!value) { data.push(this.data[_Data][arr].name); }
+      if (!value) { Delete.push(this.data[_Data][arr].name); }
     });
-    let req = { page: 'about' + _Item, delete: data };
+    let req = { page: 'about' + _Item, delete: Delete };
     this.api.postApi("DELETE", req).subscribe(this.req);
-    check = check.map(el => { return el = true; })
+    check = check.map(el => el = true)
   }
   getData() {
     this.api.postApi('about').subscribe((el: Array<any>) => {
       this.data = el;
-      this.data[0].forEach(el => { this.check['Team'].push(true); });
-      this.data[2].forEach(el => { this.check['Place'].push(true); });
+      this.data[0].forEach(() => { this.check['Team'].push(true); });
+      this.data[2].forEach(() => { this.check['Place'].push(true); });
     })
   }
   ngOnInit() {
@@ -114,7 +114,7 @@ export class LoginMessage implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => { console.log(el); this.getData() },
+    next: () => { this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information, private datePipe: DatePipe) { }
@@ -157,13 +157,13 @@ export class LoginMessage implements OnInit {
     })
   }
   Delete() {
-    let data = [];
+    let Delete = [];
     this.check.forEach((value, item) => {
-      if (!value) { data.push(this.data[item].title) }
+      if (!value) { Delete.push(this.data[item].title) }
     })
-    let req = { page: this.formData.page, delete: data };
+    let req = { page: this.formData.page, delete: Delete };
     this.api.postApi("DELETE", req).subscribe(this.req);
-    this.check = this.check.map(el => { return el = true; });
+    this.check = this.check.map(el => el = true);
   }
   /**
    * 更改勾選樣式
@@ -175,7 +175,7 @@ export class LoginMessage implements OnInit {
   getData() {
     this.api.postApi('message').subscribe((el: Array<any>) => {
       this.data = el;
-      this.data.forEach(el => { this.check.push(true); });
+      this.data.forEach(() => { this.check.push(true); });
     })
   }
   ngOnInit() {
@@ -206,7 +206,7 @@ export class LoginContact implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => { console.log(el); this.getData() },
+    next: () => { this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
@@ -232,18 +232,17 @@ export class LoginContact implements OnInit {
     Object.keys(this.formData).forEach(el => { this.formData[el] = el == 'page' ? "Contact" : "" });
   }
   Delete() {
-    let data = [];
+    let Delete = [];
     this.check.forEach((value, item) => {
-      if (!value) { data.push(this.data[item].media) }
+      if (!value) { Delete.push(this.data[item].media) }
     })
-    let req = { page: this.formData.page, delete: data };
-    this.api.postApi("DELETE", req).subscribe(this.req);
-    this.check = this.check.map(el => { return el = true; });
+    this.api.postApi("DELETE", { page: this.formData.page, delete: Delete }).subscribe(this.req);
+    this.check = this.check.map(el => el = true);
   }
   getData() {
     this.api.postApi('contact').subscribe((el: Array<any>) => {
       this.data = el;
-      this.data.forEach(el => { this.check.push(true); });
+      this.data.forEach(() => { this.check.push(true); });
     })
   }
   ngOnInit() {
@@ -281,7 +280,7 @@ export class LoginService implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: el => { console.log(el); this.getData() },
+    next: () => { this.getData() },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }
@@ -316,6 +315,7 @@ export class LoginService implements OnInit {
           : po("Year") ? this.data[3].year[_Item]["title"]
             : this.data[_Ori][_Item]["title"];
     this.Submit("Update", _Obj);
+    this.change = false;
   }
   /**
    * 發送資料給後端做新增或更改
@@ -323,9 +323,15 @@ export class LoginService implements OnInit {
    * @param _Item 變數內對應的位置
    */
   Submit(_Need: string, _Item: string) {
-    console.log(this.formData[_Item]);
-    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", this.formData[_Item])
+    let form = this.formData[_Item], data = item => { return _Item == item; };
+    this.api.postApi(_Need == "Add" ? "INSERT" : "UPDATE", form)
       .subscribe(this.req);
+    Object.keys(form).forEach((el, arr) => {
+      form[el] = (data('Left') || data('Right')) ?
+        (arr == 3 ? 0 : "") : (data('Month') || data('Year')) ?
+          (arr == 5 ? [] : "") : "";
+      form[el].page = 'Service' + _Item;
+    })
   }
   /**
    * 勾選刪除的狀態
@@ -333,10 +339,10 @@ export class LoginService implements OnInit {
    * @param _Data 勾選的小項目位置
    */
   Delete(_Item: string, _Data: number) {
-    let data = [];
+    let Delete = [];
     this.check[_Item].forEach((value, arr) => {
       if (!value) {
-        data.push(
+        Delete.push(
           _Data == 11 ? this.data[1]["left"][arr].title
             : _Data == 12 ? this.data[1]["right"][arr].title
               : _Data == 31 ? this.data[3]["month"][arr].title
@@ -345,9 +351,8 @@ export class LoginService implements OnInit {
         )
       }
     });
-    let req = { page: 'Service' + _Item, delete: data };
-    console.log(req);
-    this.api.postApi("DELETE", req).subscribe(this.req);
+    this.api.postApi("DELETE", { page: 'Service' + _Item, delete: Delete }).subscribe(this.req);
+    this.check[_Item] = this.check[_Item].map(el => el = true);
   }
   /**
    * 更改勾選樣式
@@ -359,13 +364,12 @@ export class LoginService implements OnInit {
   getData() {
     this.api.postApi('service').subscribe((el: Array<any>) => {
       this.data = el;
-      this.data[0].forEach(el => { this.check.Do.push(true); });
-      this.data[1].left.forEach(el => { this.check.Left.push(true); });
-      this.data[1].right.forEach(el => { this.check.Right.push(true); });
-      this.data[2].forEach(el => { this.check.Portofio.push(true); });
-      this.data[3].month.forEach(el => { this.check.Month.push(true); });
-      this.data[3].year.forEach(el => { this.check.Year.push(true); });
-      console.log(this.data);
+      this.data[0].forEach(() => { this.check.Do.push(true); });
+      this.data[1].left.forEach(() => { this.check.Left.push(true); });
+      this.data[1].right.forEach(() => { this.check.Right.push(true); });
+      this.data[2].forEach(() => { this.check.Portofio.push(true); });
+      this.data[3].month.forEach(() => { this.check.Month.push(true); });
+      this.data[3].year.forEach(() => { this.check.Year.push(true); });
     })
   }
   ngOnInit() {
