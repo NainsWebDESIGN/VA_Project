@@ -12,7 +12,6 @@ import { ServicePageComponent } from '../servicePage/servicePage.component';
 import { messagePopup } from '../popup/popup.component';
 
 import { PipeModule } from '../pipe.module';
-// import { ComponentModule } from '../component.module';
 
 // Service
 import { ApiService, Information, AuthGuard } from '@service';

@@ -141,25 +141,22 @@ export class LoginMessage implements OnInit {
     this.change = false;
   }
   Submit(_Getway: string) {
-    switch (this.formData.type) {
-      case '網頁':
-        this.formData.text = "Web Design"; break;
-      case '優惠':
-        this.formData.text = "Discount"; break;
-      case '系統':
-        this.formData.text = "Announcement"; break;
-    }
+    let Text = {
+      網頁: "Web Design",
+      優惠: "Discount",
+      系統: "Announcement"
+    },
+      data = {
+        page: "Message",
+        type: "網頁",
+        text: "Web Design",
+      }
+
+    this.formData.text = Text[this.formData.type];
     this.formData.date = this.datePipe.transform(new Date(), "d MMM y");
     this.formData.readStyle = this.data[this.data.length - 1].readStyle == "fill" ? "fill fill-dark" : "fill";
-    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData)
-      .subscribe(this.req);
-    Object.keys(this.formData).forEach(el => {
-      this.formData[el]
-        = el == 'page' ? 'Message'
-          : el == 'type' ? '網頁'
-            : el == 'text' ? 'Web Design'
-              : ""
-    })
+    this.api.postApi(_Getway == "Add" ? "INSERT" : "UPDATE", this.formData).subscribe(this.req);
+    Object.keys(this.formData).forEach(el => this.formData[el] = data[el]);
   }
   Delete() {
     let Delete = [];
