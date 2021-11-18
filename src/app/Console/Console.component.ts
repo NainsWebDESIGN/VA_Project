@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Information } from '@service/information.service';
+import { Information } from '@service';
 
 @Component({
   selector: 'app-Console',

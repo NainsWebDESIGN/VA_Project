@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '@service/api.service';
-import { Information } from '@service/information.service';
+import { ApiService, Information } from '@service';
 import { Translate } from '@ts/translation';
 import { Member, SignUp } from '@ts/interface';
 

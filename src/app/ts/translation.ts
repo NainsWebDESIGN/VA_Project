@@ -20,3 +20,4 @@ export const Translate = {
     // "en-ta": talang,
     // "en-jp": jplang
 }
+export const Local = "http://va-webdesign";

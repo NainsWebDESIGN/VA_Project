@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '@service/api.service';
-import { Information } from '@service/information.service';
+import { ApiService, Information } from '@service';
 import { MessItem } from '@ts/interface';
 
 @Component({

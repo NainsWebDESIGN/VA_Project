@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ApiService } from '@service/api.service';
-import { Information } from '@service/information.service';
+import { ApiService, Information } from '@service';
 import { MessItem } from '@ts/interface';
 
 @Component({

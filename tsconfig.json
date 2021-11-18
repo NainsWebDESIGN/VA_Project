@@ -18,11 +18,14 @@
       "esnext"
     ],
     "paths": {
-      "@service/*": [
-        "app/service/*"
+      "@service": [
+        "app/service/index.service"
       ],
-      "@pipe/*": [
-        "app/pipe/*"
+      "@pipe": [
+        "app/pipe/index.pipe"
+      ],
+      "@app/*": [
+        "app/*"
       ],
       "@ts/*": [
         "app/ts/*"

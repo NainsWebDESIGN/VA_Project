@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { ApiService } from '@service/api.service';
-import { Information } from '@service/information.service';
+import { ApiService, Information } from '@service';
 import { AboutForm, ServiceData, MessForm, ContactForm, ServiceForm } from '@ts/interface';
 
 @Component({
@@ -26,7 +25,13 @@ export class LoginAbout implements OnInit {
   change: boolean = false;
   /** Observable 要處理的事情 */
   private req = {
-    next: () => { this.getData() },
+    next: data => {
+      // if (data == 'Server Error') {
+      //   alert('Server Error');
+      // } else {
+      this.getData();
+      // }
+    },
     error: err => console.log(err)
   }
   constructor(private api: ApiService, public infor: Information) { }

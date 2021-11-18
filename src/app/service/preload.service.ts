@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { ApiService } from '@service/api.service';
+import { ApiService } from '@service';
 
 @Injectable()
 export class Preload implements Resolve<any> {

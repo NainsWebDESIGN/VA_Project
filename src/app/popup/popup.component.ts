@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Information } from '@service/information.service';
-import { ApiService } from '@service/api.service';
+import { ApiService, Information } from '@service';
 import { MessItem } from '@ts/interface';
 
 @Component({

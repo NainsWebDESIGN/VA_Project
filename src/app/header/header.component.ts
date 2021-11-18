@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { ApiService } from '@service/api.service';
-import { Information } from '@service/information.service';
+import { ApiService, Information } from '@service';
 
 @Component({
   selector: 'app-header',

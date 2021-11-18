@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Information } from '@service/information.service';
-import { ApiService } from '@service/api.service';
+import { ApiService, Information } from '@service';
 
 @Component({
   selector: 'app-servicePage',

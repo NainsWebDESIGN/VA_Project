@@ -1,37 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IndexComponent } from './Index/Index.component';
-import { ContactComponent } from './contact/contact.component';
-import { MessageComponent } from './message/message.component';
-import { ServicePageComponent } from './servicePage/servicePage.component';
-import { AboutComponent } from './about/about.component';
-import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './Login/Login.component';
 import { ConsoleComponent } from './Console/Console.component';
 import { LoginAbout, LoginMessage, LoginService, LoginContact } from './Console/loginchild/loginchild.component';
 
 // Service
-import { AuthGuard } from '@service/AuthGuard.service';
-import { Preload } from '@service/preload.service';
+import { AuthGuard } from '@service';
+import { Preload } from '@app/service/preload.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
-  {
-    path: 'Valleys_Awesome', component: HeaderComponent,
-    children: [
-      { path: '', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' },
-      {
-        path: 'Welcome', component: IndexComponent,
-        resolve: { data: Preload }
-      },
-      { path: 'Contact', component: ContactComponent },
-      { path: 'Message', component: MessageComponent },
-      { path: 'Service', component: ServicePageComponent },
-      { path: 'About', component: AboutComponent },
-      { path: '**', redirectTo: '/Valleys_Awesome/Welcome', pathMatch: 'full' }
-    ]
-  },
+  { path: 'Valleys_Awesome', loadChildren: 'app/header/header.module#HeaderModule' },
   { path: 'Login', component: LoginComponent },
   {
     path: 'Member', component: ConsoleComponent,
