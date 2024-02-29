@@ -1,0 +1,8 @@
+$poX: translateX(200px);
+$neX: translateX(-200px);
+$poY: translateY(200px);
+$neY: translateY(-200px);
+@mixin trans {
+  transition: all 0.72s ease-in-out;
+  -webkit-transition: all 0.72s ease-in-out;
+}
