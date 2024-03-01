@@ -1,8 +1,68 @@
-$poX: translateX(200px);
-$neX: translateX(-200px);
-$poY: translateY(200px);
-$neY: translateY(-200px);
-@mixin trans {
-  transition: all 0.72s ease-in-out;
-  -webkit-transition: all 0.72s ease-in-out;
+// | 純變數 |
+$backColor: #1a202c;
+$borderColor: #667eea;
+$fontColor1: #4299e1;
+$fontColor2: #cbd5e0;
+$gray: #fff;
+
+// | include用 |
+@mixin ttion($trs) {
+  transition: $trs;
+  -webkit-transition: $trs;
+  -moz-transition: $trs;
+}
+@mixin tform($op, $X, $Y) {
+  opacity: $op;
+  transform: translateX($X) translateY($Y);
+  -webkit-transform: translateX($X) translateY($Y);
+  -moz-transform: translateX($X) translateY($Y);
+}
+@mixin backLinear($po, $c1, $c2) {
+  background: -moz-linear-gradient($po, $c1, $c2);
+  background: -webkit-linear-gradient(
+    $po,
+    $c1,
+    $c2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    $po,
+    $c1,
+    $c2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@mixin rota($z, $x, $y) {
+  transform: rotateZ($z) scaleX($x) scaleY($y);
+  -webkit-transform: rotateZ($z) scaleX($x) scaleY($y);
+  -moz-transform: rotateZ($z) scaleX($x) scaleY($y);
+}
+@mixin boxShdow($shadow...) {
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+// | extend用 |
+.flage {
+  content: "";
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.rPage {
+  position: relative;
+  height: auto;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #fff;
+  @include boxShdow(0 1px 4px rgba(0, 0, 0, 0.7));
+  @include ttion(0.3s all ease-in-out);
+  overflow: scroll;
 }

@@ -1,0 +1,68 @@
+.teamItem-left.active,
+.teamItem-right.active,
+.place-left.active,
+.scrollAbout.active,
+.scrollAbout-right.active,
+.place-right.active,
+.indexLeft_1.active,
+.indexLeft_2.active,
+.indexRight_1.active,
+.indexRight_2.active,
+.news-left.active,
+.news-bet.active,
+.news-right.active,
+.scroll-message.active,
+.media-left.active,
+.media-bet.active,
+.media-right.active,
+.Do-left.active,
+.Do-bet.active,
+.Do-right.active,
+.Scroll_skill_left.active,
+#Scroll_skill_right.active,
+.workTitle.active {
+  @include tform(1, 0px, 0px);
+}
+
+.place-left,
+.Scroll_skill_left {
+  opacity: 0;
+  transform: translateX(-200px);
+  @include ttion(all 0.72s ease-in-out);
+}
+
+.teamItem-left,
+.media-left,
+.Do-left {
+  @include tform(0, -200px, 200px);
+  @include ttion(all 0.72s ease-in-out);
+}
+.news-right,
+.teamItem-right,
+.media-right,
+.Do-right {
+  @include tform(0, 200px, 200px);
+  @include ttion(all 0.72s ease-in-out);
+}
+.scrollAbout-right,
+.place-right,
+#Scroll_skill_right {
+  opacity: 0;
+  transform: translateX(200px);
+  @include ttion(all 0.72s ease-in-out);
+}
+
+.scroll-message,
+.media-bet,
+.news-bet,
+.Do-bet {
+  opacity: 0;
+  transform: translateY(200px);
+  @include ttion(all 0.72s ease-in-out);
+}
+
+.aboutTeam,
+.Media,
+.skill-chart {
+  @extend .center;
+}

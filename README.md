@@ -33,3 +33,5 @@ FTP 主機名： ftp.byethost6.com
 12. 正在改善前端點擊處理(console about 由上而下)
 
 ---
+
+1086 行 .dropup

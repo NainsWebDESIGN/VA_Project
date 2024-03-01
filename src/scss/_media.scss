@@ -1,0 +1,130 @@
+@media (max-width: 1280px) {
+  .Item_Month {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .Media {
+    position: relative;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+  }
+  .leftItem,
+  .rightItem {
+    width: 100%;
+  }
+  .closeCircle {
+    right: 16%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .slider-list__item .title__element .title {
+    font-size: 26vw;
+  }
+
+  .slider-list__item .more__element .content .excerpt {
+    display: none;
+  }
+
+  .slider-list__item .more__element .content .link {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 813px) {
+  .slider-list__item .more__element .content {
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 1149px) {
+  .menuHref {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    left: 0%;
+    padding: 0;
+  }
+  .menuHref .menuTitle {
+    font-size: 1.8em;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+  }
+  .menubx {
+    line-height: normal;
+    margin-top: 1%;
+  }
+  .menuHref:nth-child(1) {
+    top: 0%;
+    left: 0%;
+  }
+  .menuHref:nth-child(2) {
+    top: 25%;
+    left: 0%;
+  }
+  .menuHref:nth-child(3) {
+    top: 50%;
+    left: 0%;
+  }
+  .menuHref:nth-child(4) {
+    top: 75%;
+    left: 0%;
+  }
+}
+@media (max-width: 768px) {
+  .md\:flex-row {
+    flex-direction: column;
+  }
+  .routerPageOutside-halfLeft,
+  .routerPageOutside-halfRight {
+    width: 96%;
+  }
+  .routerPageOutside-halfRight {
+    float: none;
+    left: 2%;
+  }
+  .logintitle-left,
+  .logintitle-right {
+    font-size: smaller;
+    margin-top: 4px;
+  }
+  .consoleBtn,
+  .consoleMenu {
+    font-size: 1rem;
+  }
+  .consoleText,
+  .WidthMenu {
+    display: none;
+  }
+  .lang {
+    left: 10%;
+  }
+  .menuHref {
+    padding: 5% 0 0 0;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .menu-nav {
+    display: none;
+  }
+  .menu {
+    position: fixed;
+    display: block;
+    top: 35px;
+    right: 19px;
+    margin-top: 0px;
+  }
+  .right {
+    width: 0;
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+  .itemCenter {
+    width: 100%;
+    left: 0;
+  }
+}
