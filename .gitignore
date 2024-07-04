@@ -11,6 +11,7 @@
 /node_modules
 /pnpm-lock.yaml
 /package-lock.json
+/undoneVA
 
 # IDEs and editors
 /.idea

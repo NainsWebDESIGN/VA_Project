@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy1.config.json --port 1491",
-    "build": "ng build --prod",
+    "build": "ng build --prod --output-hashing=none",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
